@@ -8,14 +8,14 @@
 
 <title>
   
-    LeekinBlog
+    Tag: 游戏引擎
   
 </title>
 
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeekinBlog">
-<meta property="og:url" content="http://leekingta.github.io/blog/index.html">
+<meta property="og:url" content="http://leekingta.github.io/blog/tags/游戏引擎/index.html">
 <meta property="og:site_name" content="LeekinBlog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,8 @@
       
         <div style="max-width: 1000px">
       
-          
+          <h1>游戏引擎</h1>
+
 
   
   
@@ -186,99 +187,6 @@
 <p><strong>github:</strong><br><a href="https://github.com/godotengine/" target="_blank" rel="external">GodotEngine</a></p>
 <p><strong>官网:</strong><a href="http://www.godotengine.org/" target="_blank" rel="external">GodotEngine</a></p>
 <p><strong>一个朋友做的demo:</strong><a href="https://github.com/Geequlim/FlappyBird" target="_blank" rel="external">demo</a></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2016/05/06/git-use-notes/" >
-  git 的基础入门命令
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2016/05/06/git-use-notes/"><span class="article-date">
-  2016-05-06
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/git使用/">git使用</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="git克隆远程仓库"><a href="#git克隆远程仓库" class="headerlink" title="* git克隆远程仓库"></a>* git克隆远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> &lt;远程地址&gt;</span><br></pre></td></tr></table></figure>
-<p>例如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:LeekinGTA/blog.git</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="在克隆仓库之前还要的进行git的配置"><a href="#在克隆仓库之前还要的进行git的配置" class="headerlink" title="* 在克隆仓库之前还要的进行git的配置"></a>* 在克隆仓库之前还要的进行git的配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"username"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@host.com"</span></span><br></pre></td></tr></table></figure>
-<p>注意，此步骤是可选的，配置时候的邮箱要跟申请github帐号时的对应，用户名同理</p>
-<hr>
-<h3 id="接下来要生成公私钥，并把公钥上传到github"><a href="#接下来要生成公私钥，并把公钥上传到github" class="headerlink" title="* 接下来要生成公私钥，并把公钥上传到github"></a>* 接下来要生成公私钥，并把公钥上传到github</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
-<p>一路回车搞定，你就会发现在你的工作目录下多了个.ssh文件夹,打开此文件夹，用你的编辑器打开id_rsa.pub,复制里面所有内容，打开你的github，点击setting-&gt;SSH and  GPG keys-&gt;New SSH key 把公钥粘贴进去，进入邮箱同意添加<br>题外话：当你克隆仓库的时候，就可以使用SSH协议了，在服务端使用公钥对内容进行加密，来到本地用私钥进行解密，这样就可以防止网络抓包工具捕获你的内容了。</p>
-<hr>
-<h3 id="把别人的仓库克隆下来后，我们也许要上传到自己的仓库中"><a href="#把别人的仓库克隆下来后，我们也许要上传到自己的仓库中" class="headerlink" title="* 把别人的仓库克隆下来后，我们也许要上传到自己的仓库中"></a>* 把别人的仓库克隆下来后，我们也许要上传到自己的仓库中</h3><p>1.看一下我们的远程现有的分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v  </span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (push)`</span><br></pre></td></tr></table></figure></p>
-<p>2.为自己的项目配置分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add upstream git@github.com:LeekinGTA/blog.git</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (push)</span><br><span class="line">upstream        git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">upstream        git@github.com:LeekinGTA/blog.git (push)`</span><br></pre></td></tr></table></figure></p>
-<p>3.获取upstream分支到本地<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch upstream</span><br></pre></td></tr></table></figure></p>
-<p>4.切换到本地的master分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure></p>
-<p>5.同步到主分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge upstream/master</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库"><a href="#或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库" class="headerlink" title="或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库"></a>或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库</h3><p><strong>切换分支：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git  branch  //查看当前有多少分支</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout gh-pages   //切换到你的博客分支</span><br></pre></td></tr></table></figure>
-<h3 id="当写完文章后我们需要与git仓库进行同步"><a href="#当写完文章后我们需要与git仓库进行同步" class="headerlink" title="当写完文章后我们需要与git仓库进行同步"></a>当写完文章后我们需要与git仓库进行同步</h3><ol>
-<li><p><em>创建README.md文件&lt;如果已经初始化过仓库，此步骤省略&gt;</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git touch README.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用编辑器修改md文件后</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add README.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加说明</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">'comment text'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加远程仓库地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin  </span><br><span class="line"> $ git@github.com:LeekinGTA/blog.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push README文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>如果执行:git remote add origin git@github.com:LeekinGTA/blog.git，出现错误：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists</span><br></pre></td></tr></table></figure></p>
-<p><strong>说明origin已经存在<br>将它删除即可</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br></pre></td></tr></table></figure></p>
-<h3 id="PUSH-文件到仓库"><a href="#PUSH-文件到仓库" class="headerlink" title="PUSH 文件到仓库"></a>PUSH 文件到仓库</h3><ol>
-<li><p>添加所有文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add  -<span class="_">-a</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加说明</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m ‘说明文字’</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push到仓库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin</span><br><span class="line">$ git@github.com:LeekinGTA/blog.git</span><br><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>如果执行git push origin gh-pages报错<br>则执行：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="删除仓库中的文件"><a href="#删除仓库中的文件" class="headerlink" title="删除仓库中的文件"></a>删除仓库中的文件</h3><p>有些时候我们想要删除仓库中的文件，我折腾了老半天，现在总结一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename:文件名， commit：说明 ，branch：分支名</span><br></pre></td></tr></table></figure></p>
-<p>来到本地仓库目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached filename</span><br><span class="line">$ git commit -m <span class="string">'commit'</span></span><br><span class="line">$ git push origin branch</span><br></pre></td></tr></table></figure></p>
-<p>OK，到你的仓库里看看是否已经删除</p>
-<hr>
-<h3 id="我们写好博客时，需要与仓库进行代码的同步"><a href="#我们写好博客时，需要与仓库进行代码的同步" class="headerlink" title="我们写好博客时，需要与仓库进行代码的同步"></a>我们写好博客时，需要与仓库进行代码的同步</h3><p><strong>这时候只需要用</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">'描述一下更新'</span></span><br><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure></p>
 
         
       </div>
