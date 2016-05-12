@@ -81,21 +81,21 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">Category</a>
+                <a href="javascript:;">類別</a>
                 
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">Tag</a>
+                <a href="javascript:;">標籤</a>
                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">Archive</a>
+                <a href="javascript:;">彙整</a>
                 <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">4</span></li></ul>
               </li>
             
@@ -268,16 +268,16 @@
         
           <h1 id="C-结构体与共用体的使用"><a href="#C-结构体与共用体的使用" class="headerlink" title="C++结构体与共用体的使用"></a>C++结构体与共用体的使用</h1><h4 id="比如我们需要一个数据类型用于储存某个人的年龄、性别、地址，这个时候需要用到结构体"><a href="#比如我们需要一个数据类型用于储存某个人的年龄、性别、地址，这个时候需要用到结构体" class="headerlink" title="比如我们需要一个数据类型用于储存某个人的年龄、性别、地址，这个时候需要用到结构体"></a>比如我们需要一个数据类型用于储存某个人的年龄、性别、地址，这个时候需要用到结构体</h4><ol>
 <li><p>声明结构体：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct mystruct</span><br><span class="line">&#123;</span><br><span class="line">  int age;</span><br><span class="line">  string sex;</span><br><span class="line">  string address;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> mystruct</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  <span class="built_in">string</span> sex;</span><br><span class="line">  <span class="built_in">string</span> address;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>结构体的使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mystruct Jack=</span><br><span class="line">&#123;</span><br><span class="line">  30,</span><br><span class="line">  <span class="string">"男"</span>，</span><br><span class="line">  <span class="string">"shanghai"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mystruct Jack=</span><br><span class="line">&#123;</span><br><span class="line">  <span class="number">30</span>,</span><br><span class="line">  <span class="string">"男"</span>，</span><br><span class="line">  <span class="string">"shanghai"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>C++11可以省略等号来初始化结构</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mystruct Xier</span><br><span class="line">&#123;</span><br><span class="line">  20,</span><br><span class="line">  <span class="string">"女"</span>，</span><br><span class="line">  <span class="string">"Beijing"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mystruct Xier</span><br><span class="line">&#123;</span><br><span class="line">  <span class="number">20</span>,</span><br><span class="line">  <span class="string">"女"</span>，</span><br><span class="line">  <span class="string">"Beijing"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>我们可以这样来声明并创建结构体对象</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct inflatable</span><br><span class="line">&#123;</span><br><span class="line">  char[20] name;</span><br><span class="line">  <span class="built_in">float</span> vulum;</span><br><span class="line">  double price;</span><br><span class="line">&#125;pal,jone;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> inflatable</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span>[<span class="number">20</span>] name;</span><br><span class="line">  <span class="keyword">float</span> vulum;</span><br><span class="line">  <span class="keyword">double</span> price;</span><br><span class="line">&#125;pal,jone;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
@@ -285,28 +285,28 @@
 </blockquote>
 <ol>
 <li><p>甚至可以这样做</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">struct inflatable</span><br><span class="line">&#123;</span><br><span class="line">  char[20] name;</span><br><span class="line">  <span class="built_in">float</span> volum;</span><br><span class="line">  double price;</span><br><span class="line">&#125;  mr_glitze =</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"Jack"</span>,</span><br><span class="line">  0.20,</span><br><span class="line">  20.30</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> inflatable</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span>[<span class="number">20</span>] name;</span><br><span class="line">  <span class="keyword">float</span> volum;</span><br><span class="line">  <span class="keyword">double</span> price;</span><br><span class="line">&#125;  mr_glitze =</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"Jack"</span>,</span><br><span class="line">  <span class="number">0.20</span>,</span><br><span class="line">  <span class="number">20.30</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>访问结构体元素<br><strong>访问结构体元素和用类对象访问函数和变量是一样的，使用: 对象名.变量名</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mr_glitze.name;//访问到了Jack</span><br><span class="line">mr_glitze.price;//访问到了20.30</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mr_glitze.name;<span class="comment">//访问到了Jack</span></span><br><span class="line">mr_glitze.price;<span class="comment">//访问到了20.30</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>结构数组<br><strong>我们可以像使用常规数组一样来使用结构数组，原理都是一样的</strong></p>
 <blockquote>
 <p>根据上面的例子，我创建了inflatable这个结构，就可以创建它的数组了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inflatable gifts[100];</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inflatable gifts[<span class="number">100</span>];</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
-<h4 id="记住gifts是一个数组而不是结构，像gifts-price这样使用是无效的，gitfs包含每个元素（gifts-0-gifts-99-）都是inflatable的对象，我们可以这样来访问元素："><a href="#记住gifts是一个数组而不是结构，像gifts-price这样使用是无效的，gitfs包含每个元素（gifts-0-gifts-99-）都是inflatable的对象，我们可以这样来访问元素：" class="headerlink" title="记住gifts是一个数组而不是结构，像gifts.price这样使用是无效的，gitfs包含每个元素（gifts[0]~gifts[99]）都是inflatable的对象，我们可以这样来访问元素："></a>记住gifts是一个数组而不是结构，像gifts.price这样使用是无效的，gitfs包含每个元素（gifts[0]~gifts[99]）都是inflatable的对象，我们可以这样来访问元素：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gifts[2].name;</span><br><span class="line">gifts[99].price;</span><br></pre></td></tr></table></figure>
-<h4 id="初始化结构数组"><a href="#初始化结构数组" class="headerlink" title="初始化结构数组"></a>初始化结构数组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inflatable guest[2]=</span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">"Babil"</span>,0.5,23.23 &#125;</span><br><span class="line">    &#123;<span class="string">"Godzilize"</span>,2000,50.50&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="记住gifts是一个数组而不是结构，像gifts-price这样使用是无效的，gitfs包含每个元素（gifts-0-gifts-99-）都是inflatable的对象，我们可以这样来访问元素："><a href="#记住gifts是一个数组而不是结构，像gifts-price这样使用是无效的，gitfs包含每个元素（gifts-0-gifts-99-）都是inflatable的对象，我们可以这样来访问元素：" class="headerlink" title="记住gifts是一个数组而不是结构，像gifts.price这样使用是无效的，gitfs包含每个元素（gifts[0]~gifts[99]）都是inflatable的对象，我们可以这样来访问元素："></a>记住gifts是一个数组而不是结构，像gifts.price这样使用是无效的，gitfs包含每个元素（gifts[0]~gifts[99]）都是inflatable的对象，我们可以这样来访问元素：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gifts[<span class="number">2</span>].name;</span><br><span class="line">gifts[<span class="number">99</span>].price;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化结构数组"><a href="#初始化结构数组" class="headerlink" title="初始化结构数组"></a>初始化结构数组</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inflatable guest[<span class="number">2</span>]=</span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="string">"Babil"</span>,<span class="number">0.5</span>,<span class="number">23.23</span> &#125;</span><br><span class="line">    &#123;<span class="string">"Godzilize"</span>,<span class="number">2000</span>,<span class="number">50.50</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>共用体<h4 id="在日常生活工作中，我们会遇到要储存一个不同类型的值，有时候它是整型、有时候是字符串类型，比如小李的公司每个部门给员工编号，每个部门的编号都不同，有的部门用整型数据给员工编号，而有的部门给员工起个绰号（字符串），这样当我们要把员工数据录入的时候就有麻烦了，所以这时候就要用共用体。"><a href="#在日常生活工作中，我们会遇到要储存一个不同类型的值，有时候它是整型、有时候是字符串类型，比如小李的公司每个部门给员工编号，每个部门的编号都不同，有的部门用整型数据给员工编号，而有的部门给员工起个绰号（字符串），这样当我们要把员工数据录入的时候就有麻烦了，所以这时候就要用共用体。" class="headerlink" title="在日常生活工作中，我们会遇到要储存一个不同类型的值，有时候它是整型、有时候是字符串类型，比如小李的公司每个部门给员工编号，每个部门的编号都不同，有的部门用整型数据给员工编号，而有的部门给员工起个绰号（字符串），这样当我们要把员工数据录入的时候就有麻烦了，所以这时候就要用共用体。"></a>在日常生活工作中，我们会遇到要储存一个不同类型的值，有时候它是整型、有时候是字符串类型，比如小李的公司每个部门给员工编号，每个部门的编号都不同，有的部门用整型数据给员工编号，而有的部门给员工起个绰号（字符串），这样当我们要把员工数据录入的时候就有麻烦了，所以这时候就要用共用体。</h4><blockquote>
 <p>共用体的声明和结构体一样</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">union myUnion</span><br><span class="line">&#123;</span><br><span class="line">int ID_int;</span><br><span class="line">string ID_str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> myUnion</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> ID_int;</span><br><span class="line"><span class="built_in">string</span> ID_str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ol>
-<p>现在就可以使用myUnion来储存int<br>变量和string变量了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myUnion mu;</span><br><span class="line">mu.ID_int=045311;</span><br><span class="line">mu.ID_str=<span class="string">"令狐冲"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>现在就可以使用myUnion来储存int<br>变量和string变量了<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myUnion mu;</span><br><span class="line">mu.ID_int=<span class="number">045311</span>;</span><br><span class="line">mu.ID_str=<span class="string">"令狐冲"</span>;</span><br></pre></td></tr></table></figure></p>
 <p><strong>需要注意的是，共用体每次只能储存一个变量，第一次把ID_int初始化为045311,当我再次初始化ID_str的值时，原来的ID_int的内存将被清空，用来储存ID_str的值</strong></p>
 
         
