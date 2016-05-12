@@ -8,7 +8,7 @@
 
 <title>
   
-    归档: 2016/5
+    彙整: 2016/5
   
 </title>
 
@@ -81,22 +81,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
+                <a href="javascript:;">類別</a>
                 
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">標籤</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">3</span></li></ul>
+                <a href="javascript:;">彙整</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">4</span></li></ul>
               </li>
             
           
@@ -160,6 +160,90 @@
           <h1><a href="/blog/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2016/05/11/C-new-and-point/" >
+  C++ new and point
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2016/05/11/C-new-and-point/"><span class="article-date">
+  2016-05-11
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2 id="C-new和指针"><a href="#C-new和指针" class="headerlink" title="C++ new和指针"></a>C++ new和指针</h2><h3 id="计算机在储存数据时我们必须跟踪三个属性："><a href="#计算机在储存数据时我们必须跟踪三个属性：" class="headerlink" title="计算机在储存数据时我们必须跟踪三个属性："></a>计算机在储存数据时我们必须跟踪三个属性：</h3><blockquote>
+<ul>
+<li>信息被储存在何处？</li>
+<li>储存的值是多少？</li>
+<li>储存的信息是什么类型</li>
+</ul>
+</blockquote>
+<ol>
+<li>声明一个指针<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> *b=&amp;a;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>这里我们创建了a变量和指针b，并把a的地址赋给指针b，现在指针b储存的就是a在内存里的地址，我们可以通过b来访问a的值：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a和 *b是等效的，他们的值都是<span class="number">100</span></span><br><span class="line">&amp;a和b是等效的，它们都是内存地址</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ol>
+<li><p>指针和C++运行原理</p>
+<p><strong>oop强调的是运行阶段进行决策，运行阶段是指程序运行时，编译阶段是指编译器把程序组合起来，变成二进制文件，比如我们要创建一个数组，但是我们不知道数组在使用的时候要存多少数据，这时候不能把他的容量写死，而是让它在运行阶段根据实际情况来决定他的大小，例如：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];<span class="comment">//编译阶段分配19的固定大小内存</span></span><br><span class="line"><span class="keyword">int</span> a[]=new <span class="keyword">int</span>;<span class="comment">//运行阶段分配内存</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针详细介绍</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *a; <span class="comment">//指针名：a，指针指向的类型为：int，指针类型为：int *</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针的危险</p>
+<h4 id="我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。"><a href="#我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。" class="headerlink" title="我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。"></a>我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> *fellow;</span><br><span class="line">*fellow=<span class="number">223323</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>上述代码没有将地址赋给指针，223323将被存在何处我们不得而知，由于fellow没有被初始化，它可能有任何的值，不管地址是什么，他将是储存223323的地址，如果fellow恰巧为1200,计算机将把数据储存在地址1200上，fellow所指向的地方可能并不是所要储存223323的地方，这种错误将导致不可预测的后果。<br><strong>注意：一定要在对指针解除引用运算符（*）之前，将指针初始化为一个确定的、适合的地址</strong></p>
+</blockquote>
+<ol>
+<li>使用new来分配内存<h4 id="在C语言中使用库函数malloc-函数来申请内存，C-同样也可以使用他，但是C-有更好的方法–new运算符-其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。"><a href="#在C语言中使用库函数malloc-函数来申请内存，C-同样也可以使用他，但是C-有更好的方法–new运算符-其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。" class="headerlink" title="在C语言中使用库函数malloc()函数来申请内存，C++同样也可以使用他，但是C++有更好的方法–new运算符,其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。"></a>在C语言中使用库函数malloc()函数来申请内存，C++同样也可以使用他，但是C++有更好的方法–new运算符,其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr=new <span class="keyword">int</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>new int告诉程序，需要一块能够储存int大小的内存块，new根据类型来确定需要多少字节的内存，然后它找到这样的内存，并返回其地址，接下来地址会被赋给ptr。</p>
+<ol>
+<li>new和delete<h4 id="在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？"><a href="#在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？" class="headerlink" title="在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？"></a>在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> ptr;<span class="comment">//删除内存占用</span></span><br><span class="line">ptr=<span class="literal">NULL</span>;<span class="comment">//将指针置为空（安全起见）</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="对于使用new新建的数组应该怎样来释放内存"><a href="#对于使用new新建的数组应该怎样来释放内存" class="headerlink" title="对于使用new新建的数组应该怎样来释放内存"></a>对于使用new新建的数组应该怎样来释放内存</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *some=new some[];</span><br><span class="line"><span class="comment">/*使用some数组*/</span></span><br><span class="line"><span class="keyword">delete</span> []some;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里我们使用new来为some数组申请内存，对应就应该使用delete []some来释放内存，而不是使用delete some,这仅仅只清理了数组地一个元素所占的内存，及some[0],内存依然没有被清理干净，同样会发生内存泄漏的危险。</p>
+<ol>
+<li>数组与指针<br><strong>在C++中，数组在内存中是一个连续的片段，文章的开头我们已经说了，我们需要跟踪他的三个属性，其中我们不确定它在内存中的位置，因为数组的每个元素都有其地址。其实数组也是一个指针，当声明一个数组的时候，就以它的第一个元素的地址来作为他在内存当中的位置，比如：</strong><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> price [];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这里的price和指针是一样的，加入我们试图输出price：std::cout&lt;&lt;price;这里将会输出一个内存地址，也就是说，数组就是指针。</p>
+</blockquote>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
