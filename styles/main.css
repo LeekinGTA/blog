@@ -627,14 +627,14 @@ body {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #fff;
+  background: #6d6d6f;
   margin: 0 -20px;
   padding: 15px 20px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
   overflow: auto;
-  color: #4d4d4c;
+  color: #edebf1;
   line-height: 22.400000000000002px;
 }
 .article-entry .highlight .gutter pre,
@@ -690,7 +690,7 @@ body {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #fff;
+  background: #6d6d6f;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -716,7 +716,7 @@ body {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #fff;
+  background: #6d6d6f;
   color: #8e908c;
   font: 0.85em "微软雅黑", "黑体", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
