@@ -1,2 +1,3 @@
-# blog
-我的个人博客，使用XXX作为框架，markdown书写
+# 个人博客系统
+### 使用hexo框架，Chan is thems，markdown书写
+[请访问](http://leekingta.github.io/blog/)
