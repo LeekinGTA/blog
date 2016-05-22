@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    C++ enum
+  
+</title>
+
+<meta name="description" content="C++枚举类型详细介绍
+在具体的编程工作当中，枚举类型多用来创建常量，取代const。
+
+
+声明枚举类型1enum color&amp;#123;red,orange,yellow,green,blue&amp;#125;;
+
+
+声明枚举类型之后我们要知道他里面储存的值是多少，在默认的情况下枚举值是从0依次递增的，当然我们也可一给他赋值：1enum color&amp;#123;red=100,orange,yellow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ enum">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/05/22/C-enum/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="C++枚举类型详细介绍
+在具体的编程工作当中，枚举类型多用来创建常量，取代const。
+
+
+声明枚举类型1enum color&amp;#123;red,orange,yellow,green,blue&amp;#125;;
+
+
+声明枚举类型之后我们要知道他里面储存的值是多少，在默认的情况下枚举值是从0依次递增的，当然我们也可一给他赋值：1enum color&amp;#123;red=100,orange,yellow">
+<meta property="og:updated_time" content="2016-05-22T10:43:38.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ enum">
+<meta name="twitter:description" content="C++枚举类型详细介绍
+在具体的编程工作当中，枚举类型多用来创建常量，取代const。
+
+
+声明枚举类型1enum color&amp;#123;red,orange,yellow,green,blue&amp;#125;;
+
+
+声明枚举类型之后我们要知道他里面储存的值是多少，在默认的情况下枚举值是从0依次递增的，当然我们也可一给他赋值：1enum color&amp;#123;red=100,orange,yellow">
+
+
+  <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/blog/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/blog/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/blog/">LeekinBlog</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/blog/">LeekinBlog</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">Leekin</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="https://avatars3.githubusercontent.com/u/12389136?v=3&amp;s=460"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">5</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/blog/" title="首页">首页</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/blog/archives" title="归档">归档</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/LeekinGTA/blog" title="博客仓库" target="_blank" rel="external">博客仓库</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/LeekinGTA" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/blog/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-C-enum" class="article article-type-post">
+  
+    <h1 class="article-header">
+      C++ enum
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-22
+</span>
+
+    
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/C/">C++</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h1 id="C-枚举类型详细介绍"><a href="#C-枚举类型详细介绍" class="headerlink" title="C++枚举类型详细介绍"></a>C++枚举类型详细介绍</h1><blockquote>
+<p>在具体的编程工作当中，枚举类型多用来创建常量，取代const。</p>
+</blockquote>
+<ol>
+<li>声明枚举类型<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> color&#123;red,orange,yellow,green,blue&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>声明枚举类型之后我们要知道他里面储存的值是多少，在默认的情况下枚举值是从0依次递增的，当然我们也可一给他赋值：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> color&#123;red=<span class="number">100</span>,orange,yellow,green,blue&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>red=100之后，理所当然后面的值也应该递增，orange=101,yellow=102,green=103,blue=104。如果是这种情况呢？：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">color&#123;red=<span class="number">100</span>,orange,yellow=<span class="number">200</span>,green,blue&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>这种情况下，orange的值是101,green=201,blue=202</strong></p>
+<ol>
+<li>创建枚举类型和枚举运算符<h4 id="声明枚举之后我们可以创建枚举类型："><a href="#声明枚举之后我们可以创建枚举类型：" class="headerlink" title="声明枚举之后我们可以创建枚举类型："></a>声明枚举之后我们可以创建枚举类型：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">color band;<span class="comment">//band is a color type var</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>关于枚举类类型运算符，我们可以将一个枚举值赋给另一个枚举类型，但不能将一个非枚举类型的变量付给枚举类型：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">200</span>;</span><br><span class="line">red=blue;<span class="comment">// the way is ok</span></span><br><span class="line">red=a;<span class="comment">//the way is bad</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>但是可以通过强制类型转换，来将一个常规变量值强制赋给枚举：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">red=(color)<span class="number">30</span>;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>如果我们将非枚举类型a强制赋值给枚举类型red，有的编译器会报错，而有的会发出警告，具体的依据编译器而定。但是将一个枚举类型的值赋给一个常规变量是可以行的，比如将他提升为一个int类型：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b= blue;<span class="comment">//pass</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="对于枚举类型，只可以使用赋值运算符，不能对其使用算术运算符，例如下面的方式不可取："><a href="#对于枚举类型，只可以使用赋值运算符，不能对其使用算术运算符，例如下面的方式不可取：" class="headerlink" title="对于枚举类型，只可以使用赋值运算符，不能对其使用算术运算符，例如下面的方式不可取："></a>对于枚举类型，只可以使用赋值运算符，不能对其使用算术运算符，例如下面的方式不可取：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">band=red+green;<span class="comment">//no pass</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>匿名枚举<h3 id="创建："><a href="#创建：" class="headerlink" title="创建："></a>创建：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> &#123;number=<span class="number">2015</span>&#125;;<span class="comment">//build a number constant</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="在具体的开发工作当中，多使用这样的方式来代替const关键字创建常理"><a href="#在具体的开发工作当中，多使用这样的方式来代替const关键字创建常理" class="headerlink" title="在具体的开发工作当中，多使用这样的方式来代替const关键字创建常理"></a>在具体的开发工作当中，多使用这样的方式来代替const关键字创建常理</h3><ol>
+<li>枚举的取值范围<br><strong>C++通过强制类型转换，可以将一个和法值赋给枚举，每个枚举值都是有取值范围的</strong><h3 id="取值范围的定义："><a href="#取值范围的定义：" class="headerlink" title="取值范围的定义："></a>取值范围的定义：</h3><em>首先找出上限，找出枚举量的最大值，找到大于这个最大值、最小的2的幂，在将它减去1,得到的就是枚举取值范围的上限，例如：</em><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> bits&#123;one=<span class="number">-7</span>,two=<span class="number">2</span>,four=<span class="number">4</span>,eight=<span class="number">8</span>&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>上面的代码当中，最大值为8,大于这个最大值2的最小幂为16,即这个枚举的取值上限为15；最大值已经找到，那最小值呢？<br><em>关于最小值，原理和最大值的需找方法是一样的</em><br>在枚举bits当中，最小值为-7，比它小，最大的2的幂是-8,则下限为-7,取值范围的最小值就为-7。</p>
+</blockquote>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/blog/images/cc/cc.png">
+      
+          <img src="/blog/images/cc/by.png">
+        
+          <img src="/blog/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 LeekinBlog - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/blog/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/blog/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/blog/PhotoSwipe/photoswipe.js"></script>
+  <script src="/blog/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/blog/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/blog/scripts/main.js"></script>
+
+</body>
+</html>
