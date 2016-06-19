@@ -8,7 +8,7 @@
 
 <title>
   
-    Archive: 2016
+    归档: 2016
   
 </title>
 
@@ -81,22 +81,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">Category</a>
+                <a href="javascript:;">分类</a>
                 
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Qt-C/">Qt C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">5</span></li></ul>
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">7</span></li></ul>
               </li>
             
           
@@ -160,6 +160,152 @@
           <h1><a href="/blog/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2016/06/19/Centos-install-and-configure-LAMP/" >
+  Centos install and configure LAMP
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2016/06/19/Centos-install-and-configure-LAMP/"><span class="article-date">
+  2016-06-19
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Linux/">Linux</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>#Linux Centos6.5搭建LAMP</p>
+<blockquote>
+<p>这一久因为帮一个朋友搭建免流服务，基于centos系统来进行PHP运行环境的搭建，这种黑客技术没什么技术含量，就是搭建运行环境，再把准备好的脚本传上去就可以了，今天做一个总结，还有个人的一些感悟</p>
+</blockquote>
+<p>##首先是LAMP（Linux+Apache+Mysql+PHP）</p>
+<p><strong>我们都是站在巨人的肩膀上，这些工具都经历了很多年的版本迭代，已经很成熟，我们我要做的就是学会使用工具来让我们的工作更高效</strong></p>
+<ol>
+<li>前期准备<h4 id="配置防火墙，开启80端口，3306端口"><a href="#配置防火墙，开启80端口，3306端口" class="headerlink" title="配置防火墙，开启80端口，3306端口"></a>配置防火墙，开启80端口，3306端口</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/sysconfig/iptables <span class="comment">#使用VIM打开iptables这个文件</span></span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT <span class="comment">#允许80端口通过防火墙</span></span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT <span class="comment">#允许3306端口通过防火墙</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><em>note:将这两行代码粘贴到开启22端口那行代码的下面，而不是最后</em><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables restart <span class="comment">#重启防火墙使配置生效</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="关闭SELINUX"><a href="#关闭SELINUX" class="headerlink" title="关闭SELINUX"></a>关闭SELINUX</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/selinux/config</span><br><span class="line"><span class="comment">#SELINUX=enforcing #注释掉</span></span><br><span class="line"><span class="comment">#SELINUXTYPE=targeted #注释掉</span></span><br><span class="line">SELINUX=disabled <span class="comment">#增加</span></span><br><span class="line">:wq!<span class="comment">#保存退出</span></span><br><span class="line">shutdown -r now<span class="comment">#重启系统</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装lamp<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><strong>note:linux不像windows，下载一个wamp一键配置好环境，linux需要分别安装每个软件，并进行相应的配置。在开始之前，确保你的linux已经有C++的编译器GCC，和包管理器:yum</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql mysql-server <span class="comment">#询问是否要安装，输入Y即可自动安装,直到安装完成</span></span><br><span class="line">/etc/init.d/mysqld start <span class="comment">#启动MySQL</span></span><br><span class="line">chkconfig mysqld on <span class="comment">#设为开机启动</span></span><br><span class="line">cp /usr/share/mysql/my-medium.cnf /etc/my.cnf <span class="comment">#拷贝配置文件（note：如果/etc目录下面默认有一个my.cnf，直接覆盖即可）</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="为MySQL设置root密码"><a href="#为MySQL设置root密码" class="headerlink" title="为MySQL设置root密码"></a>为MySQL设置root密码</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mysqladmin -u root password <span class="string">"newpass"</span>  <span class="comment">#newpass是你的密码</span></span><br><span class="line">$ /etc/init.d/mysqld restart <span class="comment">#重启mysql服务，如果你觉得写这么长的路径很麻烦，可以写一个sh脚本</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装PHP5"><a href="#安装PHP5" class="headerlink" title="安装PHP5"></a>安装PHP5</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php <span class="comment">#根据提示输入Y直到安装完成</span></span><br></pre></td></tr></table></figure>
+<h4 id="安装PHP组件，使-PHP5-支持-MySQL"><a href="#安装PHP组件，使-PHP5-支持-MySQL" class="headerlink" title="安装PHP组件，使 PHP5 支持 MySQL"></a>安装PHP组件，使 PHP5 支持 MySQL</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install php-mysql php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt <span class="comment">#这里选择以上安装包进行安装，根据提示输入Y回车</span></span><br><span class="line">/etc/init.d/mysqld restart <span class="comment">#重启MySql</span></span><br><span class="line">/etc/init.d/httpd restart <span class="comment">#重启Apche</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd <span class="comment">#根据提示，输入Y安装即可成功安装</span></span><br><span class="line">/etc/init.d/httpd start <span class="comment">#启动Apache</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>note:如果出现错误提示：httpd:httpd: Could not reliably determine the server’s fully qualif domain name, using ::1 for ServerName</p>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/httpd/conf/httpd.conf  <span class="comment">#编辑</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>找到 #ServerName www.example.com:80<br>修改为 ServerName www.leekin.com:80 #这里设置为你自己的域名，如果没有域名，可以设置为localhost ,保存退出<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chkconfig httpd on <span class="comment">#设为开机启动</span></span><br><span class="line">$ /etc/init.d/httpd restart <span class="comment">#重启Apache</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>配置<h3 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h3></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/httpd/conf/httpd.conf <span class="comment">#编辑文件</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>在44行:  ServerTokens OS修改为：ServerTokens Prod （在出现错误页的时候不显示服务器操作系统的名称）</li>
+<li>在76行: KeepAlive Off 修改为：KeepAlive On （允许程序性联机）</li>
+<li>在83行: MaxKeepAliveRequests 100 修改为：MaxKeepAliveRequests 1000 （增加同时连接数）</li>
+<li>在331行:Options Indexes FollowSymLinks　 修改为：Options Includes ExecCGI FollowSymLinks（允许服务器执行CGI及SSI，禁止列出目录）</li>
+<li>在338行 :AllowOverride None修改为：AllowOverride All （允许.htaccess）</li>
+<li>在402行:DirectoryIndex index.html index.html.var 修改为：DirectoryIndex index.html index.htm Default.html Default.htm index.php Default.php index.html.var （设置默认首页文件，增加index.php）</li>
+<li>在536行:ServerSignature On 修改为：ServerSignature Off （在错误页中不显示Apache的版本）</li>
+<li>在554行:Options Indexes MultiViews FollowSymLinks 行 修改为 Options MultiViews FollowSymLinks（不在浏览器上显示树状目录结构）</li>
+<li>在759行:AddDefaultCharset UTF-8 修改为：AddDefaultCharset GB2312　（添加GB2312为默认编码）这步不是必须的，根据自己的需要改</li>
+<li>在796行:AddHandler cgi-script .cgi 修改为：AddHandler cgi-script .cgi .pl （允许扩展名为.pl的CGI脚本运行）<br><strong>保存退出</strong></li>
+</ol>
+</blockquote>
+<h3 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/php.ini <span class="comment">#编辑</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>short_open_tag = ON #在229行支持php短标签</li>
+<li>open_basedir = .:/tmp/ #在380行 设置表示允许访问当前目录(即PHP脚本文件所在之目录)和/tmp/目录,可以防止php木马跨站,如果改了之后安装程序有问题，可以注销此行，或者直接写上程序的目录/data/www.osyunwei.com/:/tmp/</li>
+<li>#在386行 列出PHP可以禁用的函数，如果某些程序需要用到这个函数，可以删除，取消禁用。</li>
+<li>expose_php = Off #在432行 禁止显示php版本的信息</li>
+<li>magic_quotes_gpc = On #在745行 打开magic_quotes_gpc来防止SQL注入</li>
+</ol>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysqld restart <span class="comment">#重启MySql</span></span><br><span class="line">/etc/init.d/httpd restart <span class="comment">#重启Apche</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>测试一下<h4 id="到这一步，如果不出什么意外的话，我们的安装配置工作就结束了，我们需要写一个简单的PHP脚本来测试一下"><a href="#到这一步，如果不出什么意外的话，我们的安装配置工作就结束了，我们需要写一个简单的PHP脚本来测试一下" class="headerlink" title="到这一步，如果不出什么意外的话，我们的安装配置工作就结束了，我们需要写一个简单的PHP脚本来测试一下"></a>到这一步，如果不出什么意外的话，我们的安装配置工作就结束了，我们需要写一个简单的PHP脚本来测试一下</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /var/www/html/index.php <span class="comment">#编辑输入下面内容</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><em>浏览器输入你的ip地址，应该会显示你的php信息，如果不出什么意外的话，如果什么都没显示，应该检查你的安装与配置过程，查看报错，或者是浏览器报错提示你没有html/index.php这个文件的访问权限，这时候你需要用chmod命令给予它777的访问权限。</em></p>
+<h4 id="测试MySQL"><a href="#测试MySQL" class="headerlink" title="测试MySQL"></a>测试MySQL</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /var/www/html/<span class="built_in">test</span>Mysql.php <span class="comment"># 输入以下内容</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$db_host=<span class="string">'localhost '</span>;<span class="comment">//主机名</span></span><br><span class="line">$db_database=<span class="string">'testMysql'</span>;<span class="comment">//数据库名</span></span><br><span class="line">$db_username=<span class="string">'root'</span>;<span class="comment">//用户名</span></span><br><span class="line">$db_password=<span class="string">'password'</span>;<span class="comment">//你刚刚设置的密码</span></span><br><span class="line">$connection=mysql_connect($db_host,$db_username,$db_password);<span class="comment">//连接到数据库</span></span><br><span class="line">mysql_query(<span class="string">"set names 'utf8'"</span>);<span class="comment">//编码转化</span></span><br><span class="line"><span class="keyword">if</span>(!$connection)&#123;</span><br><span class="line"><span class="keyword">die</span>(<span class="string">"could not connect to the database:&lt;/br&gt;"</span>.mysql_error());<span class="comment">//诊断连接错误</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"connect mysql success!"</span>;</span><br><span class="line">&#125;</span><br><span class="line">mysql_close($connection);<span class="comment">//关闭连接</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当然，在测试之前，必须先建一个数据库<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p <span class="comment"># 输入密码进入数据库</span></span><br><span class="line">mysql&gt;create database <span class="built_in">test</span>Mysql;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>执行这个php文件，查看是否能够链接到数据库！</strong></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2016/06/03/Qt-note/" >
+  Qt note
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2016/06/03/Qt-note/"><span class="article-date">
+  2016-06-03
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Qt-C/">Qt C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="Qt学习笔记"><a href="#Qt学习笔记" class="headerlink" title="Qt学习笔记"></a>Qt学习笔记</h1><ol>
+<li>QListWidget<blockquote>
+<p><strong>ListWidget和ListView的本质区别在于有没有自己的模板，ListWidget拥有自己的模板，而ListView没有，并且ListWidget是继承自ListView的</strong></p>
+</blockquote>
+</li>
+</ol>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
