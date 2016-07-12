@@ -8,14 +8,14 @@
 
 <title>
   
-    Tag: 个人简历
+    Tag: Shell Programing
   
 </title>
 
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeekinBlog">
-<meta property="og:url" content="http://leekingta.github.io/blog/tags/个人简历/index.html">
+<meta property="og:url" content="http://leekingta.github.io/blog/tags/Shell-Programing/index.html">
 <meta property="og:site_name" content="LeekinBlog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       
         <div style="max-width: 1000px">
       
-          <h1>个人简历</h1>
+          <h1>Shell Programing</h1>
 
 
   
@@ -158,96 +158,69 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/blog/2016/06/26/Vita/" >
-  Vita
+        <a href="/blog/2016/07/13/Linux-Programing/" >
+  Linux Programing
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/blog/2016/06/26/Vita/"><span class="article-date">
-  2016-06-26
+        <a href="/blog/2016/07/13/Linux-Programing/"><span class="article-date">
+  2016-07-13
 </span>
 </a>
         
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/个人简历/">个人简历</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Shell-Programing/">Shell Programing</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h1 id="我的个人简历"><a href="#我的个人简历" class="headerlink" title="我的个人简历"></a>我的个人简历</h1><hr>
-<blockquote>
-<h2 id="一、个人信息："><a href="#一、个人信息：" class="headerlink" title="一、个人信息："></a>一、个人信息：</h2></blockquote>
-<hr>
-<ul>
-<li>姓名：李涛      </li>
-<li>性别：男</li>
-<li>民族：汉</li>
-<li>年龄：23</li>
-<li>出生：１９９３年８月１３日</li>
-<li>照片：<img src="/blog/2016/06/26/Vita/myself.jpg" alt="个人照片" title="个人照片"></li>
-<li>电子邮件：13577174820@163.com</li>
-<li>毕业学校：云南财经大学</li>
-<li>专业：电子商务（网络营销）</li>
-<li>求职意向：网络营销策划与执行、程序员、网络管理员（实习生）</li>
+          <h1 id="Linux-shell-编程笔记一"><a href="#Linux-shell-编程笔记一" class="headerlink" title="Linux shell 编程笔记一"></a>Linux shell 编程笔记一</h1><blockquote>
+<p>Linux的shell编程是最受欢迎的一种软件开发方式，他可以给你省去很多麻烦，比如在开发过程中要用到的库，不需要像ＶＳ那样建立项目时导入，在shell编程当中， 体现出了编程的模块化与组件化，我们单独封装的函数可以对他进行单独编译，编译通过之后与其他模块进行链接使用，形成一个完整的程序。</p>
+</blockquote>
+<h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><blockquote>
+<p>开始shell编程之前你需要一个安装了linux系统的电脑，比如ubantu,SUSE,arch等等，目前linux的分之已经有上百个，都是源自于linux内核的开源免费精神，个人觉得李纳斯为世界互联网发展做出了巨大的贡献，之前研究过华为的路由器，他的系统设计绝对参考了linux的内核；linux还是全世界用的最多的服务器系统；扯远了，之后你还需要编译工具GCC，所有工作将围绕它来进行；用什么来写代码呢？这里推荐vim,这是一个黑客工具哦。如果没有这些工具，使用包管理工具进行安装。</p>
+</blockquote>
+<h2 id="基础知识篇"><a href="#基础知识篇" class="headerlink" title="基础知识篇"></a>基础知识篇</h2><ul>
+<li>grep命令</li>
 </ul>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep EXIT_ *.h</span><br></pre></td></tr></table></figure>
 <blockquote>
-<h2 id="二、教育经历："><a href="#二、教育经历：" class="headerlink" title="二、教育经历："></a>二、教育经历：</h2></blockquote>
-<hr>
+<p>使用grep命令来搜索包含某些特定定义和函数原型的头文件，以上命令意思是在所有头文件当中搜索包含EXIT_这几个关键字的代码段；提示：在搜索的时候，要切换至相应的目录。</p>
+</blockquote>
 <ul>
-<li>２０１０年９月～２０１３年：石林县第一中学</li>
-<li>２０１３年９月～今：云南财经大学</li>
+<li>指定头文件位置</li>
 </ul>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -I /usr/<span class="built_in">local</span>/lib/include fred.c</span><br></pre></td></tr></table></figure>
 <blockquote>
-<h2 id="三、在校获奖："><a href="#三、在校获奖：" class="headerlink" title="三、在校获奖："></a>三、在校获奖：</h2></blockquote>
-<hr>
+<p>这个命令除了编译fred.c文件之外，还指出要在/usr/local/lib/include路径下搜索它的头文件。</p>
+</blockquote>
 <ul>
-<li>2014年６月：参加云南省”能投浪潮”杯大学生计算机设计大赛，获得<strong>三等奖</strong><img src="/blog/2016/06/26/Vita/nengtoulanchao1.jpg" alt="能投浪潮杯获奖" title="能投浪潮杯获奖"></li>
-<li>2014年７月：参加第七届中国大学生计算机设计大赛（沈阳赛区），获得<strong>二等奖</strong><img src="/blog/2016/06/26/Vita/guosai1.jpg" alt="参加国赛获奖" title="参加国赛获奖"></li>
-<li>2014年６月：参加校团委组织的“网络虚拟运营”比赛，获得<strong>二等奖</strong><img src="/blog/2016/06/26/Vita/chuanyezhixing1.jpg" alt="创业之星获奖" title="创业之星获奖"></li>
-<li>2013~2014学年获得“<strong>文明风尚奖学金</strong>”：<img src="/blog/2016/06/26/Vita/jiangxuejin1.jpg" alt="获文明风尚奖学金" title="获文明风尚奖学金"></li>
-<li>2016年５月：参加阿里巴巴中西部电商达人大赛获得：<strong>团队一等奖</strong><img src="/blog/2016/06/26/Vita/alibaba1.jpg" alt="证书" title="证书">
-</li>
+<li>共享库与静态库</li>
 </ul>
-<hr>
+<p>(1).a代表传统的静态函数库</p>
+<p>(2).so代表共享函数库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -o fred fred.c /usr/lib/libm.a</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -o fred fred.c -lm</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<h2 id="四-技术水平："><a href="#四-技术水平：" class="headerlink" title="四.技术水平："></a>四.技术水平：</h2></blockquote>
-<hr>
+<p>这条命令除了编译fred.c文件之外，-o参数指定编译之后的文件名，还指定了搜索数学函数库，/usr/lib/libm.a与-lm效果产生效果一样。</p>
+</blockquote>
 <ul>
-<li>高中时候自学photoshop AE Premiere Pro等非编视频处理软件，来到大学后帮助学校图书馆拍摄微电影：<a href="http://player.youku.com/player.php/sid/XNzA1OTA4MTI0/v.swf" target="_blank" rel="external">《追梦》</a></li>
-<li>自学C++，曾参与的项目：<a href="http://www.mumayi.com/android-893204.html" target="_blank" rel="external">《宝宝爱听》</a><br>这是使用ＳＧ２Ｄ闭源开发框架开发的一款跨平台应用，目前只有安卓端上架；目前Ｃ＋＋主要使用Ｑｔ框架。</li>
-<li>能够使用git版本控制系统来管理自己的开源项目；</li>
-<li>网络知识:曾经在学校网络中心实习，能够自己组建一个小型局域网，能够排除简单的网络故障、水晶头制作。</li>
-<li>掌握linux基础命令，运行机制、包管理器的使用，能够在centos上面搭建ＰＨＰ运行环境。</li>
-<li>windows系统优化，重装等技能。</li>
+<li>静态函数库　.a</li>
 </ul>
-<hr>
 <blockquote>
-<h2 id="五、在校学习经历"><a href="#五、在校学习经历" class="headerlink" title="五、在校学习经历"></a>五、在校学习经历</h2></blockquote>
-<hr>
+<p>静态库，也称归档文件（ａｒｃｈｉｖｅ），它是以.a为后缀，如果你有windows编程经验，那么他对应的就是以.lib结尾的文件名，这是windows的静态链接库。那么.o文件又是什么呢？我们很容易将它和.o文件混淆，.o文件是目标模块文件，与windows系统对应的是以.OBJ为后缀名的文件，主要的功能是很多个.ｏ文件共同组成一个完整的程序，是由单个.c文件编译而成；而.a文件是一个包含可重用函数的库文件，它可以给你提供编程上的方便。</p>
+</blockquote>
 <ul>
-<li>２０１３～２０１6年曾在学校网络中心兼职，熟悉校园网络结构，会排除简单的网络问题；</li>
-<li>在大二一个学年当中，担任院学生会宿舍管理委员会副部长，增加了自己的管理能力。</li>
+<li>共享库 .so</li>
 </ul>
-<hr>
 <blockquote>
-<h2 id="六、自我评价："><a href="#六、自我评价：" class="headerlink" title="六、自我评价："></a>六、自我评价：</h2></blockquote>
-<hr>
-<ul>
-<li>自幼对电子技术感兴趣，高中时候开始自学，步入大学后对Ｃ＋＋软件开发感兴趣，通过自己看书和从网上看视频教程自学，目前正在磨练技术，会开发一些小工具来增加自己的经验。</li>
-<li>对技术抱有严谨的态度，对一些事物有自己的看法，对于技术上面遇到的问题，不会轻易的就google或baidu，而是先自己独立思考，每次遇到难过的砍，就会告诉自己，别人也能解决好的问题，自己也一定可以，我并不比人家笨，而是缺少一些技术上面的基本素质；我总是不停的写博客，总结平时遇到的问题，当下次在遇到的话，不至于重蹈覆辙。</li>
-</ul>
-<hr>
-<blockquote>
-<p>声明：个人简历使用hexo博客系统，markdown书写而成！</p>
+<p>静态库的一个缺点就是：当你同时运行许多应用程序并且他们都使用来自同一个函数库的函数时，内存中就会有同一函数的多个副本，而且在程序自身也会有多份同样的副本，这将消耗大量的内存和磁盘空间。这也是共享库和静态库最大的不同，共享库是这样工作的：程序本身不再包含函数代码，而是引用运行时可访问的共享代码，当编译好的程序被装载到内存中执行时，函数引用被解析并产生对共享库的调用，如果有必要，共享库才被加载内存中；通过这样的方法，程序系统可以只保留共享库的一份副本供许多应用程序同时使用它，并且在磁盘上也仅保存一份。</p>
 </blockquote>
 
         
