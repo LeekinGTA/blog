@@ -89,14 +89,14 @@
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Shell-Programing/">Shell Programing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/个人简历/">个人简历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Shell-Programing/">Shell Programing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/个人简历/">个人简历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">10</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">11</span></li></ul>
               </li>
             
           
@@ -149,6 +149,69 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2016/09/04/javascript学习笔记/" >
+  javascript学习笔记
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2016/09/04/javascript学习笔记/"><span class="article-date">
+  2016-09-04
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="难点总结"><a href="#难点总结" class="headerlink" title="难点总结"></a>难点总结</h1><blockquote>
+<p>NaN:是Not a Number的简称，不是一个数字，当我们将一个未初始化的变量和数字相加时就会返回NaN</p>
+</blockquote>
+<p><strong> 判断数据类型:typeof </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">'leekin'</span>,weight=<span class="number">149</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(name));<span class="comment">//print string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span>(weight));<span class="comment">//print number</span></span><br></pre></td></tr></table></figure></p>
+<p><strong> 字符串与数字相加 </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num=<span class="number">160</span>;</span><br><span class="line"><span class="keyword">var</span> numStr=<span class="string">'20.5'</span>;</span><br><span class="line">num+numStr;<span class="comment">//输出16020.5，输出类型是字符串，数字类型与字符串相加会将数字强制转换为字符型在进行字符串的相加操作</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>可使用parseInt函数将numStr这样的字符串转换为数字类型，同样，使用parseFloat函数将numStr转换为浮点类型</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(numStr);</span><br><span class="line"><span class="built_in">parseFloat</span>(numStr);</span><br></pre></td></tr></table></figure>
+<p><strong> 字符串操作 </strong></p>
+<blockquote>
+<p>获取字符串的长度使用length方法</p>
+<p>获取字符串某个字符可以使用charAt方法</p>
+<p>使用indexOf方法获取某字符在字符串中的位置</p>
+<p>使用lastIndexOf方法来获取一个字符串中相同字符串的最后一个字符的位置</p>
+<p>使用subString来截取字符串</p>
+<p>使用replace来替换字符串</p>
+<p>使用split将字符串按照特定符号进行分割成数组</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'我是一名javascript程序员,程序猿'</span>;</span><br><span class="line">str.length;<span class="comment">//输出字符串长度16，从0开始</span></span><br><span class="line">str.charAt(<span class="number">3</span>);<span class="comment">//输出名，</span></span><br><span class="line">str.indexOf(<span class="string">'程'</span>);</span><br><span class="line">str.lastIndexOf(<span class="string">'程'</span>);</span><br><span class="line"><span class="comment">/*</span><br><span class="line">*参数接受两个整型值</span><br><span class="line">*参数一：截取字符串的第一个字符</span><br><span class="line">*参数二：截取字符串的最后一个字符</span><br><span class="line"> */</span></span><br><span class="line">str.substring(<span class="number">0</span>,<span class="number">3</span>);<span class="comment">//截取到’我是一名’</span></span><br><span class="line">str.substring(str.indexOf(<span class="string">'我'</span>),str.indexOf(<span class="string">'t'</span>));</span><br><span class="line"><span class="comment">/*参数接受两个string类型</span><br><span class="line">*参数一：要被替换的字符</span><br><span class="line">*参数二：要替换成的字符</span><br><span class="line"> */</span></span><br><span class="line">str.replace(<span class="string">'javascript'</span>,<span class="string">'C++'</span>);<span class="comment">//输出我是一名C++程序员,程序猿</span></span><br><span class="line"><span class="keyword">var</span> newStr=str.split(<span class="string">','</span>);<span class="comment">//输出["我是一名javascript程序员", "程序猿"],得到了新数组newStr</span></span><br><span class="line"><span class="comment">//可以使用数组访问法来范文数组的元素</span></span><br><span class="line">newStr[<span class="number">0</span>];<span class="comment">//输出第０个元素</span></span><br></pre></td></tr></table></figure>
+<p><strong> 数组 (在数组当中引许储存类型不同的元素)</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array1=[];<span class="comment">//定义了一个空数组array1</span></span><br><span class="line">array1=[<span class="string">'阿里巴巴'</span>,<span class="string">'百度'</span>,<span class="string">'腾讯'</span>];<span class="comment">//往数组中添加元素</span></span><br><span class="line">array1[<span class="number">0</span>];<span class="comment">//访问到阿里巴巴这个元素</span></span><br><span class="line">array1[<span class="number">1</span>];<span class="comment">//访问到百度这个元素</span></span><br><span class="line">array1[<span class="number">3</span>]=<span class="string">'facebook'</span>;<span class="comment">//第二种添加元素的方式</span></span><br><span class="line">array1.push(<span class="string">'google'</span>);<span class="comment">//从数组末尾添加元素</span></span><br><span class="line">array1.unshift(<span class="string">'ynufe'</span>);<span class="comment">//往数组前添加元素</span></span><br><span class="line">array1.pop();<span class="comment">//删除最后一个元素</span></span><br><span class="line">array1.shift();<span class="comment">//删除数组前的元素</span></span><br><span class="line"><span class="keyword">delete</span> array1[<span class="number">3</span>];<span class="comment">//删除一个具体的值，删除之后元素的索引不改变，元素的位置不发生移动</span></span><br><span class="line">array1.splice(<span class="number">3</span>);<span class="comment">//这样将彻底删除第三个元素及其以后的元素</span></span><br><span class="line"><span class="comment">///合并两个数组</span></span><br><span class="line"><span class="keyword">var</span> track1=[<span class="string">'mysql'</span>,<span class="string">'ODBC'</span>];</span><br><span class="line"><span class="keyword">var</span> track2=[<span class="string">'mssql'</span>,<span class="string">'JDBC'</span>];</span><br><span class="line"><span class="comment">//使用concat合并两个数组</span></span><br><span class="line"><span class="keyword">var</span> newTrack=track1.concat(track2);<span class="comment">//将数组track1与track2合并</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="条件判断语句语句与循环语句"><a href="#条件判断语句语句与循环语句" class="headerlink" title="条件判断语句语句与循环语句"></a>条件判断语句语句与循环语句</h2><p><strong> if else语句 </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> weather=<span class="string">'晴天'</span>;</span><br><span class="line"><span class="keyword">var</span> temp=<span class="number">75</span>;</span><br><span class="line"><span class="keyword">if</span>(weather===<span class="string">'晴天'</span>&amp;&amp; temp&lt;=<span class="number">26</span>)</span><br><span class="line">&#123;</span><br><span class="line">    alert(<span class="string">"天气晴朗，心情怡悦"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(weather===<span class="string">'阴天'</span>)</span><br><span class="line">&#123;</span><br><span class="line">    alert(<span class="string">"心情糟糕"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">  alert(<span class="string">'不知道天气'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> swich语句 </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> weather = <span class="string">"晴天"</span></span><br><span class="line"><span class="keyword">switch</span> (weather) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'晴天'</span>:</span><br><span class="line">  alert(<span class="string">"心情好"</span>)</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'阴天'</span>:</span><br><span class="line">  alert(<span class="string">"心情差"</span>)</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> <span class="string">'冷天'</span>:</span><br><span class="line">  alert(<span class="string">"冷天适合睡觉"</span>)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">  alert(<span class="string">"不知道天气"</span>)</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> while循环与do while循环</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//while loop</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (a&lt;=<span class="number">10</span>) &#123;</span><br><span class="line">++a;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//do while loop</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">++a;</span><br><span class="line"><span class="built_in">console</span>.log(a);  </span><br><span class="line">&#125; <span class="keyword">while</span> (a&lt;<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -1007,101 +1070,11 @@
     </div>
   
 
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2016/05/06/git-use-notes/" >
-  git 的基础入门命令
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2016/05/06/git-use-notes/"><span class="article-date">
-  2016-05-06
-</span>
-</a>
-        
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/git使用/">git使用</a></li></ul>
-	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <h1 id="git的基础使用"><a href="#git的基础使用" class="headerlink" title="git的基础使用"></a>git的基础使用</h1><img src="/blog/2016/05/06/git-use-notes/xing8.jpg" alt="这是一个装饰图片" title="这是一个装饰图片">
-<h3 id="git克隆远程仓库"><a href="#git克隆远程仓库" class="headerlink" title="* git克隆远程仓库"></a>* git克隆远程仓库</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;远程地址&gt;</span><br></pre></td></tr></table></figure>
-<p>例如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:LeekinGTA/blog.git</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="在克隆仓库之前还要的进行git的配置"><a href="#在克隆仓库之前还要的进行git的配置" class="headerlink" title="* 在克隆仓库之前还要的进行git的配置"></a>* 在克隆仓库之前还要的进行git的配置</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"username"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@host.com"</span></span><br></pre></td></tr></table></figure>
-<p>注意，此步骤是可选的，配置时候的邮箱要跟申请github帐号时的对应，用户名同理</p>
-<hr>
-<h3 id="接下来要生成公私钥，并把公钥上传到github"><a href="#接下来要生成公私钥，并把公钥上传到github" class="headerlink" title="* 接下来要生成公私钥，并把公钥上传到github"></a>* 接下来要生成公私钥，并把公钥上传到github</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
-<p>一路回车搞定，你就会发现在你的工作目录下多了个.ssh文件夹,打开此文件夹，用你的编辑器打开id_rsa.pub,复制里面所有内容，打开你的github，点击setting-&gt;SSH and  GPG keys-&gt;New SSH key 把公钥粘贴进去，进入邮箱同意添加<br>题外话：当你克隆仓库的时候，就可以使用SSH协议了，在服务端使用公钥对内容进行加密，来到本地用私钥进行解密，这样就可以防止网络抓包工具捕获你的内容了。</p>
-<hr>
-<h3 id="把别人的仓库克隆下来后，我们也许要上传到自己的仓库中"><a href="#把别人的仓库克隆下来后，我们也许要上传到自己的仓库中" class="headerlink" title="* 把别人的仓库克隆下来后，我们也许要上传到自己的仓库中"></a>* 把别人的仓库克隆下来后，我们也许要上传到自己的仓库中</h3><p>1.看一下我们的远程现有的分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v  </span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (push)`</span><br></pre></td></tr></table></figure></p>
-<p>2.为自己的项目配置分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add upstream git@github.com:LeekinGTA/blog.git</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (push)</span><br><span class="line">upstream        git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">upstream        git@github.com:LeekinGTA/blog.git (push)`</span><br></pre></td></tr></table></figure></p>
-<p>3.获取upstream分支到本地<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch upstream</span><br></pre></td></tr></table></figure></p>
-<p>4.切换到本地的master分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure></p>
-<p>5.同步到主分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge upstream/master</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库"><a href="#或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库" class="headerlink" title="或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库"></a>或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库</h3><p><strong>切换分支：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git  branch  <span class="comment">//查看当前有多少分支</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout gh-pages   <span class="comment">//切换到你的博客分支</span></span><br></pre></td></tr></table></figure>
-<h3 id="当写完文章后我们需要与git仓库进行同步"><a href="#当写完文章后我们需要与git仓库进行同步" class="headerlink" title="当写完文章后我们需要与git仓库进行同步"></a>当写完文章后我们需要与git仓库进行同步</h3><ol>
-<li><p><em>创建README.md文件&lt;如果已经初始化过仓库，此步骤省略&gt;</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git touch README.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用编辑器修改md文件后</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add README.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加说明</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m 'comment text'</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加远程仓库地址</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin  </span><br><span class="line"> $ git@github.com:LeekinGTA/blog.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push README文件</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>如果执行:git remote add origin git@github.com:LeekinGTA/blog.git，出现错误：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists</span><br></pre></td></tr></table></figure></p>
-<p><strong>说明origin已经存在<br>将它删除即可</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br></pre></td></tr></table></figure></p>
-<h3 id="PUSH-文件到仓库"><a href="#PUSH-文件到仓库" class="headerlink" title="PUSH 文件到仓库"></a>PUSH 文件到仓库</h3><ol>
-<li><p>添加所有文件</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add  --a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加说明</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m ‘说明文字’</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push到仓库</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin</span><br><span class="line">$ git@github.com:LeekinGTA/blog.git</span><br><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>如果执行git push origin gh-pages报错<br>则执行：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="删除仓库中的文件"><a href="#删除仓库中的文件" class="headerlink" title="删除仓库中的文件"></a>删除仓库中的文件</h3><p>有些时候我们想要删除仓库中的文件，我折腾了老半天，现在总结一下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename:文件名， commit：说明 ，branch：分支名</span><br></pre></td></tr></table></figure></p>
-<p>来到本地仓库目录<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached filename</span><br><span class="line">$ git commit -m 'commit'</span><br><span class="line">$ git push origin branch</span><br></pre></td></tr></table></figure></p>
-<p>OK，到你的仓库里看看是否已经删除</p>
-<hr>
-<h3 id="我们写好博客时，需要与仓库进行代码的同步"><a href="#我们写好博客时，需要与仓库进行代码的同步" class="headerlink" title="我们写好博客时，需要与仓库进行代码的同步"></a>我们写好博客时，需要与仓库进行代码的同步</h3><p><strong>这时候只需要用</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m '描述一下更新'</span><br><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-
+  <div class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">Next</a>
+  </div>
 
 
 
