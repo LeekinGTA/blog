@@ -18,10 +18,12 @@
 <meta property="og:url" content="http://leekingta.github.io/blog/2016/09/04/javascript学习笔记2/index.html">
 <meta property="og:site_name" content="LeekinBlog">
 <meta property="og:description" content="难点总结1.函数 定义函数1234567891011121314151617181920212223242526function LogMsg(a,b)&amp;#123;  switch (a) &amp;#123;    case 1:      console.log(&quot;a=1&quot;);      break;      case 2:      console.log(&apos;a=2&apos;);      break;">
-<meta property="og:updated_time" content="2016-09-04T13:51:22.587Z">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/Document.png">
+<meta property="og:updated_time" content="2016-09-05T02:42:54.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript学习笔记2">
 <meta name="twitter:description" content="难点总结1.函数 定义函数1234567891011121314151617181920212223242526function LogMsg(a,b)&amp;#123;  switch (a) &amp;#123;    case 1:      console.log(&quot;a=1&quot;);      break;      case 2:      console.log(&apos;a=2&apos;);      break;">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/Document.png">
 
 
   <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
@@ -82,21 +84,21 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
+                <a href="javascript:;">Category</a>
                 
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
+                <a href="javascript:;">Tag</a>
                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/">C++</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Shell-Programing/">Shell Programing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git使用/">git使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/个人简历/">个人简历</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/游戏引擎/">游戏引擎</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
+                <a href="javascript:;">Archive</a>
                 <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/">2016</a><span class="archive-list-count">12</span></li></ul>
               </li>
             
@@ -178,12 +180,16 @@
 <h3 id="4-给对象添加方法"><a href="#4-给对象添加方法" class="headerlink" title="4.给对象添加方法"></a>4.给对象添加方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> beyond =</span><br><span class="line">&#123;</span><br><span class="line">  formedIn:<span class="string">'1983'</span>,</span><br><span class="line">  location:<span class="string">'香港'</span>,</span><br><span class="line">  artist:[<span class="string">'黄家驹'</span>,<span class="string">'黄家冠'</span>,<span class="string">'黄世荣'</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//为对象添加方法</span></span><br><span class="line">beyond.printMsg=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.artist.length;++i)</span><br><span class="line">  &#123;</span><br><span class="line">        <span class="built_in">document</span>.writeln(<span class="keyword">this</span>.artist[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用对象方法</span></span><br><span class="line">beyond.printMsg();</span><br></pre></td></tr></table></figure>
 <h3 id="5-循环输出对象的属性"><a href="#5-循环输出对象的属性" class="headerlink" title="5.循环输出对象的属性"></a>5.循环输出对象的属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">for</span>(a <span class="keyword">in</span> beyond)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> beyond[a]!==<span class="string">'function'</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="6-对象文档模型-DOM-gt-document-object-model"><a href="#6-对象文档模型-DOM-gt-document-object-model" class="headerlink" title="6.对象文档模型(DOM-&gt;document object model)"></a>6.对象文档模型(DOM-&gt;document object model)</h3><p><strong> DOM不是一种语言，而是浏览器的一种标准 </strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'page-title'</span>);<span class="comment">//获取id为page-title的元素</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>);<span class="comment">//获取标签名为li的元素名</span></span><br><span class="line"><span class="comment">//querySelector 与 querySelectorAll  </span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">".page-list li"</span>);<span class="comment">//选中class名为page-list li的第一个元素</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">".page-list li"</span>);<span class="comment">//选中class名为page-list li的所有元素</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>打开chrome的开发者模式，在Element里面查看properties属性，列表当中的方法都是document可以调用的函数</p>
+</blockquote>
+<img src="/blog/2016/09/04/javascript学习笔记2/Document.png" alt="这是一个装饰图片" title="这是一个装饰图片">
 
   </div>
   <footer class="article-footer">
     
   <div class="cc">
-    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="署名-相同方式共享">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
       <img src="/blog/images/cc/cc.png">
       
           <img src="/blog/images/cc/by.png">
@@ -191,7 +197,7 @@
           <img src="/blog/images/cc/sa.png">
       
       <span>
-        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
       </span>
     </a>
   </div>
