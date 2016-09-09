@@ -8,32 +8,31 @@
 
 <title>
   
-    Linux-Programing-2
+    react-native总结
   
 </title>
 
-<meta name="description" content="基础知识２重定向与管道
-输入重定向
+<meta name="description" content="react-native之ListView
+react-native当中的列表显示组件非常有用，在开发当中使用的很多，它用于一个垂直的滚动列表，其中的结构相同只是内容不同。ListView更适合用于长列表显示，和其他同种属性组件不同的是ListView在渲染显示的时候优先渲染屏幕可见元素，不可见元素会进行异步加载。
 
-
-如果对C++的输出符号”&amp;gt;&amp;gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如std::cout&amp;gt;&amp;gt;&amp;quot;hello world！&amp;quot;,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了">
+ListView必须的属性和方法： 属性 dataSource1dataSour">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux-Programing-2">
-<meta property="og:url" content="http://leekingta.github.io/blog/2016/07/16/Linux-Programing-2/index.html">
+<meta property="og:title" content="react-native总结">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/09/09/react-native总结/index.html">
 <meta property="og:site_name" content="LeekinBlog">
-<meta property="og:description" content="基础知识２重定向与管道
-输入重定向
+<meta property="og:description" content="react-native之ListView
+react-native当中的列表显示组件非常有用，在开发当中使用的很多，它用于一个垂直的滚动列表，其中的结构相同只是内容不同。ListView更适合用于长列表显示，和其他同种属性组件不同的是ListView在渲染显示的时候优先渲染屏幕可见元素，不可见元素会进行异步加载。
 
-
-如果对C++的输出符号”&amp;gt;&amp;gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如std::cout&amp;gt;&amp;gt;&amp;quot;hello world！&amp;quot;,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了">
-<meta property="og:updated_time" content="2016-07-16T14:33:00.855Z">
+ListView必须的属性和方法： 属性 dataSource1dataSour">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/virtualmachine.png">
+<meta property="og:updated_time" content="2016-09-09T02:15:41.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux-Programing-2">
-<meta name="twitter:description" content="基础知识２重定向与管道
-输入重定向
+<meta name="twitter:title" content="react-native总结">
+<meta name="twitter:description" content="react-native之ListView
+react-native当中的列表显示组件非常有用，在开发当中使用的很多，它用于一个垂直的滚动列表，其中的结构相同只是内容不同。ListView更适合用于长列表显示，和其他同种属性组件不同的是ListView在渲染显示的时候优先渲染屏幕可见元素，不可见元素会进行异步加载。
 
-
-如果对C++的输出符号”&amp;gt;&amp;gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如std::cout&amp;gt;&amp;gt;&amp;quot;hello world！&amp;quot;,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了">
+ListView必须的属性和方法： 属性 dataSource1dataSour">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/virtualmachine.png">
 
 
   <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
@@ -161,79 +160,43 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-Linux-Programing-2" class="article article-type-post">
+          <article id="post-react-native总结" class="article article-type-post">
   
     <h1 class="article-header">
-      Linux-Programing-2
+      react-native总结
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-07-16
+  2016-09-09
 </span>
 
     
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Shell-Programing/">Shell Programing</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/react-native/">react-native</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h2 id="基础知识２"><a href="#基础知识２" class="headerlink" title="基础知识２"></a>基础知识２</h2><h3 id="重定向与管道"><a href="#重定向与管道" class="headerlink" title="重定向与管道"></a>重定向与管道</h3><ul>
-<li>输入重定向</li>
-</ul>
-<blockquote>
-<p>如果对C++的输出符号”&gt;&gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如<code>std::cout&gt;&gt;&quot;hello world！&quot;</code>,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了&gt;&gt;应算符，使得cout可以使用&gt;&gt;来连接字符串。回到Linux，同样可以使用重定向符，来完成一些非常复杂的任务，比如：</p>
+    <h2 id="react-native之ListView"><a href="#react-native之ListView" class="headerlink" title="react-native之ListView"></a>react-native之ListView</h2><blockquote>
+<p>react-native当中的列表显示组件非常有用，在开发当中使用的很多，它用于一个垂直的滚动列表，其中的结构相同只是内容不同。ListView更适合用于长列表显示，和其他同种属性组件不同的是ListView在渲染显示的时候优先渲染屏幕可见元素，不可见元素会进行异步加载。</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls <span class="_">-l</span> &gt; lsoutput.txt</span><br></pre></td></tr></table></figure>
+<h4 id="ListView必须的属性和方法："><a href="#ListView必须的属性和方法：" class="headerlink" title="ListView必须的属性和方法："></a>ListView必须的属性和方法：</h4><p><strong> 属性 </strong><br><figure class="highlight plain"><figcaption><span>dataSource</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataSource代表一个数据源对象</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>renderRow</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">renderRow能够逐个解析数据源中的数据，然后返回一个设定好格式的组件来渲染。</span><br></pre></td></tr></table></figure>
+<p><strong> 方法 </strong><br><figure class="highlight plain"><figcaption><span>rowHasChanged</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在实际的开发工作当中此方法交给用户自己去实现，以下的例子当中我们只是定义了比较r1和r2是否变化的一个函数，它返回true或者false</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>这个命令将会把ls命令原本要输出到屏幕的结果保存到文件lsoutput.txt,如果已经存在lsoutput.txt这个文件，默认请况下Linux将覆盖已经存在的文件，如果文件不存在，则创建，如果你要改变默认行为，则使用set -C或set -o noclobber来改变noclobber选项。重定向的功能非常强大，大家想想如果使用C++要写多少行代码才能实现输出到文件的功能。</p>
+<p>官方例子告诉我们如何使用ListView组件，在组件当中也用到了state。</p>
 </blockquote>
-<p><strong>NOTE:文件描述符</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>:代表标准输入</span><br><span class="line"><span class="number">1</span>:代表标准输出</span><br><span class="line"><span class="number">2</span>:代表标准错误输出</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -A &gt;&gt; lsoutput.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> react,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;AppRegistry,ListView,Text,View&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">const</span> ds=<span class="keyword">new</span> ListView.DataSource(&#123;rowHasChanged:(r1,r2)=&gt;r1 !== r2&#125;);</span><br><span class="line">    <span class="keyword">this</span>.state=&#123;</span><br><span class="line">      dataSource:ds.cloneWithRows([</span><br><span class="line">          <span class="string">'美国队长1'</span>,</span><br><span class="line">          <span class="string">'美国队长2'</span>,</span><br><span class="line">          <span class="string">'美国队长3'</span>,</span><br><span class="line">          <span class="string">'美国队长4'</span>,</span><br><span class="line">          <span class="string">'美国队长5'</span>,</span><br><span class="line">          <span class="string">'美国队长6'</span></span><br><span class="line">      ])</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        &lt;View style=&#123;padding=22&#125;&gt;</span><br><span class="line">          &lt;ListView dataSource=&#123;this.state.dataSource&#125;</span><br><span class="line">          renderRow=&#123;(rowData)=&gt; &lt;Text&gt; &#123;rowData&#125; &lt;/Text&gt; &#125;/&gt;</span><br><span class="line">        &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>这条命令将ps -A输出的结果附加到lsoutput.txt文件末尾</p>
-<p>我们在使用kill命令终止某个线程时，往往会出现问题，在使用kill命令之前，要终止的线程已经停止了，这时候kill命令将会抛出错误信息，如果我们使用标准输出和标准错误输出１和２，就能将错误信息输出到文件：</p>
+<p>应用显示效果：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -HUP 1234 &gt; killout.txt 2&gt;killerr.txt</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这个命令将标准输出到killout.txt中，将标准错误输出到killerr.txt中，不过你也可以使用&gt;&amp;来链接两个输出：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -1 1234 &gt;killouterr.txt 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这个命令将标准错误输出和标准输出都重定向到一个文件中。<br>也可以使用Linux的通用”回收站”来有效的丢弃所有输出信息，如下：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> <span class="_">-l</span> 1234 &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-<ul>
-<li>重定向输入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ more &lt; killout.txt</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>这条命令向linux shell传递命令，这些命令是我们预先写好的，希望linux的某个程序来接受这些命令，以此来按照我们的设定执行，这跟C++的<code>&lt;&lt;</code>符号是不是又有类似。</p>
-</blockquote>
-<ul>
-<li>管道</li>
-</ul>
-<blockquote>
-<p>在linux上面你可以使用管道符<code>|</code>来连接进程，linux和DOS不一样，linux下通过管道连接的线程可以同时运行，并随着数据流在他们之间的传递可以自动地进行协调。以下是不使用管道符来进行的操作，可分为两个部分：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -A &gt; psout.txt</span><br><span class="line">$ sort psout.txt &gt; psout.out</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果使用管道符把他们连接，这两个任务将同时执行：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps | sort &gt; pssort.out</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果想在屏幕上分屏显示结果，可以连接第三个程序more:</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps | sort | more</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>然而可以连接的程序是没有上限的。</p>
-</blockquote>
+<img src="/blog/2016/09/09/react-native总结/virtualmachine.png" alt="显示效果" title="显示效果">
 
   </div>
   <footer class="article-footer">
