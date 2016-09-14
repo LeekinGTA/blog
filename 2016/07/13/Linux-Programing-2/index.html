@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux Shell编程2 | LeekinBlog</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="基础知识２重定向与管道
+输入重定向
+
+
+如果对C++的输出符号”&amp;gt;&amp;gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如std::cout&amp;gt;&amp;gt;&amp;quot;hello world！&amp;quot;,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Shell编程2">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/07/13/Linux-Programing-2/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="基础知识２重定向与管道
+输入重定向
+
+
+如果对C++的输出符号”&amp;gt;&amp;gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如std::cout&amp;gt;&amp;gt;&amp;quot;hello world！&amp;quot;,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了">
+<meta property="og:updated_time" content="2016-09-14T07:34:40.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux Shell编程2">
+<meta name="twitter:description" content="基础知识２重定向与管道
+输入重定向
+
+
+如果对C++的输出符号”&amp;gt;&amp;gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如std::cout&amp;gt;&amp;gt;&amp;quot;hello world！&amp;quot;,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了">
+  
+    <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
+    </div>
+  </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
+
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH -->
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	<!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-Linux-Programing-2" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> Leekin</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-07-12T18:55:33.000Z" itemprop="datePublished">2016/07/13</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/blog/tags/Linux/" title="Linux">Linux</a>,
+  
+    <a href="/blog/tags/programming/" title="programming">programming</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础知识２"><a href="#基础知识２" class="headerlink" title="基础知识２"></a>基础知识２</h2><h3 id="重定向与管道"><a href="#重定向与管道" class="headerlink" title="重定向与管道"></a>重定向与管道</h3><ul>
+<li>输入重定向</li>
+</ul>
+<blockquote>
+<p>如果对C++的输出符号”&gt;&gt;”了解的话，我们在写控制台应用程序时，这是必不可少的，比如<code>std::cout&gt;&gt;&quot;hello world！&quot;</code>,这个语句将在屏幕上打印hello world，大家可能会疑惑，C语言是直接调用printf函数，传入要打印出来的字符串，C++却是使用重定向符号，是因为C++库在设计的时候重载了&gt;&gt;应算符，使得cout可以使用&gt;&gt;来连接字符串。回到Linux，同样可以使用重定向符，来完成一些非常复杂的任务，比如：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls <span class="_">-l</span> &gt; lsoutput.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令将会把ls命令原本要输出到屏幕的结果保存到文件lsoutput.txt,如果已经存在lsoutput.txt这个文件，默认请况下Linux将覆盖已经存在的文件，如果文件不存在，则创建，如果你要改变默认行为，则使用set -C或set -o noclobber来改变noclobber选项。重定向的功能非常强大，大家想想如果使用C++要写多少行代码才能实现输出到文件的功能。</p>
+</blockquote>
+<p><strong>NOTE:文件描述符</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>:代表标准输入</span><br><span class="line"><span class="number">1</span>:代表标准输出</span><br><span class="line"><span class="number">2</span>:代表标准错误输出</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -A &gt;&gt; lsoutput.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这条命令将ps -A输出的结果附加到lsoutput.txt文件末尾</p>
+<p>我们在使用kill命令终止某个线程时，往往会出现问题，在使用kill命令之前，要终止的线程已经停止了，这时候kill命令将会抛出错误信息，如果我们使用标准输出和标准错误输出１和２，就能将错误信息输出到文件：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -HUP 1234 &gt; killout.txt 2&gt;killerr.txt</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令将标准输出到killout.txt中，将标准错误输出到killerr.txt中，不过你也可以使用&gt;&amp;来链接两个输出：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -1 1234 &gt;killouterr.txt 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令将标准错误输出和标准输出都重定向到一个文件中。<br>也可以使用Linux的通用”回收站”来有效的丢弃所有输出信息，如下：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> <span class="_">-l</span> 1234 &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重定向输入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ more &lt; killout.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>这条命令向linux shell传递命令，这些命令是我们预先写好的，希望linux的某个程序来接受这些命令，以此来按照我们的设定执行，这跟C++的<code>&lt;&lt;</code>符号是不是又有类似。</p>
+</blockquote>
+<ul>
+<li>管道</li>
+</ul>
+<blockquote>
+<p>在linux上面你可以使用管道符<code>|</code>来连接进程，linux和DOS不一样，linux下通过管道连接的线程可以同时运行，并随着数据流在他们之间的传递可以自动地进行协调。以下是不使用管道符来进行的操作，可分为两个部分：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -A &gt; psout.txt</span><br><span class="line">$ sort psout.txt &gt; psout.out</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果使用管道符把他们连接，这两个任务将同时执行：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps | sort &gt; pssort.out</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果想在屏幕上分屏显示结果，可以连接第三个程序more:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps | sort | more</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>然而可以连接的程序是没有上限的。</p>
+</blockquote>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/09/04/javascript学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          javascript学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/07/13/Linux-Programing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux Shell编程</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/blog/categories/NET/">.NET (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Hexo/">Hexo (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/NGINX/">NGINX (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Dynamics-NAV/">Dynamics NAV (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Humor/">Humor (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/C/">C++ (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Linux/">Linux (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/github/">github (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/">GodotEngine</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="/blog/" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/13/Vita-1/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="/blog/" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/14/Vita/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>Computer Lab is a software development and marketing company based in Brooklyn, New York. <br><br> Computer Lab was founded in 2015, and is focused on so on and so forth.</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              140 Metropolitan Avenue<br>
+              5th Floor<br>
+              Brooklyn, NY 11249<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/computerlab_"
+	  data-widget-id="678830341331820544">Tweets by @computerlab_</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>

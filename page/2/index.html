@@ -1,17 +1,18 @@
-
- <!DOCTYPE HTML>
-<html >
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>LeekinBlog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Leekin">
-    
+  <title>LeekinBlog</title>
 
-    
-    <meta name="description">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeekinBlog">
 <meta property="og:url" content="http://leekingta.github.io/blog/page/2/index.html">
@@ -20,429 +21,517 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeekinBlog">
 <meta name="twitter:description">
-
-    
+  
     <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
     
-    
-    <link rel="icon" href="/blog/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/blog/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/blog/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/blog/css/style.css">
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/blog/"><img src="/blog/img/logo.png" alt="LeekinBlog" title="LeekinBlog"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/blog/" title="LeekinBlog">LeekinBlog</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/blog/">Home</a></li>
-					
-						<li><a href="/blog/archives">Archives</a></li>
-					
-						<li><a href="/blog/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:leekingta.github.io/blog">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/blog/2016/05/22/C-enum/" title="C++ enum" itemprop="url">
-  
-    <h1 itemprop="name">C++ enum</h1>
-    
-     
-           <p itemprop="description" >C++枚举类型详细介绍
-
-在具体的编程工作当中，枚举类型多用来创建常量，取代const。
-
-
-声明枚举类型1enum color&amp;#123;red,orange,yellow,green,blue&amp;#125;;
-
-
-声明枚举类型之后我们要知道他里面储存的值是多少，在默认的情况下枚</p>
-        
-    
-    <time datetime="2016-05-22T09:12:00.000Z" itemprop="datePublished">2016-05-22</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/blog/2016/05/11/C-new-and-point/" title="C++ new and point" itemprop="url">
-  
-    <h1 itemprop="name">C++ new and point</h1>
-    
-     
-           <p itemprop="description" >C++ new和指针
-计算机在储存数据时我们必须跟踪三个属性：
-
-信息被储存在何处？
-储存的值是多少？
-储存的信息是什么类型
-
-
-
-声明一个指针12int a=100;int *b=&amp;amp;a;
-
-
-
-这里我们创建了a变量和指针b，并把a的地址赋给指针b，现在指针b储存的就是a</p>
-        
-    
-    <time datetime="2016-05-11T03:45:57.000Z" itemprop="datePublished">2016-05-11</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/blog/2016/05/07/Cplusplus-struct/" title="Cplusplus-struct" itemprop="url">
-  
-    <h1 itemprop="name">Cplusplus-struct</h1>
-    
-     
-           <p itemprop="description" >C++结构体与共用体的使用
-比如我们需要一个数据类型用于储存某个人的年龄、性别、地址，这个时候需要用到结构体
-声明结构体：
-123456struct mystruct&amp;#123;  int age;  string sex;  string address;&amp;#125;;
-
-结构</p>
-        
-    
-    <time datetime="2016-05-07T07:00:44.000Z" itemprop="datePublished">2016-05-07</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/blog/2016/05/07/GodotEngine/" title="GodotEngine" itemprop="url">
-  
-    <h1 itemprop="name">GodotEngine</h1>
-    
-     
-           <p itemprop="description" >如今的游戏开发框架横行天下，各家游戏公司相继推出自己的引擎，随着这几年的竞争激烈，游戏引擎也是朝着跨平台、支持多种语言的特性，来吸引个人开发者或游戏公司的使用，但是好的游戏引擎不仅仅体现在能跨多少平台，能支持2d或者3d特性，更重要的是要站在使用者的角度来看问题，如果能用最低成本</p>
-        
-    
-    <time datetime="2016-05-07T05:15:50.000Z" itemprop="datePublished">2016-05-07</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/blog/2016/05/06/git-use-notes/" title="git 的基础入门命令" itemprop="url">
-  
-    <h1 itemprop="name">git 的基础入门命令</h1>
-    
-     
-           <p itemprop="description" >git的基础使用
-* git克隆远程仓库1$ git clone &amp;lt;远程地址&amp;gt;
-例如:1$ git clone git@github.com:LeekinGTA/blog.git
-
-* 在克隆仓库之前还要的进行git的配置12$ git config --global</p>
-        
-    
-    <time datetime="2016-05-06T04:27:11.000Z" itemprop="datePublished">2016-05-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/blog/"><span></span>Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">標簽</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/blog/tags/C/" title="C++">C++<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/Shell-Programing/" title="Shell Programing">Shell Programing<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/react-native/" title="react-native">react-native<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/javascript/" title="javascript">javascript<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/个人简历/" title="个人简历">个人简历<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/游戏引擎/" title="游戏引擎">游戏引擎<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/git使用/" title="git使用">git使用<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/blog/tags/个人简历2/" title="个人简历2">个人简历2<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="http://www.geequlim.com" target="_blank" title="一个朋友的博客">Geequlim</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
-		
-		<a href="/blog/about" target="_blank" title="Leekin">Leekin</a>
-		
-		
-		</p>
+  </div>
 </div>
-</footer>
-    <script src="/blog/js/jquery-2.0.3.min.js"></script>
-<script src="/blog/js/jquery.imagesloaded.min.js"></script>
-<script src="/blog/js/gallery.js"></script>
-<script src="/blog/js/jquery.qrcode-0.12.0.min.js"></script>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH -->
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	<!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
   
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-        
-    }
-  });
-});
-</script>
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="active">Home</li>
+    </ul>
+  <div id="main">
+    <div class="row">
+
+<div class="col-xs-12 blog-posts">
+
+
+  <section class="archives-wrap">
+    <div class="archives">
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-05-22T09:12:00.000Z" itemprop="datePublished">2016/05/22</time>
+
+      </li>
+      <li><i class="fa fa-comments"></i>
+        <a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/#disqus_thread" class="article-comment-link">Comments</a>
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/blog/tags/C/" title="C++">C++</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	标准模板库vector是在编程过程中常用的容器，可以创建vector对象，将一个vector对象赋给另一个对象，使用[]符号来访问vector元素，要想使类成为通用的，将它设计为模板类，vector正是这样的类。
+      
+    </div>
+    <br>
+    <br>
+    <a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/blog/2016/05/22/C-enum/">C++ 枚举类型</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-05-22T09:12:00.000Z" itemprop="datePublished">2016/05/22</time>
+
+      </li>
+      <li><i class="fa fa-comments"></i>
+        <a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/#disqus_thread" class="article-comment-link">Comments</a>
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/blog/tags/C/" title="C++">C++</a>,
+  
+    <a href="/blog/tags/DataConstructor/" title="DataConstructor">DataConstructor</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	在具体的编程工作当中，枚举类型多用来创建常量，取代const。声明枚举类型之后我们要知道他里面储存的值是多少，在默认的情况下枚举值是从0依次递增的，当然我们也可一给他赋值：enum color{red=100,orange,yellow,green,blue};
+      
+    </div>
+    <br>
+    <br>
+    <a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-05-07T07:00:44.000Z" itemprop="datePublished">2016/05/07</time>
+
+      </li>
+      <li><i class="fa fa-comments"></i>
+        <a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/#disqus_thread" class="article-comment-link">Comments</a>
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/blog/tags/C/" title="C++">C++</a>,
+  
+    <a href="/blog/tags/DataConstructor/" title="DataConstructor">DataConstructor</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	比如我们需要一个数据类型用于储存某个人的年龄、性别、地址，这个时候需要用到结构体，在日常生活工作中，我们会遇到要储存一个不同类型的值，有时候它是整型、有时候是字符串类型，比如小李的公司每个部门给员工编号，每个部门的编号都不同，有的部门用整型数据给员工编号，而有的部门给员工起个绰号（字符串），这样当我们要把员工数据录入的时候就有麻烦了，所以这时候就要用共用体。
+      
+    </div>
+    <br>
+    <br>
+    <a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/blog/2016/05/07/GodotEngine/">GodotEngine</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-05-07T05:15:50.000Z" itemprop="datePublished">2016/05/07</time>
+
+      </li>
+      <li><i class="fa fa-comments"></i>
+        <a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/#disqus_thread" class="article-comment-link">Comments</a>
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/blog/tags/programming/" title="programming">programming</a>,
+  
+    <a href="/blog/tags/GameEngine/" title="GameEngine">GameEngine</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	如今的游戏开发框架横行天下，各家游戏公司相继推出自己的引擎，随着这几年的竞争激烈，游戏引擎也是朝着跨平台、支持多种语言的特性，来吸引个人开发者或游戏公司的使用，但是好的游戏引擎不仅仅体现在能跨多少平台，能支持2d或者3d特性，更重要的是要站在使用者的角度来看问题，如果能用最低成本、最简单的方式解决开发者所遇到的难题，那就是最好的框架。
+      
+    </div>
+    <br>
+    <br>
+    <a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2016-05-07T05:15:50.000Z" itemprop="datePublished">2016/05/07</time>
+
+      </li>
+      <li><i class="fa fa-comments"></i>
+        <a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/#disqus_thread" class="article-comment-link">Comments</a>
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/blog/tags/programming/" title="programming">programming</a>,
+  
+    <a href="/blog/tags/github/" title="github">github</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	当你克隆仓库的时候，就可以使用SSH协议了，在服务端使用公钥对内容进行加密，来到本地用私钥进行解密，这样就可以防止网络抓包工具捕获你的内容了。
+      
+    </div>
+    <br>
+    <br>
+    <a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
+      
+    </div>
+    
+      <div id="page-nav" class="pagination">
+	<a class="extend prev" rel="prev" href="/blog/">Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+      </div>
+    
+  </section>
+
+</div>
+
+</div>
+
+  </div>
+  </div>
 
 
 
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>Computer Lab is a software development and marketing company based in Brooklyn, New York. <br><br> Computer Lab was founded in 2015, and is focused on so on and so forth.</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              140 Metropolitan Avenue<br>
+              5th Floor<br>
+              Brooklyn, NY 11249<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/computerlab_"
+	  data-widget-id="678830341331820544">Tweets by @computerlab_</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
 
 
 
-
-
-
-
-<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
     });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
 </script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
 
 
 
-<!-- Analytics Begin -->
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
 
 
 
 
 
-<!-- Analytics End -->
+<!-- END INTEGRATIONS -->
 
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回頂部"><img src="/blog/img/scrollup.png"/></a>
-	</div>
-	<script src="/blog/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
- </html>
+</body>
+</html>

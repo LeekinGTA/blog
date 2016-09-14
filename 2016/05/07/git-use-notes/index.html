@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>git 的基础入门命令 | LeekinBlog</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="title: git 的基础入门命令date: 2016-05-06 12:27:11
+tags: git使用git的基础使用
+* git克隆远程仓库1$ git clone &amp;lt;远程地址&amp;gt;
+例如:1$ git clone git@github.com:LeekinGTA/blog.git
+
+* 在克隆仓库之前还要的进行git的配置12$ git config --global use">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 的基础入门命令">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/05/07/git-use-notes/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="title: git 的基础入门命令date: 2016-05-06 12:27:11
+tags: git使用git的基础使用
+* git克隆远程仓库1$ git clone &amp;lt;远程地址&amp;gt;
+例如:1$ git clone git@github.com:LeekinGTA/blog.git
+
+* 在克隆仓库之前还要的进行git的配置12$ git config --global use">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/xing8.jpg">
+<meta property="og:updated_time" content="2016-09-14T07:41:11.591Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git 的基础入门命令">
+<meta name="twitter:description" content="title: git 的基础入门命令date: 2016-05-06 12:27:11
+tags: git使用git的基础使用
+* git克隆远程仓库1$ git clone &amp;lt;远程地址&amp;gt;
+例如:1$ git clone git@github.com:LeekinGTA/blog.git
+
+* 在克隆仓库之前还要的进行git的配置12$ git config --global use">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/xing8.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
+    </div>
+  </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
+
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH -->
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	<!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-git-use-notes" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> Leekin</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-05-07T05:15:50.000Z" itemprop="datePublished">2016/05/07</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/blog/tags/programming/" title="programming">programming</a>,
+  
+    <a href="/blog/tags/github/" title="github">github</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/blog/categories/github/">github</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: git 的基础入门命令<br>date: 2016-05-06 12:27:11</p>
+<h2 id="tags-git使用"><a href="#tags-git使用" class="headerlink" title="tags: git使用"></a>tags: git使用</h2><h1 id="git的基础使用"><a href="#git的基础使用" class="headerlink" title="git的基础使用"></a>git的基础使用</h1><img src="/blog/2016/05/07/git-use-notes/xing8.jpg" alt="这是一个装饰图片" title="这是一个装饰图片">
+<h3 id="git克隆远程仓库"><a href="#git克隆远程仓库" class="headerlink" title="* git克隆远程仓库"></a>* git克隆远程仓库</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone &lt;远程地址&gt;</span><br></pre></td></tr></table></figure>
+<p>例如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:LeekinGTA/blog.git</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="在克隆仓库之前还要的进行git的配置"><a href="#在克隆仓库之前还要的进行git的配置" class="headerlink" title="* 在克隆仓库之前还要的进行git的配置"></a>* 在克隆仓库之前还要的进行git的配置</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"username"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@host.com"</span></span><br></pre></td></tr></table></figure>
+<p>注意，此步骤是可选的，配置时候的邮箱要跟申请github帐号时的对应，用户名同理</p>
+<hr>
+<h3 id="接下来要生成公私钥，并把公钥上传到github"><a href="#接下来要生成公私钥，并把公钥上传到github" class="headerlink" title="* 接下来要生成公私钥，并把公钥上传到github"></a>* 接下来要生成公私钥，并把公钥上传到github</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
+<p>一路回车搞定，你就会发现在你的工作目录下多了个.ssh文件夹,打开此文件夹，用你的编辑器打开id_rsa.pub,复制里面所有内容，打开你的github，点击setting-&gt;SSH and  GPG keys-&gt;New SSH key 把公钥粘贴进去，进入邮箱同意添加<br>题外话：当你克隆仓库的时候，就可以使用SSH协议了，在服务端使用公钥对内容进行加密，来到本地用私钥进行解密，这样就可以防止网络抓包工具捕获你的内容了。</p>
+<hr>
+<h3 id="把别人的仓库克隆下来后，我们也许要上传到自己的仓库中"><a href="#把别人的仓库克隆下来后，我们也许要上传到自己的仓库中" class="headerlink" title="* 把别人的仓库克隆下来后，我们也许要上传到自己的仓库中"></a>* 把别人的仓库克隆下来后，我们也许要上传到自己的仓库中</h3><p>1.看一下我们的远程现有的分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v  </span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (push)`</span><br></pre></td></tr></table></figure></p>
+<p>2.为自己的项目配置分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add upstream git@github.com:LeekinGTA/blog.git</span><br><span class="line">$ git remote -v</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">origin  git@github.com:LeekinGTA/blog.git (push)</span><br><span class="line">upstream        git@github.com:LeekinGTA/blog.git (fetch)</span><br><span class="line">upstream        git@github.com:LeekinGTA/blog.git (push)`</span><br></pre></td></tr></table></figure></p>
+<p>3.获取upstream分支到本地<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch upstream</span><br></pre></td></tr></table></figure></p>
+<p>4.切换到本地的master分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure></p>
+<p>5.同步到主分支<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge upstream/master</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库"><a href="#或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库" class="headerlink" title="或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库"></a>或许有时候我们要切换到其他分支，例如切换到gh-pages，为了上传我们的博客到仓库</h3><p><strong>切换分支：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git  branch  <span class="comment">//查看当前有多少分支</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout gh-pages   <span class="comment">//切换到你的博客分支</span></span><br></pre></td></tr></table></figure>
+<h3 id="当写完文章后我们需要与git仓库进行同步"><a href="#当写完文章后我们需要与git仓库进行同步" class="headerlink" title="当写完文章后我们需要与git仓库进行同步"></a>当写完文章后我们需要与git仓库进行同步</h3><ol>
+<li><p><em>创建README.md文件&lt;如果已经初始化过仓库，此步骤省略&gt;</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git touch README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用编辑器修改md文件后</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加说明</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m 'comment text'</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加远程仓库地址</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin  </span><br><span class="line"> $ git@github.com:LeekinGTA/blog.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push README文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>如果执行:git remote add origin git@github.com:LeekinGTA/blog.git，出现错误：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists</span><br></pre></td></tr></table></figure></p>
+<p><strong>说明origin已经存在<br>将它删除即可</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br></pre></td></tr></table></figure></p>
+<h3 id="PUSH-文件到仓库"><a href="#PUSH-文件到仓库" class="headerlink" title="PUSH 文件到仓库"></a>PUSH 文件到仓库</h3><ol>
+<li><p>添加所有文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add  --a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加说明</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m ‘说明文字’</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push到仓库</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin</span><br><span class="line">$ git@github.com:LeekinGTA/blog.git</span><br><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>如果执行git push origin gh-pages报错<br>则执行：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="删除仓库中的文件"><a href="#删除仓库中的文件" class="headerlink" title="删除仓库中的文件"></a>删除仓库中的文件</h3><p>有些时候我们想要删除仓库中的文件，我折腾了老半天，现在总结一下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename:文件名， commit：说明 ，branch：分支名</span><br></pre></td></tr></table></figure></p>
+<p>来到本地仓库目录<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached filename</span><br><span class="line">$ git commit -m 'commit'</span><br><span class="line">$ git push origin branch</span><br></pre></td></tr></table></figure></p>
+<p>OK，到你的仓库里看看是否已经删除</p>
+<hr>
+<h3 id="我们写好博客时，需要与仓库进行代码的同步"><a href="#我们写好博客时，需要与仓库进行代码的同步" class="headerlink" title="我们写好博客时，需要与仓库进行代码的同步"></a>我们写好博客时，需要与仓库进行代码的同步</h3><p><strong>这时候只需要用</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m '描述一下更新'</span><br><span class="line">$ git push origin gh-pages</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/05/07/GodotEngine/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          GodotEngine
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/blog/categories/NET/">.NET (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Hexo/">Hexo (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/NGINX/">NGINX (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Dynamics-NAV/">Dynamics NAV (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Humor/">Humor (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/C/">C++ (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Linux/">Linux (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/github/">github (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/">GodotEngine</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="/blog/" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/13/Vita-1/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="/blog/" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/14/Vita/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>Computer Lab is a software development and marketing company based in Brooklyn, New York. <br><br> Computer Lab was founded in 2015, and is focused on so on and so forth.</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              140 Metropolitan Avenue<br>
+              5th Floor<br>
+              Brooklyn, NY 11249<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/computerlab_"
+	  data-widget-id="678830341331820544">Tweets by @computerlab_</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>

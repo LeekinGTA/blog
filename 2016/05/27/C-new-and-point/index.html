@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ new和指针 | LeekinBlog</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="C++ new和指针
+计算机在储存数据时我们必须跟踪三个属性：
+
+信息被储存在何处？
+储存的值是多少？
+储存的信息是什么类型
+
+
+
+声明一个指针12int a=100;int *b=&amp;amp;a;
+
+
+
+这里我们创建了a变量和指针b，并把a的地址赋给指针b，现在指针b储存的就是a在内存里的地址，我们可以通过b来访问a的值：12a和 *b是等效的，他们的值都是100&amp;amp;a和b是等效的，它们都是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ new和指针">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/05/27/C-new-and-point/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="C++ new和指针
+计算机在储存数据时我们必须跟踪三个属性：
+
+信息被储存在何处？
+储存的值是多少？
+储存的信息是什么类型
+
+
+
+声明一个指针12int a=100;int *b=&amp;amp;a;
+
+
+
+这里我们创建了a变量和指针b，并把a的地址赋给指针b，现在指针b储存的就是a在内存里的地址，我们可以通过b来访问a的值：12a和 *b是等效的，他们的值都是100&amp;amp;a和b是等效的，它们都是">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/xing1.jpg">
+<meta property="og:updated_time" content="2016-09-14T06:16:47.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ new和指针">
+<meta name="twitter:description" content="C++ new和指针
+计算机在储存数据时我们必须跟踪三个属性：
+
+信息被储存在何处？
+储存的值是多少？
+储存的信息是什么类型
+
+
+
+声明一个指针12int a=100;int *b=&amp;amp;a;
+
+
+
+这里我们创建了a变量和指针b，并把a的地址赋给指针b，现在指针b储存的就是a在内存里的地址，我们可以通过b来访问a的值：12a和 *b是等效的，他们的值都是100&amp;amp;a和b是等效的，它们都是">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/xing1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
+    </div>
+  </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
+
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH -->
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	<!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2016/05/27/C-new-and-point/">C++ new和指针</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-C-new-and-point" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> Leekin</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-05-27T11:12:00.000Z" itemprop="datePublished">2016/05/27</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/blog/tags/C/" title="C++">C++</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/blog/categories/C/">C++</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C-new和指针"><a href="#C-new和指针" class="headerlink" title="C++ new和指针"></a>C++ new和指针</h2><img src="/blog/2016/05/27/C-new-and-point/xing1.jpg" alt="这是一个装饰图" title="这是一个装饰图">
+<h3 id="计算机在储存数据时我们必须跟踪三个属性："><a href="#计算机在储存数据时我们必须跟踪三个属性：" class="headerlink" title="计算机在储存数据时我们必须跟踪三个属性："></a>计算机在储存数据时我们必须跟踪三个属性：</h3><blockquote>
+<ul>
+<li>信息被储存在何处？</li>
+<li>储存的值是多少？</li>
+<li>储存的信息是什么类型</li>
+</ul>
+</blockquote>
+<ol>
+<li>声明一个指针<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> *b=&amp;a;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>这里我们创建了a变量和指针b，并把a的地址赋给指针b，现在指针b储存的就是a在内存里的地址，我们可以通过b来访问a的值：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a和 *b是等效的，他们的值都是<span class="number">100</span></span><br><span class="line">&amp;a和b是等效的，它们都是内存地址</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ol>
+<li><p>指针和C++运行原理<br><strong>oop强调的是运行阶段进行决策，运行阶段是指程序运行时，编译阶段是指编译器把程序组合起来，变成二进制文件，比如我们要创建一个数组，但是我们不知道数组在使用的时候要存多少数据，这时候不能把他的容量写死，而是让它在运行阶段根据实际情况来决定他的大小，例如：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>];<span class="comment">//编译阶段分配19的固定大小内存</span></span><br><span class="line"><span class="keyword">int</span> a[]=new <span class="keyword">int</span>;<span class="comment">//运行阶段分配内存</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针详细介绍</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *a; <span class="comment">//指针名：a，指针指向的类型为：int，指针类型为：int *</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针的危险</p>
+<h4 id="我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。"><a href="#我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。" class="headerlink" title="我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。"></a>我们在创建指针时，计算机将分配用来储存地址的内存，但不会分配用来存储指针所指向的数据的内存，为数据提供空间是一个独立的步骤，如果忽略这一步骤将导致不可预测的后果。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> *fellow;</span><br><span class="line">*fellow=<span class="number">223323</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>上述代码没有将地址赋给指针，223323将被存在何处我们不得而知，由于fellow没有被初始化，它可能有任何的值，不管地址是什么，他将是储存223323的地址，如果fellow恰巧为1200,计算机将把数据储存在地址1200上，fellow所指向的地方可能并不是所要储存223323的地方，这种错误将导致不可预测的后果。</p>
+</blockquote>
+<p><strong>注意：一定要在对指针解除引用运算符（*）之前，将指针初始化为一个确定的、适合的地址</strong></p>
+<ol>
+<li>使用new来分配内存<h4 id="在C语言中使用库函数malloc-函数来申请内存，C-同样也可以使用他，但是C-有更好的方法–new运算符-其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。"><a href="#在C语言中使用库函数malloc-函数来申请内存，C-同样也可以使用他，但是C-有更好的方法–new运算符-其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。" class="headerlink" title="在C语言中使用库函数malloc()函数来申请内存，C++同样也可以使用他，但是C++有更好的方法–new运算符,其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。"></a>在C语言中使用库函数malloc()函数来申请内存，C++同样也可以使用他，但是C++有更好的方法–new运算符,其实new运算符是在堆内存（heap）当中来申请内存，内存分为堆内存（heap）和栈内存（stack），以其他方式申请的内存都放到了栈内存中，申请和释放都由系统来完成，而堆内存则需要我们手动申请、释放。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *ptr=new <span class="keyword">int</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>new int告诉程序，需要一块能够储存int大小的内存块，new根据类型来确定需要多少字节的内存，然后它找到这样的内存，并返回其地址，接下来地址会被赋给ptr。</p>
+<ol>
+<li>new和delete<h4 id="在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？"><a href="#在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？" class="headerlink" title="在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？"></a>在前面我们已经说过，heap内存需要我们手动申请和释放，我们已经学会如何来申请内存，那么释放呢？</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> ptr;<span class="comment">//删除内存占用</span></span><br><span class="line">ptr=<span class="literal">NULL</span>;<span class="comment">//将指针置为空（安全起见）</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="对于使用new新建的数组应该怎样来释放内存"><a href="#对于使用new新建的数组应该怎样来释放内存" class="headerlink" title="对于使用new新建的数组应该怎样来释放内存"></a>对于使用new新建的数组应该怎样来释放内存</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *some=new some[];</span><br><span class="line"><span class="comment">/*使用some数组*/</span></span><br><span class="line"><span class="keyword">delete</span> []some;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里我们使用new来为some数组申请内存，对应就应该使用delete []some来释放内存，而不是使用delete some,这仅仅只清理了数组地一个元素所占的内存，及some[0],内存依然没有被清理干净，同样会发生内存泄漏的危险。</p>
+</blockquote>
+<ol>
+<li>数组与指针<br><strong>在C++中，数组在内存中是一个连续的片段，文章的开头我们已经说了，我们需要跟踪他的三个属性，其中我们不确定它在内存中的位置，因为数组的每个元素都有其地址。其实数组也是一个指针，当声明一个数组的时候，就以它的第一个元素的地址来作为他在内存当中的位置，比如：</strong><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> price [];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>这里的price和指针是一样的，加入我们试图输出price：std::cout&lt;&lt;price;这里将会输出一个内存地址，也就是说，数组就是指针。</p>
+</blockquote>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/06/19/Centos-install-and-configure-LAMP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Centos install and configure LAMP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/05/22/C-标准模板库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C++ 标准模板库</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/blog/categories/NET/">.NET (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Hexo/">Hexo (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/NGINX/">NGINX (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Dynamics-NAV/">Dynamics NAV (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Humor/">Humor (0)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/C/">C++ (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Linux/">Linux (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/github/">github (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/">GodotEngine</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="/blog/" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/13/Vita-1/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="/blog/" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/14/Vita/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>Computer Lab is a software development and marketing company based in Brooklyn, New York. <br><br> Computer Lab was founded in 2015, and is focused on so on and so forth.</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              140 Metropolitan Avenue<br>
+              5th Floor<br>
+              Brooklyn, NY 11249<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/computerlab_"
+	  data-widget-id="678830341331820544">Tweets by @computerlab_</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
