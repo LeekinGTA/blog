@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>搭建react-native开发环境 | LeekinBlog</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="前言：
+对于昨天所遇到的问题，我想做一个总结，很久没有总结了，当问题再一次遇到了，我差不多也忘记了上次我是如何解决这个问题的,我应该不停的写博客来记录这些问题。在这里，我会总结这一个月的所学所遇到的问题，在环境搭建过程中所遇到的问题。
+
+我的系统配置:
+系统：Arch Linux包管理器：pacman yaort环境：node6.6.0  npm3.10.7 python2.7编辑器：Atom
+1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建react-native开发环境">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/09/19/搭建react-native开发环境/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="前言：
+对于昨天所遇到的问题，我想做一个总结，很久没有总结了，当问题再一次遇到了，我差不多也忘记了上次我是如何解决这个问题的,我应该不停的写博客来记录这些问题。在这里，我会总结这一个月的所学所遇到的问题，在环境搭建过程中所遇到的问题。
+
+我的系统配置:
+系统：Arch Linux包管理器：pacman yaort环境：node6.6.0  npm3.10.7 python2.7编辑器：Atom
+1">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/system.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/netconfig.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/netconfig2.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/sdkconfig.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/needSdk.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/npmBug.png">
+<meta property="og:updated_time" content="2016-09-19T05:54:43.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建react-native开发环境">
+<meta name="twitter:description" content="前言：
+对于昨天所遇到的问题，我想做一个总结，很久没有总结了，当问题再一次遇到了，我差不多也忘记了上次我是如何解决这个问题的,我应该不停的写博客来记录这些问题。在这里，我会总结这一个月的所学所遇到的问题，在环境搭建过程中所遇到的问题。
+
+我的系统配置:
+系统：Arch Linux包管理器：pacman yaort环境：node6.6.0  npm3.10.7 python2.7编辑器：Atom
+1">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/system.png">
+  
+    <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
+    </div>
+  </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
+
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH -->
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	<!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2016/09/19/搭建react-native开发环境/">搭建react-native开发环境</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-搭建react-native开发环境" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> Leekin</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-09-19T02:22:12.000Z" itemprop="datePublished">2016/09/19</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/blog/tags/react-native/" title="react-native">react-native</a>,
+  
+    <a href="/blog/tags/开发环境/" title="开发环境">开发环境</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><blockquote>
+<p>对于昨天所遇到的问题，我想做一个总结，很久没有总结了，当问题再一次遇到了，我差不多也忘记了上次我是如何解决这个问题的,我应该不停的写博客来记录这些问题。在这里，我会总结这一个月的所学所遇到的问题，在环境搭建过程中所遇到的问题。</p>
+</blockquote>
+<p><em>我的系统配置:</em></p>
+<p><strong>系统：Arch Linux</strong><br><strong>包管理器：pacman yaort</strong><br><strong>环境：node6.6.0  npm3.10.7 python2.7</strong><br><strong>编辑器：Atom</strong></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/blog/2016/09/19/搭建react-native开发环境/system.png" alt="我的ArchLinux" title="我的ArchLinux"></h2><h2 id="1-从科学上网说起"><a href="#1-从科学上网说起" class="headerlink" title="1.从科学上网说起"></a>1.从科学上网说起</h2><p><strong>我使用的是自己用centos搭建的shadowsocks服务，如果你没有可以到bing上搜索shadowsocks,购买之后会给你一个域名(ip)、端口、密码、加密方式，这里的大量工作，还是需要我们在本地搭建shadowsocks来接收数据，本地搭建请看这篇博客:</strong><br><blockquote><p>Shadowsocks是一款方便的代理软件，本文将介绍在本地搭建shadowsocks来接收数据，为科学上网提供安全通道。</p>
+<footer><strong>@Geequlim:</strong><cite><a href="http://geequlim.com/post/2016-02-01-shadowsocks-on-linux" target="_blank" rel="external">geequlim.com/post/2016-02-01-shadowsocks-on-linux</a></cite></footer></blockquote></p>
+<p><strong>搭建好了服务之后，我们还需要在本地配置我们的网络，启用代理端口来进行上网，如果你是win用户，下载shadowsocks客户端可以一键搞定代理，在linux上打开网络配置，选择网络代理选项，进行如下图操作：</strong></p>
+<img src="/blog/2016/09/19/搭建react-native开发环境/netconfig.png" alt="网络代理配置" title="网络代理配置">
+<blockquote>
+<p>配置好这一个步骤之后，如果一切正常的话，我们就可以进行科学上网了，但我们用的是全局代理，所有流量都要通过代理服务器，我们访问国内的网站数据同样在到国外绕个圈。</p>
+</blockquote>
+<hr>
+<h2 id="2-使用genpac工具进行pac模式上网"><a href="#2-使用genpac工具进行pac模式上网" class="headerlink" title="2.使用genpac工具进行pac模式上网"></a>2.使用genpac工具进行pac模式上网</h2><blockquote>
+<p>genpac是国内的大神制作的，能够从GFW同步黑名单的工具，使用python开发，这里我们要用到python2.7来进行安装和运行，这里问题来了，如果你的python版本是3.x的改怎么办，我在网上看了很多人把python3卸载装python2的，结果就出现很多问题，因为python3是作为其他软件的依赖被安装的，依赖都被卸载了，其他的一些软件就要出问题，我的解决方案是：</p>
+</blockquote>
+<p><strong>python2和python3能够同时安装在系统中，但是python3是默认的python，运行脚本是我们要手动指定使用python2,用编辑器代开/usr/bin/genpac文件修改头部指定的python</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来我们要安装genpac，执行下面的命令进行安装，没错使用python的包管理工具pip</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">$ pip install genpac</span><br><span class="line"><span class="comment"># 或从github安装开发版本</span></span><br><span class="line">$ pip install https://github.com/JinnLynn/genpac/archive/master.zip</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">$ pip install --upgrade genpac</span><br><span class="line"><span class="comment"># 或从github更新开发版本</span></span><br><span class="line">$ pip install --upgrade https://github.com/JinnLynn/genpac/archive/master.zip</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">$ pip uninstall genpac</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>别忘记了去修改genpac文件，指定python2,接下来我们要改配置文件，<a href="https://github.com/JinnLynn/genpac/blob/master/genpac/res/config-sample.ini" target="_blank" rel="external">配置文件在这里</a></p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们需要修改的几项：</span></span><br><span class="line"><span class="attr">proxy</span> = <span class="string">"SOCKS5 127.0.0.1:1080; HTTPS 127.0.0.1:8118;HTTP 127.0.0.1:8118"</span>#　第７行修改</span><br><span class="line"><span class="comment">#　第１５行将注释去掉</span></span><br><span class="line"><span class="attr">gfwlist-url</span> = https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</span><br><span class="line"><span class="comment">#第17行指定gfwlist本地文件，在线地址获取失败时读取本地</span></span><br><span class="line"><span class="attr">gfwlist-local</span> = /home/leekin/Shadowsocks/gfwlist.txt</span><br><span class="line"><span class="comment"># 第３０行指定pac文件的保存路径</span></span><br><span class="line"><span class="attr">output</span> = ~/Shadowsocks/autoproxy.pac</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>配置文件修改好之后，执行genpac命令来生成一个pac文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ genpac --config-from=FILE</span><br><span class="line"><span class="comment"># FILE是刚刚写的配置文件</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果一切无误，在你指定的目录下应该生成了pac文件了，这个文件是属于你这台电脑独一无二的配置文件，如果拷贝给其他小伙伴，或许用不了。其次，我们再次打开网络代理配置，选择自动，然后将pac文件路径填进去，如下：</p>
+</blockquote>
+<img src="/blog/2016/09/19/搭建react-native开发环境/netconfig2.png" alt="netconfig2.png" title="">
+<blockquote>
+<p>选择了这个模式后你的系统代理就是pac模式</p>
+</blockquote>
+<hr>
+<h2 id="3-下载AndroidStudio并安装SDK包"><a href="#3-下载AndroidStudio并安装SDK包" class="headerlink" title="3.下载AndroidStudio并安装SDK包"></a>3.下载AndroidStudio并安装SDK包</h2><p><strong>这里我使用pacman安装了AndroidStudio，打开AndroidSDK,在option当中进行配置，使用我们配置好的科学上网端口，如下所示:</strong></p>
+<img src="/blog/2016/09/19/搭建react-native开发环境/sdkconfig.png" alt="配置option" title="配置option">
+<p><strong>配置好我们点reload，重新加载信息，这里我们选择安装平台构建工具、版本sdk和相应的库文件，如下所示：</strong></p>
+<img src="/blog/2016/09/19/搭建react-native开发环境/needSdk.png" alt="needSdk.png" title="">
+<p><strong>更多的详细介绍请点击这里看</strong> <a href="http://reactnative.cn/docs/0.31/getting-started.html#content" target="_blank" rel="external">官方文档</a></p>
+<blockquote>
+<p>把下面的命令加入到~/.bashrc、~/.bash_profile文件中。如果你使用的是其他的shell，则选择对应的配置文件:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。</span></span><br><span class="line"><span class="built_in">export</span> ANDROID_HOME=~/Library/Android/sdk</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>然后使用下列命令使其立即生效（否则重启后才生效）：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ./bash_profile</span><br></pre></td></tr></table></figure>
+<h2 id="4-安装watchman"><a href="#4-安装watchman" class="headerlink" title="4.安装watchman"></a>4.安装watchman</h2><blockquote>
+<p>watchman也是facebook　react-native项目当中制作的一个工具，他的主要作用是监听文件改动，这样可以做到实时调试安卓项目，当我保存修改过的js文件后，watchman监听到文件变化就会重新打包并发送给安卓虚拟机。我的watchman使用yaort安装的，安装完后一般就不用管了，他会随react-native启动，如果你的包管理器当中没有，你可以到github上下载源码来编译安装。</p>
+</blockquote>
+<h2 id="5-安装VirtualBox和Genymotion安卓虚拟机"><a href="#5-安装VirtualBox和Genymotion安卓虚拟机" class="headerlink" title="5.安装VirtualBox和Genymotion安卓虚拟机"></a>5.安装VirtualBox和Genymotion安卓虚拟机</h2><blockquote>
+<p>安装VirtualBox,VirtualBox是Genymotion的一个依赖软件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S VirtualBox</span><br><span class="line">$ sudo pacman -S Genymotion</span><br></pre></td></tr></table></figure>
+<p><strong>安装完之后，我们之前在安装安卓构建工具的时候，已经安装了adb,我们要将adb添加到系统PATH路径中，否则调试项目时必将出现问题。然后打开Genymotion，选择一个安卓系统进行安装</strong></p>
+<h2 id="6-将socks5转换为http"><a href="#6-将socks5转换为http" class="headerlink" title="6.将socks5转换为http"></a>6.将socks5转换为http</h2><blockquote>
+<p>应用shadowsocks代理的数据都是socks5的，我们需要将socks5转换为npm能使用的HTTP，这里我们将安装一个privoxy工具。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S privoxy</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装成功之后，运行</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其他系统可能不一样，可能是service</span></span><br><span class="line">systemd-run privoxy start</span><br><span class="line"><span class="comment">#运行上面的命令如果报出找不到config文件，那我们需要手动指定config文件的路径</span></span><br><span class="line">systemd-run privoxy configfile /etc/privoxy/config restart</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输入密码，到此已经将1080发来的socks5数据成功转换并交给8118端口</p>
+</blockquote>
+<hr>
+<h2 id="7-安装react-native"><a href="#7-安装react-native" class="headerlink" title="7.安装react-native"></a>7.安装react-native</h2><blockquote>
+<p>在安装react-native之前，先确认你的nodejs和npm版本</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$node</span> -v</span><br><span class="line">node6.6.0  </span><br><span class="line"><span class="variable">$npm</span> -v</span><br><span class="line">npm3.10.7</span><br></pre></td></tr></table></figure>
+<p><strong>我之前使用的版本是npm3.10.6,这个版本有一bug,在构建react-native项目的时候，会卡在某一步，如下图：</strong></p>
+<img src="/blog/2016/09/19/搭建react-native开发环境/npmBug.png" alt="npm的一个bug导致无法链接源" title="npm的一个bug导致无法链接源">
+<blockquote>
+<p>so we need upgrade npm version</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#直接升级系统</span></span><br><span class="line">$ sudo pacman -Syu</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="7-1配置npm使用代理端口"><a href="#7-1配置npm使用代理端口" class="headerlink" title="7.1配置npm使用代理端口"></a>7.1配置npm使用代理端口</h3><blockquote>
+<p>我因为升级了npm忘记配置，被虐一天，心情落入谷底😢</p>
+</blockquote>
+<p><strong>只需要一个命令就能解决问题：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure></p>
+<h2 id="这样npm就能使用从8118端口转换过来的HTTP数据了"><a href="#这样npm就能使用从8118端口转换过来的HTTP数据了" class="headerlink" title="这样npm就能使用从8118端口转换过来的HTTP数据了"></a><strong>这样npm就能使用从8118端口转换过来的HTTP数据了</strong></h2><blockquote>
+<p>在npm升级之后，我们就可以安装react-native了</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装Flow</p>
+</blockquote>
+<p><strong>Flow是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。</strong></p>
+<p><em>在终端中输入以下命令来安装flow:</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g flow-bin</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>开启Gradle Daemon可以极大地提升java代码的增量编译速度。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/.gradle/gradle.properties &amp;&amp; <span class="built_in">echo</span> <span class="string">"org.gradle.daemon=true"</span> &gt;&gt; ~/.gradle/gradle.properties</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>到这一步，我们的开发环境基本搭建完毕了，我们需要init一个项目，查看是否搭建成功：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init HelloWorld</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果没什么问题，在你的目录中应该有一个HelloWorld文件夹,确保你的安卓虚拟机打开</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> HelloWorld</span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这时会在你的虚拟机上运行一个空项目，至此，环境搭建成功😝</p>
+</blockquote>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/09/14/Vita-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">个人简历</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/blog/categories/C/">C++ (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Linux/">Linux (6)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/github/">github (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发环境/"><i class='fa fa-tags'></i>开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/网络营销/"><i class='fa fa-tags'></i>网络营销</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/">GodotEngine</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/myself.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/14/Vita-1/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/myself.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/14/Vita/">个人简历</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/">搭建react-native开发环境</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>Computer Lab is a software development and marketing company based in Brooklyn, New York. <br><br> Computer Lab was founded in 2015, and is focused on so on and so forth.</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              140 Metropolitan Avenue<br>
+              5th Floor<br>
+              Brooklyn, NY 11249<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/computerlab_"
+	  data-widget-id="678830341331820544">Tweets by @computerlab_</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
