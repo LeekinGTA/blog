@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++继承&lt;单继承&gt; | LeekinBlog</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="1. 什么是继承C++的继承是opp面向对象的一大重点，他能让你提高编程的效率，让你少写重复代码，如果你拥有面向对象的思维的话，继承通俗的来说就像现实生活当中，我们继承继承了父亲的财产，那么单继承就是：国家计划生育，只能生育一个，但是这其中有很多学问。但在计算机的世界里没有现实社会这么随意，一个简单的单继承例子：1234567891011121314151617181920212223242526">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++继承<单继承>">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/09/21/C-继承/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="1. 什么是继承C++的继承是opp面向对象的一大重点，他能让你提高编程的效率，让你少写重复代码，如果你拥有面向对象的思维的话，继承通俗的来说就像现实生活当中，我们继承继承了父亲的财产，那么单继承就是：国家计划生育，只能生育一个，但是这其中有很多学问。但在计算机的世界里没有现实社会这么随意，一个简单的单继承例子：1234567891011121314151617181920212223242526">
+<meta property="og:updated_time" content="2016-09-21T07:42:19.345Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++继承<单继承>">
+<meta name="twitter:description" content="1. 什么是继承C++的继承是opp面向对象的一大重点，他能让你提高编程的效率，让你少写重复代码，如果你拥有面向对象的思维的话，继承通俗的来说就像现实生活当中，我们继承继承了父亲的财产，那么单继承就是：国家计划生育，只能生育一个，但是这其中有很多学问。但在计算机的世界里没有现实社会这么随意，一个简单的单继承例子：1234567891011121314151617181920212223242526">
+  
+    <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
+    </div>
+  </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
+
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	 END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2016/09/21/C-继承/">C++继承&lt;单继承&gt;</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-C-继承" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> Leekin</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-09-21T05:02:41.000Z" itemprop="datePublished">2016/09/21</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="http://leekingta.github.io/blog/blog/2016/09/21/C-继承/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/blog/tags/C/" title="C++">C++</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/blog/categories/C/">C++</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-什么是继承"><a href="#1-什么是继承" class="headerlink" title="1. 什么是继承"></a>1. 什么是继承</h2><p><strong>C++的继承是opp面向对象的一大重点，他能让你提高编程的效率，让你少写重复代码，如果你拥有面向对象的思维的话，继承通俗的来说就像现实生活当中，我们继承继承了父亲的财产，那么单继承就是：国家计划生育，只能生育一个，但是这其中有很多学问。但在计算机的世界里没有现实社会这么随意，一个简单的单继承例子：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Friut</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="keyword">int</span> ID;</span><br><span class="line">  <span class="keyword">int</span> temp;</span><br><span class="line">  <span class="built_in">string</span> name;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">getID</span><span class="params">()</span><span class="keyword">const</span></span><br><span class="line">  </span>&#123;</span><br><span class="line">    return <span class="keyword">this</span>-&gt;ID;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="built_in">string</span> <span class="title">getName</span><span class="params">()</span><span class="keyword">const</span></span><br><span class="line">  </span>&#123;</span><br><span class="line">    return <span class="keyword">this</span>-&gt;name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">getTemp</span><span class="params">()</span><span class="keyword">const</span></span><br><span class="line">  </span>&#123;</span><br><span class="line">    return <span class="keyword">this</span>-&gt;temp;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Friut(<span class="keyword">int</span> id,<span class="keyword">int</span> tmp,<span class="built_in">string</span> name);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//apple 继承Friut</span></span><br><span class="line">calss apple : <span class="keyword">public</span> Friut</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">typedef</span> Friut super;</span><br><span class="line">  apple(<span class="keyword">bool</span> isEat,<span class="keyword">int</span> id,<span class="keyword">int</span> temp,<span class="built_in">string</span> name):super(id,temp,name)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;isEat=isEat;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">bool</span> isEat;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">appPrint</span><span class="params">()</span></span><br><span class="line">  </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(isEat,ID,temp,name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>说明：这里我们建立了单继承，<code>calss apple : public Friut</code>告诉我们apple继承自Friut,所以基类是Friut，派生类是：apple，Friut前面的public告诉我们这是一个公有继承，将建立is-a关系</p>
+</blockquote>
+<h2 id="2-继承的访问权限控制"><a href="#2-继承的访问权限控制" class="headerlink" title="2. 继承的访问权限控制"></a>2. 继承的访问权限控制</h2><p><strong>就以上面的例子来说明，apple继承自Friut,那么apple得到了Friut当中protected和public权限的数据，被声明为private的数据将继承不到，但是可以通过基类当中的protected权限块来访问，关于访问权限的控制，需要根据实际情况来确认，是用private还是protected或public？下面是基类当中访问权限控制下派生类可继承信息：</strong></p>
+<ul>
+<li>声明为private:私有，派生类将无法继承</li>
+<li>声明为protected:受保护的，派生类可以继承这部分的数据，但是它对外不可见。</li>
+<li>声明为public:公有的，派生类可以继承到，而且对外可见，任何类都将能访问。</li>
+</ul>
+<h2 id="3-构造函数"><a href="#3-构造函数" class="headerlink" title="3. 构造函数"></a>3. 构造函数</h2><p><strong>根据上面的例子:<code>apple(bool isEat,int id,int temp,string name):super(id,temp,name)</code>可知，创建派生类对象时，程序首先构造基类对象，我们通过构造函数将数据传递给了基类构造函数，例如：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">apple <span class="title">bigApple</span><span class="params">(<span class="literal">false</span>,<span class="number">1001</span>,<span class="number">20</span>,<span class="string">"bigApple"</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在使用apple的构造函数创建对象时，首先将实参传递给super(id,temp,name)形参，并创建了基类对象，接下来执行完{…}模块，bigApple创建完成。</p>
+</blockquote>
+<p><strong>假如我们没有加入成员初始化列表：super(id,temp,name)语句呢。</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class apple</span></span><br><span class="line">apple(<span class="keyword">bool</span> isEat,<span class="keyword">int</span> id,<span class="keyword">int</span> temp,<span class="built_in">string</span> name)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">this</span>-&gt;isEat=isEat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>这时程序将使用基类的默认构造函数来创建对象，在创建派生类对象。有关派生类构造函数的要点如下:</strong></p>
+<ul>
+<li>首先创建基类对象</li>
+<li>派生类构造函数应当通过成员初始化列表将基类信息传递给基类的构造函数</li>
+<li>派生类构造函数应当初始化派生类新增的数据成员</li>
+</ul>
+<p><strong>除非要使用默认构造函数，否则应当显示的指明基类构造函数，比如：</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class apple</span></span><br><span class="line">apple(<span class="keyword">bool</span> isEat,<span class="keyword">const</span> Friut &amp;friut):Friut(friut)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">this</span>-&gt;isEat=isEat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这里的<code>Friut(friut)</code>将使用friut创建一个基类Friut对象，由于friut的类型是const Friut &amp;,所以将使用基类的拷贝构造函数，但是我们并没有定义Friut的拷贝构造函数，需要用到而又没有定义，这时候编译器将为我们生成一个拷贝构造函数。</p>
+</blockquote>
+<h2 id="4-派生类和基类之间的特殊关系-lt-难点-gt"><a href="#4-派生类和基类之间的特殊关系-lt-难点-gt" class="headerlink" title="4. 派生类和基类之间的特殊关系&lt;难点&gt;"></a>4. 派生类和基类之间的特殊关系&lt;难点&gt;</h2><blockquote>
+<h3 id="1-派生类对象可以使用基类的方法，条件是方法不是私有的"><a href="#1-派生类对象可以使用基类的方法，条件是方法不是私有的" class="headerlink" title="1)派生类对象可以使用基类的方法，条件是方法不是私有的"></a>1)派生类对象可以使用基类的方法，条件是方法不是私有的</h3></blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">apple <span class="title">smallApple</span><span class="params">(<span class="literal">true</span>,<span class="number">1002</span>,<span class="number">30</span>,<span class="string">"smallApple"</span>)</span></span>;</span><br><span class="line">smallApple.getName();   <span class="comment">//派生类对象smallApple使用基类方法getName</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="2-基类指针可以在不通过显示转换的情况下指向派生类对象，基类引用可以在不通过显示转换的情况下引用派生类对象"><a href="#2-基类指针可以在不通过显示转换的情况下指向派生类对象，基类引用可以在不通过显示转换的情况下引用派生类对象" class="headerlink" title="2)基类指针可以在不通过显示转换的情况下指向派生类对象，基类引用可以在不通过显示转换的情况下引用派生类对象"></a>2)基类指针可以在不通过显示转换的情况下指向派生类对象，基类引用可以在不通过显示转换的情况下引用派生类对象</h3></blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">apple <span class="title">redApple</span><span class="params">(<span class="literal">false</span>,<span class="number">10011</span>,<span class="number">23</span>,<span class="string">"redApple"</span>)</span></span>;</span><br><span class="line">Friut &amp;friut1 = redApple;</span><br><span class="line">Friut *friut2 = &amp;redApple;</span><br><span class="line">friut1.getID();</span><br><span class="line">friut2-&gt;getTemp();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="3-基类对象的指针和引用只能调用基类的方法，而不能调用派生类方法appPrint-，如下："><a href="#3-基类对象的指针和引用只能调用基类的方法，而不能调用派生类方法appPrint-，如下：" class="headerlink" title="3)基类对象的指针和引用只能调用基类的方法，而不能调用派生类方法appPrint()，如下："></a>3)基类对象的指针和引用只能调用基类的方法，而不能调用派生类方法appPrint()，如下：</h3></blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">friut1.appPrint();<span class="comment">//这将是不引许的</span></span><br><span class="line">friut2-&gt;appPrint();<span class="comment">//这将是不引许的</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="4-派生类的指针和引用不能指向和引用基类对象-以下操作将是不引许的"><a href="#4-派生类的指针和引用不能指向和引用基类对象-以下操作将是不引许的" class="headerlink" title="4)派生类的指针和引用不能指向和引用基类对象,以下操作将是不引许的"></a>4)派生类的指针和引用不能指向和引用基类对象,以下操作将是不引许的</h3></blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Friut <span class="title">noFriut</span><span class="params">(<span class="number">1014</span>,<span class="number">29</span>,<span class="string">"without_"</span>)</span></span>;</span><br><span class="line">apple &amp;app1 = noFriut;<span class="comment">//不引许的</span></span><br><span class="line">apple *ptr_app = &amp;noFriut;<span class="comment">//不引许的</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-使用公有继承建立is-a关系"><a href="#5-使用公有继承建立is-a关系" class="headerlink" title="5. 使用公有继承建立is-a关系"></a>5. 使用公有继承建立is-a关系</h2><p><strong>继承要和面向对象思想结合使用，这将是有意义的，不仅仅满足is-a关系就行了.</strong></p>
+<ul>
+<li>公有继承不能建立has-a关系，比如午餐可能包含水果，但午餐并不是水果，所以不能从Friut类当中派生出Lunch类；</li>
+<li><p>公有继承不能建立is-like-a关系，比如语文当中会将一个发呆的人比作木头人，但其实他并不真的是木头，所以不能从wood当中派生出people类；</p>
+</li>
+<li><p>公有继承不能建立is-implemented-as-a(作为…..来实现),例如，可以使用数组来实现栈，但从Array类中派生出Stack是不适合的，因为栈不是数组。</p>
+</li>
+<li><p>公有继承不能建立uses-a关系，比如，电脑可以使用打印机，但是不能从电脑中派生出打印机机类，这将是无意义的，</p>
+</li>
+</ul>
+<blockquote>
+<p>oop面向对象有助于为我们把计算机当中非常抽象的东西在现实生活中找到例子，大大提高我们对抽象概念的理解，这更接近人的思维，更容易理解，所以继承也要和面向对象相结合才能够发挥最大效用，同时也增强了代码的可读性，适合团队协作项目。</p>
+</blockquote>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/09/19/搭建react-native开发环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">搭建react-native开发环境</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/blog/categories/C/">C++ (5)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Linux/">Linux (6)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/github/">github (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发环境/"><i class='fa fa-tags'></i>开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/网络营销/"><i class='fa fa-tags'></i>网络营销</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/">GodotEngine</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/">搭建react-native开发环境</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>我是Leekin个人开发者,大学自学C++，javascript，梦想是成立一家游戏公司，拥有制定行业标准的力量。关于梦想与现实，我觉得——要能接受现实，但不能放弃梦想。座右铭：对自己要求严格，不断挑战自己的极限，别人能解决的问题，我同样可以。</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              QQ:237646922<br>
+              微信号:lioooops<br>
+              facebook:https://www.facebook.com/taoo.lee.9<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/Leekin"
+	  data-widget-id="678830341331820544">Tweets by @Leekin</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="https://www.facebook.com/taoo.lee.9"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
