@@ -7,30 +7,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C++ 标准模板库 | LeekinBlog</title>
+  <title>多态公有继承 | LeekinBlog</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="容器是储存其他对象的对象 1. vector
-标准模板库vector是在编程过程中常用的容器，可以创建vector对象，将一个vector对象赋给另一个对象，使用[]符号来访问vector元素，要想使类成为通用的，将它设计为模板类，vector正是这样的类。下面是vector的函数原型：
-
-12template&amp;lt;class T,class Allocator=allocator&amp;lt;T&amp;">
+  <meta name="description" content="多态公有继承
+多态的公有继承首先是建立在is-a的关系之上的，简单来说就是使用virtual关键来在基类和派生类当中，使函数有不一样的表现方式，例如：一个基类叫:brass,派生类叫:brassplus,brass类中有一个方法能够获取用户密码的方法getCumPasswd(),但是在派生类当中我想让他不获取用户的密码，而是获取当前用户的密码，这样基类当中的原函数将重新定义，但是为了不覆盖父类当中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ 标准模板库">
-<meta property="og:url" content="http://leekingta.github.io/blog/2016/05/22/C-标准模板库/index.html">
+<meta property="og:title" content="多态公有继承">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/09/24/C-继承的多态性/index.html">
 <meta property="og:site_name" content="LeekinBlog">
-<meta property="og:description" content="容器是储存其他对象的对象 1. vector
-标准模板库vector是在编程过程中常用的容器，可以创建vector对象，将一个vector对象赋给另一个对象，使用[]符号来访问vector元素，要想使类成为通用的，将它设计为模板类，vector正是这样的类。下面是vector的函数原型：
-
-12template&amp;lt;class T,class Allocator=allocator&amp;lt;T&amp;">
-<meta property="og:updated_time" content="2016-09-14T06:16:56.307Z">
+<meta property="og:description" content="多态公有继承
+多态的公有继承首先是建立在is-a的关系之上的，简单来说就是使用virtual关键来在基类和派生类当中，使函数有不一样的表现方式，例如：一个基类叫:brass,派生类叫:brassplus,brass类中有一个方法能够获取用户密码的方法getCumPasswd(),但是在派生类当中我想让他不获取用户的密码，而是获取当前用户的密码，这样基类当中的原函数将重新定义，但是为了不覆盖父类当中">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/24/C-继承的多态性/virtualFunc.jpg">
+<meta property="og:updated_time" content="2016-09-24T06:06:44.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ 标准模板库">
-<meta name="twitter:description" content="容器是储存其他对象的对象 1. vector
-标准模板库vector是在编程过程中常用的容器，可以创建vector对象，将一个vector对象赋给另一个对象，使用[]符号来访问vector元素，要想使类成为通用的，将它设计为模板类，vector正是这样的类。下面是vector的函数原型：
-
-12template&amp;lt;class T,class Allocator=allocator&amp;lt;T&amp;">
+<meta name="twitter:title" content="多态公有继承">
+<meta name="twitter:description" content="多态公有继承
+多态的公有继承首先是建立在is-a的关系之上的，简单来说就是使用virtual关键来在基类和派生类当中，使函数有不一样的表现方式，例如：一个基类叫:brass,派生类叫:brassplus,brass类中有一个方法能够获取用户密码的方法getCumPasswd(),但是在派生类当中我想让他不获取用户的密码，而是获取当前用户的密码，这样基类当中的原函数将重新定义，但是为了不覆盖父类当中">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/09/24/C-继承的多态性/virtualFunc.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
   
@@ -156,13 +152,13 @@
   <section id="main">
     
     <h2 itemprop="name">
-      <a class="article-title" href="/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a>
+      <a class="article-title" href="/blog/2016/09/24/C-继承的多态性/">多态公有继承</a>
     </h2>
 
 
     <div class="row">
 <div class="col-md-9 col-sm-9 blog-posts">
-<article id="post-C-标准模板库" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+<article id="post-C-继承的多态性" class="article article-type-post blog-item" itemscope itemprop="blogPost">
   <div class="article-meta">
   </div>
   <div class="article-inner">
@@ -172,16 +168,18 @@
       <ul class="blog-info">
 	<li><i class="fa fa-user"></i> Leekin</li>
 	<li><i class="fa fa-calendar"></i>
-	  <time datetime="2016-05-22T09:12:00.000Z" itemprop="datePublished">2016/05/22</time>
+	  <time datetime="2016-09-24T03:15:09.000Z" itemprop="datePublished">2016/09/24</time>
 
 	</li>
 	<li class="hidden-xs"><i class="fa fa-comments"></i>
-	  <a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/#disqus_thread" class="article-comment-link">Comments</a>
+	  <a href="http://leekingta.github.io/blog/blog/2016/09/24/C-继承的多态性/#disqus_thread" class="article-comment-link">Comments</a>
 	</li>
 	<li class="hidden-xs"><i class="fa fa-tags"></i> 
 	  
   
-    <a href="/blog/tags/C/" title="C++">C++</a>
+    <a href="/blog/tags/C/" title="C++">C++</a>,
+  
+    <a href="/blog/tags/C-继承/" title="C++继承">C++继承</a>
   
 
 
@@ -202,160 +200,63 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="容器是储存其他对象的对象"><a href="#容器是储存其他对象的对象" class="headerlink" title=" 容器是储存其他对象的对象 "></a><strong> 容器是储存其他对象的对象 </strong></h4><h2 id="1-vector"><a href="#1-vector" class="headerlink" title="1. vector"></a>1. vector</h2><blockquote>
-<p>标准模板库vector是在编程过程中常用的容器，可以创建vector对象，将一个vector对象赋给另一个对象，使用[]符号来访问vector元素，要想使类成为通用的，将它设计为模板类，vector正是这样的类。下面是vector的函数原型：</p>
+        <h1 id="多态公有继承"><a href="#多态公有继承" class="headerlink" title="多态公有继承"></a>多态公有继承</h1><blockquote>
+<p>多态的公有继承首先是建立在is-a的关系之上的，简单来说就是使用virtual关键来在基类和派生类当中，使函数有不一样的表现方式，例如：一个基类叫:brass,派生类叫:brassplus,brass类中有一个方法能够获取用户密码的方法getCumPasswd(),但是在派生类当中我想让他不获取用户的密码，而是获取当前用户的密码，这样基类当中的原函数将重新定义，但是为了不覆盖父类当中的原函数，我们就要在函数前加virtual关键字，来让函数在父类和基类当中有不同的表现形式。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T,<span class="keyword">class</span> Allocator=allocator&lt;T&gt;&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="built_in">vector</span>&#123;...........&#125; <span class="comment">//其中，Allocator指明使用的内存分配方式，如果省略该值，默认将使用allocator&lt;T&gt;,即new和delete的方式来分配内存</span></span><br></pre></td></tr></table></figure>
-<p><strong>vector模板函数(特定算法)</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">函数名</th>
-<th style="text-align:right">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Size()</td>
-<td style="text-align:right">返回元素中元素数目</td>
-</tr>
-<tr>
-<td style="text-align:left">Swap()</td>
-<td style="text-align:right">交换两个容器的内容</td>
-</tr>
-<tr>
-<td style="text-align:left">begin()</td>
-<td style="text-align:right">返回一个指向容器中第一个元素的迭代器</td>
-</tr>
-<tr>
-<td style="text-align:left">end()</td>
-<td style="text-align:right">返回一个表示超过容器尾的迭代器(迭代器是一个广义指针)</td>
-</tr>
-<tr>
-<td style="text-align:left">push_back()</td>
-<td style="text-align:right">将元素添加到矢量末尾</td>
-</tr>
-<tr>
-<td style="text-align:left">erase()</td>
-<td style="text-align:right">删除矢量中给定区间的元素</td>
-</tr>
-<tr>
-<td style="text-align:left">insert()</td>
-<td style="text-align:right">向矢量中插入元素，方法接受三个参数</td>
-</tr>
-</tbody>
-</table>
-<p><strong>声明一个迭代器</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;::iterator pd;</span><br></pre></td></tr></table></figure></p>
-<p><strong> 特定算法与通用算法 </strong></p>
+<p><strong>如果要在派生类中重新定义基类的方法，通常应在基类中将方法声明为虚的。这样，程序将根据对象类型，而不是指针或引用类型来选择方法版本。为基类声明一个虚析构函数也是一种惯例。</strong></p>
 <blockquote>
-<p><strong>特定算法</strong>:指的是在整个容器家族中，大多数容器都包含自己特定的算法，这种算法只能用于本容器。</p>
-<p><strong>通用算法</strong>:指的是在在容器家族中共用的函数，这些函数在设计的时候单独做了封装，这是为了减少重复代码，真正体现OOP的理念，如果通用算法被包含在模板类当中，那么相同的算法将要重复写入所有模板类中。</p>
+<p>一个例子:</p>
 </blockquote>
-<p><strong> 下面是通用算法列表 </strong><br><figure class="highlight plain"><figcaption><span>for_each</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for_each()函数能够遍历容器，函数接受三个参数，前两个参数指定访问的区间，第三个参数接受一个函数指针，将访问到的元素交给第三个参数处理。</span><br></pre></td></tr></table></figure><br><em>for_each例子:</em><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for_each(book.begin(),book.end(),out);</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>Random_shuffle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Random_shuffle()函数接受两个迭代器参数,并随机排列该区间的元素。</span><br></pre></td></tr></table></figure>
-<p><em>Random_shuffle例子:</em><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Random_shuffle(book.begin(),book.end());</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>sort()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort()函数有两个版本，１.sort()接受两个参数，指定要进行排序的区间，并对其进行排序操作，排序时使用内置的&lt;运算符进行比较。２.第二个版本需要我们指定排序的规则，即在类中定义operator&lt;()函数，当我们使用sort()函数时，就使用我们指定的函数来进行排序操作。</span><br></pre></td></tr></table></figure>
-<h2 id="2-迭代器类型"><a href="#2-迭代器类型" class="headerlink" title="2. 迭代器类型"></a>2. 迭代器类型</h2><ul>
-<li><h3 id="输入迭代器-能够从容器中读入值，不会修改容器中的值。"><a href="#输入迭代器-能够从容器中读入值，不会修改容器中的值。" class="headerlink" title="输入迭代器:能够从容器中读入值，不会修改容器中的值。"></a>输入迭代器:能够从容器中读入值，不会修改容器中的值。</h3></li>
-<li><h3 id="输出迭代器：能够向容器中写入值，不能读取值。"><a href="#输出迭代器：能够向容器中写入值，不能读取值。" class="headerlink" title="输出迭代器：能够向容器中写入值，不能读取值。"></a>输出迭代器：能够向容器中写入值，不能读取值。</h3></li>
-<li><h3 id="正向迭代器-即可以读取值也可以修改值。"><a href="#正向迭代器-即可以读取值也可以修改值。" class="headerlink" title="正向迭代器: 即可以读取值也可以修改值。"></a>正向迭代器: 即可以读取值也可以修改值。</h3></li>
-<li><h3 id="双向迭代器-双向迭代器支持正向迭代器的所有特性，同时支持两种递减运算符-前坠与后缀-。"><a href="#双向迭代器-双向迭代器支持正向迭代器的所有特性，同时支持两种递减运算符-前坠与后缀-。" class="headerlink" title="双向迭代器: 双向迭代器支持正向迭代器的所有特性，同时支持两种递减运算符(前坠与后缀)。"></a>双向迭代器: 双向迭代器支持正向迭代器的所有特性，同时支持两种递减运算符(前坠与后缀)。</h3></li>
-<li><h3 id="随机访问迭代器-随机访问迭代器具备双向迭代器的所有特性，它能够直接跳到容器中的任何一个元素，同时添加对元素的随机访问操作功能。"><a href="#随机访问迭代器-随机访问迭代器具备双向迭代器的所有特性，它能够直接跳到容器中的任何一个元素，同时添加对元素的随机访问操作功能。" class="headerlink" title="随机访问迭代器:随机访问迭代器具备双向迭代器的所有特性，它能够直接跳到容器中的任何一个元素，同时添加对元素的随机访问操作功能。"></a>随机访问迭代器:随机访问迭代器具备双向迭代器的所有特性，它能够直接跳到容器中的任何一个元素，同时添加对元素的随机访问操作功能。</h3></li>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#ifndef __apple_H__</span><br><span class="line">#define __apple_H__</span><br><span class="line"></span><br><span class="line">class Friut</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    Friut ();</span><br><span class="line">    virtual ~Friut ();</span><br><span class="line"></span><br><span class="line">    virtual void drawSelf(int x.int y)</span><br><span class="line">    &#123;</span><br><span class="line">      printf("x point:" + x + "y point:"+y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class apple : public  Friut</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    typedef Friut super;</span><br><span class="line">public:</span><br><span class="line">    apple ();</span><br><span class="line">    virtual ~apple ();</span><br><span class="line">    void drawSelf(int x.int y)</span><br><span class="line">    &#123;</span><br><span class="line">      Point point(double(x),double(y));//强制类型转换为double</span><br><span class="line">      draw(point);</span><br><span class="line">    &#125;</span><br><span class="line">    virtual void show();</span><br><span class="line">&#125;;</span><br><span class="line">#endif // __apple_H__</span><br><span class="line">//注意：这只是一个例子，它并不运行</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>首先在Friut当中定义的函数drawSelf,为了在派生类当中能够重新定义他的功能，我们使用在父类当中使用virtual关键字声明函数。</p>
+</blockquote>
+<h1 id="静态联编与动态联编"><a href="#静态联编与动态联编" class="headerlink" title="静态联编与动态联编"></a>静态联编与动态联编</h1><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p><em>将源代码中的函数调用解释为执行特定的函数代码块被称为函数联编。</em></p>
+<blockquote>
+<p>静态联编</p>
+</blockquote>
+<p><strong>在c++当中，引许我们使用函数重载，这是一个复杂的任务，，编译器必须查看函数参数以及函数名才能确定使用哪个函数，C/C++编译器可以在编译过程中完成这种联编，在编译过程中联编称为静态联编，也称早期联编。发生在编译函数重载过程。</strong></p>
+<blockquote>
+<p>动态联编</p>
+</blockquote>
+<p><strong>虚函数的这项工作将更为复杂，使用基类还是派生类当中的函数并不能在编译阶段完成，因为编译器不知道用户选择了哪种类型的对象，所以，编译器必须生成能够在程序运行时选择正确的虚方法的代码，这被称为动态联编，又称晚期联编。</strong></p>
+<blockquote>
+<p>编译器对非虚方法使用静态联编</p>
+</blockquote>
+<h3 id="2-动态联编如何工作的"><a href="#2-动态联编如何工作的" class="headerlink" title="2. 动态联编如何工作的"></a>2. 动态联编如何工作的</h3><blockquote>
+<p>动态联编在编译的过程，编译器会给每个对象生成一个隐藏成员，隐藏成员中保存了一个指向函数地址数组的指针，这个数组就叫虚函数表(vtb1)，这个表将记录下了基类函数原型的地址，如果在派生类当中定义了新的虚函数，则该函数的地址被添加到vtb1中。</p>
+</blockquote>
+<img src="/blog/2016/09/24/C-继承的多态性/virtualFunc.jpg" alt="书本例子" title="书本例子">
+<blockquote>
+<p>知道虚函数的工作原理能让我们更进一步理解虚函数，调用函数时，程序将查看储存在对象中的虚函数表中的地址，然后转向相应的函数地址表，如果使用类声明的第一个函数，则程序使用数组中第一个函数地址，并执行该地址的函数，</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apple bigApple;</span><br><span class="line">Friut *pFu = &amp;bigApple;</span><br><span class="line">pFu-&gt;drawSelf(<span class="number">12</span>,<span class="number">45</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如代码所示，pFu调用drawSelf函数，将调用基类还是派生类当中的drawSelf函数呢？如果我们没有使用虚函数来定义这个函数，将调用父类Friut当中的drawSelf函数，如果使用了虚函数，在编译阶段生成了虚函数表，那么将在bigApple对象中生成一个虚函数表，并位于数组第一个位置，当调用drawSelf函数时，实质pFu指针地址是bigApple所在地址，也是首先从vtb1中取出的地址，所以将调用apple类当中的drawSelf函数。</p>
+</blockquote>
+<h3 id="3-使用虚函数的性能消耗"><a href="#3-使用虚函数的性能消耗" class="headerlink" title="3. 使用虚函数的性能消耗"></a>3. 使用虚函数的性能消耗</h3><ul>
+<li>每个对象都将增大，增大量为储存地址的空间;</li>
+<li>对于每个类,编译器将生成一个虚函数地址表;</li>
+<li>对于每个函数调用，都要执行一个额外操作，即：查看虚函数表</li>
 </ul>
-<h2 id="3-所有容器列表"><a href="#3-所有容器列表" class="headerlink" title="3.所有容器列表"></a>3.所有容器列表</h2><hr>
-<h3 id="deque-list-queue-Priority-queue-stack-vector-map-multimap-set-multiset-bitset"><a href="#deque-list-queue-Priority-queue-stack-vector-map-multimap-set-multiset-bitset" class="headerlink" title="deque list queue Priority_queue stack vector map multimap set multiset bitset"></a><code>deque</code> <code>list</code> <code>queue</code> <code>Priority_queue</code> <code>stack</code> <code>vector</code> <code>map</code> <code>multimap</code> <code>set</code> <code>multiset</code> <code>bitset</code></h3><h3 id="C-11新增-forward-list-unordered-map-unordered-multimap-unordered-set-unordered-multiset"><a href="#C-11新增-forward-list-unordered-map-unordered-multimap-unordered-set-unordered-multiset" class="headerlink" title=" C++11新增: forward_list unordered_map unordered_multimap unordered_set unordered_multiset"></a><strong> C++11新增:</strong> <code>forward_list</code> <code>unordered_map</code> <code>unordered_multimap</code> <code>unordered_set</code> <code>unordered_multiset</code></h3><hr>
-<h2 id="4-deque"><a href="#4-deque" class="headerlink" title="4. deque:"></a>4. deque:</h2><blockquote>
-<p>双端队列，类似于vector容器，支持随机访问，与vector的主要区别：deque对象的开始位置插入和删除元素的时间是固定的，而vector是线性时间，适用于多数操作发生在序列的起始和结尾处，则考虑使用deque。</p>
+<h3 id="4-使用虚函数注意事项"><a href="#4-使用虚函数注意事项" class="headerlink" title="4. 使用虚函数注意事项"></a>4. 使用虚函数注意事项</h3><ul>
+<li><p>构造函数不能是虚的，我们在创建派生类对象的时候，首先要调用基类构造函数生产基类对象，所以这里构造函数不能为虚，而是各自拥有创建对象的构造函数</p>
+</li>
+<li><p>析构函数应该是虚的。举例说明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Friut *p_Fu = new apple();</span><br><span class="line">......</span><br><span class="line"><span class="keyword">delete</span> p_Fu;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><code>delete p_Fu;</code>这里是调用~Friut()还是~apple()呢？如果我们的~Friut()和~apple()是虚的，将先调用~apple()析构函数释放内存，在调用~Friut()释放基类内存。析构函数不是虚的，将只能释放apple对像的内存.</p>
 </blockquote>
-<h2 id="5-list"><a href="#5-list" class="headerlink" title="5.list"></a>5.list</h2><blockquote>
-<p>双向链表，除了第一个和最后一个元素外，每个元素都与前后的元素相链接，可以双向遍历链表，与vector不同的是:list不支持数组表示法和随机访问。与矢量迭代器不同，从容器中插入或删除元素之后，链表迭代器指向的元素不变。unique()方法删除重复的元素.</p>
-</blockquote>
-<h2 id="6-forward-list"><a href="#6-forward-list" class="headerlink" title="6. forward_list"></a>6. forward_list</h2><blockquote>
-<p>单链表，每个节点都只链接到下一个节点，而没有链接到前一个节点，forward_list只需要正向迭代器，而不需要双向迭代器，forward_list是不可反转的容器，相比于list，forward_list更简单，更紧凑，但功能更少。</p>
-</blockquote>
-<h2 id="7-queue"><a href="#7-queue" class="headerlink" title="7. queue"></a>7. queue</h2><blockquote>
-<p>queue是一个适配器，如：Ostream_iterator模板是一个适配器，让输出流能够使用迭代器接口；queue模板让底层类展示典型的队列接口，queue的限制比deque的多，它不允许随机访问列队元素，不引许遍历队列，它把使用限制在定义列队的基本操作之上，可以将元素添加到队尾，从队首删除元素，查看队首和队尾的值，检查元素数目和测试队列是否为空。</p>
-</blockquote>
-<p><strong>queue函数列表</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">函数名</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">empty()</td>
-<td style="text-align:left">检查队列是否为空</td>
-</tr>
-<tr>
-<td style="text-align:center">Size()</td>
-<td style="text-align:left">返回队列的数目</td>
-</tr>
-<tr>
-<td style="text-align:center">front()</td>
-<td style="text-align:left">返回队尾元素的引用</td>
-</tr>
-<tr>
-<td style="text-align:center">push(const T&amp;x)</td>
-<td style="text-align:left">在队尾插入x</td>
-</tr>
-<tr>
-<td style="text-align:center">pop()</td>
-<td style="text-align:left">删除队首元素</td>
-</tr>
-</tbody>
-</table>
-<h2 id="8-Priority-queue"><a href="#8-Priority-queue" class="headerlink" title="8. Priority_queue"></a>8. Priority_queue</h2><blockquote>
-<p>Priority_queue在queue头文件中，是另一个适配器，他支持的操作与queue相同，区别在于Priority_queue中最大的元素被移到队首，内部区别：Priority_queue的底层类是vector，可以修改用于确定哪个元素被放到队首的比较方法，方法是提供一个可选的构造函数：</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Priority_queue&lt;<span class="keyword">int</span>&gt; pq1;</span><br><span class="line">Priority_queue&lt;<span class="keyword">int</span>&gt; pq2(greater&lt;<span class="keyword">int</span>&gt;);<span class="comment">//greater&lt;&gt;()是一个预定义函数对象。</span></span><br></pre></td></tr></table></figure>
-<h2 id="9-stack"><a href="#9-stack" class="headerlink" title="9. stack"></a>9. stack</h2><blockquote>
-<p>与queue相同，stack也是一个适配器类，他给底层提供了典型的栈接口，stack的限制比vector更多，他不仅不允许随机访问栈元素，甚至不允许遍历栈，他把使用限制在定义栈的基本操作上，既可以将压入推到栈顶，从栈顶弹出元素，查看栈顶的值，检查元素数目和测试栈是否为空。</p>
-</blockquote>
-<p><strong> stack 函数</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">函数名</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bool empty() const</td>
-<td style="text-align:center">检查栈是否为空</td>
-</tr>
-<tr>
-<td style="text-align:center">Size_type Size() const</td>
-<td style="text-align:center">返回栈的大小</td>
-</tr>
-<tr>
-<td style="text-align:center">T&amp; top()</td>
-<td style="text-align:center">返回栈顶元素引用</td>
-</tr>
-<tr>
-<td style="text-align:center">void push(const T &amp;x)</td>
-<td style="text-align:center">在栈顶部插入x</td>
-</tr>
-<tr>
-<td style="text-align:center">void pop()</td>
-<td style="text-align:center">删除栈顶元素</td>
-</tr>
-</tbody>
-</table>
-<h2 id="10-array-C-11"><a href="#10-array-C-11" class="headerlink" title="10.array (C++11)"></a>10.array (C++11)</h2><blockquote>
-<p>array并不是STL容器，因为其长度是固定的。因此，array没有定义调整容器大小的操作，如: push_back()和insert()，但定义如operator<a href=""></a>和at()，可将很多标准STL算法用于array对象，如copy()和for_each()</p>
-</blockquote>
-<h2 id="11-set"><a href="#11-set" class="headerlink" title="11. set"></a>11. set</h2><blockquote>
-<p>set是一个关联容器，关联容器是对容器的一个改进，它将值与键关联在一起，并使用键来查找值。关联容器的优点在于提供对元素的快速访问，不能指定新元素的插入位置，关联容器通常是树的数据结构，相对于链表，树的查找速度更快。set是最简单的关联容器，其值类型与键相同，键是唯一的，这意味着集合中不会有多个相同的元素，对于set来说，值就是键。例如：4-2,1-5,8-8</p>
-</blockquote>
-<h2 id="12-multiset"><a href="#12-multiset" class="headerlink" title="12. multiset"></a>12. multiset</h2><p>multiset类似于set，只是可能有多个值的键相同,例如：４－２，５－２，６－３，８－３。</p>
-<h2 id="13-map"><a href="#13-map" class="headerlink" title="13. map"></a>13. map</h2><p>map中，键与值的类型不同，键是唯一的，每个键对应一个值，如：１－CPP,2－JAVA,3－JAVASCRIPT</p>
-<h2 id="14-multimap"><a href="#14-multimap" class="headerlink" title="14.multimap"></a>14.multimap</h2><blockquote>
-<p>multimap与map相似，只是一个键可以有多个值关联。</p>
-</blockquote>
+<ul>
+<li><p>友元不能是虚函数，因为友元不是类成员，而只有成员才能是虚函数。</p>
+</li>
+<li><p>如果派生类没有重新定义函数，将使用该函数的基类版本。</p>
+</li>
+<li><p>隐藏基类方法，note:如果要使用虚函数，那么请确保在派生类中函数名和参数类型、参数个数相同，否则，将视为重新定义，这个方法将覆盖基类中的方法。如果返回值的类型是基类的引用或指针，可以将其改为派生类的引用或指针。这叫<code>返回类型协变</code>,因为引许返回类型随类类型的变化而变化。</p>
+</li>
+</ul>
 
       
     </div>
@@ -364,19 +265,10 @@
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/05/27/C-new-and-point/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          C++ new和指针
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2016/05/22/C-enum/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2016/09/21/C-继承/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C++ 枚举类型</div>
+      <div class="article-nav-title">C++继承&lt;单继承&gt;</div>
     </a>
   
 </nav>

@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://leekingta.github.io/blog/2016/09/21/C-继承/index.html">
 <meta property="og:site_name" content="LeekinBlog">
 <meta property="og:description" content="1. 什么是继承C++的继承是opp面向对象的一大重点，他能让你提高编程的效率，让你少写重复代码，如果你拥有面向对象的思维的话，继承通俗的来说就像现实生活当中，我们继承继承了父亲的财产，那么单继承就是：国家计划生育，只能生育一个，但是这其中有很多学问。但在计算机的世界里没有现实社会这么随意，一个简单的单继承例子：1234567891011121314151617181920212223242526">
-<meta property="og:updated_time" content="2016-09-21T07:42:19.345Z">
+<meta property="og:updated_time" content="2016-09-24T03:17:21.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++继承<单继承>">
 <meta name="twitter:description" content="1. 什么是继承C++的继承是opp面向对象的一大重点，他能让你提高编程的效率，让你少写重复代码，如果你拥有面向对象的思维的话，继承通俗的来说就像现实生活当中，我们继承继承了父亲的财产，那么单继承就是：国家计划生育，只能生育一个，但是这其中有很多学问。但在计算机的世界里没有现实社会这么随意，一个简单的单继承例子：1234567891011121314151617181920212223242526">
@@ -172,7 +172,9 @@
 	<li class="hidden-xs"><i class="fa fa-tags"></i> 
 	  
   
-    <a href="/blog/tags/C/" title="C++">C++</a>
+    <a href="/blog/tags/C/" title="C++">C++</a>,
+  
+    <a href="/blog/tags/C-继承/" title="C++继承">C++继承</a>
   
 
 
@@ -234,7 +236,8 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Friut <span class="title">noFriut</span><span class="params">(<span class="number">1014</span>,<span class="number">29</span>,<span class="string">"without_"</span>)</span></span>;</span><br><span class="line">apple &amp;app1 = noFriut;<span class="comment">//不引许的</span></span><br><span class="line">apple *ptr_app = &amp;noFriut;<span class="comment">//不引许的</span></span><br></pre></td></tr></table></figure>
 <h2 id="5-使用公有继承建立is-a关系"><a href="#5-使用公有继承建立is-a关系" class="headerlink" title="5. 使用公有继承建立is-a关系"></a>5. 使用公有继承建立is-a关系</h2><p><strong>继承要和面向对象思想结合使用，这将是有意义的，不仅仅满足is-a关系就行了.</strong></p>
 <ul>
-<li>公有继承不能建立has-a关系，比如午餐可能包含水果，但午餐并不是水果，所以不能从Friut类当中派生出Lunch类；</li>
+<li><p>公有继承不能建立has-a关系，比如午餐可能包含水果，但午餐并不是水果，所以不能从Friut类当中派生出Lunch类；</p>
+</li>
 <li><p>公有继承不能建立is-like-a关系，比如语文当中会将一个发呆的人比作木头人，但其实他并不真的是木头，所以不能从wood当中派生出people类；</p>
 </li>
 <li><p>公有继承不能建立is-implemented-as-a(作为…..来实现),例如，可以使用数组来实现栈，但从Array类中派生出Stack是不适合的，因为栈不是数组。</p>
@@ -252,6 +255,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/blog/2016/09/24/C-继承的多态性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          多态公有继承
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2016/09/19/搭建react-native开发环境/" id="article-nav-older" class="article-nav-link-wrap">
@@ -278,7 +290,7 @@
     <ul class="nav sidebar-categories margin-bottom-40">
       
 	<li>
-	  <a href="/blog/categories/C/">C++ (5)</a>
+	  <a href="/blog/categories/C/">C++ (6)</a>
 	</li>
       
 	<li>
@@ -286,11 +298,11 @@
 	</li>
       
 	<li>
-	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
 	</li>
       
 	<li>
-	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
 	</li>
       
 	<li>
@@ -315,7 +327,7 @@
   <div class="widget-wrap">
     <div class="widget">
       
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发环境/"><i class='fa fa-tags'></i>开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/网络营销/"><i class='fa fa-tags'></i>网络营销</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C-继承/"><i class='fa fa-tags'></i>C++继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发环境/"><i class='fa fa-tags'></i>开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/网络营销/"><i class='fa fa-tags'></i>网络营销</a></li></ul>
     </div>
   </div>
 
@@ -334,11 +346,24 @@
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
 	</div>                        
       </div>
     
   
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
     
   
     
@@ -347,7 +372,7 @@
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
 	</div>                        
       </div>
     
@@ -369,22 +394,9 @@
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
 	</div>                        
       </div>
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
-	</div>                        
-      </div>
-    
-  
     
   
     
@@ -423,6 +435,8 @@
     
   
     
+  
+    
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
 	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
@@ -447,10 +461,10 @@
     
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
 	</div>                        
       </div>
     
@@ -461,7 +475,7 @@
 	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
 	</div>                        
       </div>
     
@@ -480,10 +494,10 @@
     
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/09/react-native总结/">react-native总结</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
 	</div>                        
       </div>
     
