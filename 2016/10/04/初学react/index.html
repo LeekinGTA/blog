@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>初学react | LeekinBlog</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="description" content="1. 学习感悟
+react是facebook内部使用的前端开发框架，在开发出来之后发现它非常的好用，效率非常之高，特别是组件化开发方式，符合今天大多数前端程序员的需求，我之前学习react-native的时候，发现有很多陌生的东西特别是里面导入react库：import React from &amp;#39;react&amp;#39;;,看到这里的时候我觉得他和react前端开发有很大的联系，所以不得不转来学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初学react">
+<meta property="og:url" content="http://leekingta.github.io/blog/2016/10/04/初学react/index.html">
+<meta property="og:site_name" content="LeekinBlog">
+<meta property="og:description" content="1. 学习感悟
+react是facebook内部使用的前端开发框架，在开发出来之后发现它非常的好用，效率非常之高，特别是组件化开发方式，符合今天大多数前端程序员的需求，我之前学习react-native的时候，发现有很多陌生的东西特别是里面导入react库：import React from &amp;#39;react&amp;#39;;,看到这里的时候我觉得他和react前端开发有很大的联系，所以不得不转来学">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/Lib.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/ComponentsVIew.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/component.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/CommentsView.png">
+<meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/fuzuj.png">
+<meta property="og:updated_time" content="2016-10-04T06:48:21.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初学react">
+<meta name="twitter:description" content="1. 学习感悟
+react是facebook内部使用的前端开发框架，在开发出来之后发现它非常的好用，效率非常之高，特别是组件化开发方式，符合今天大多数前端程序员的需求，我之前学习react-native的时候，发现有很多陌生的东西特别是里面导入react库：import React from &amp;#39;react&amp;#39;;,看到这里的时候我觉得他和react前端开发有很大的联系，所以不得不转来学">
+<meta name="twitter:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/Lib.png">
+  
+    <link rel="alternative" href="/atom.xml" title="LeekinBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <meta content="{{ title }}" name="description">
+  <meta content="{{ title }}" name="keywords">
+  <meta content="{{ title }}" name="author">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+
+  <!-- Global styles START -->   
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/animate.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/plugins/owl.carousel/assets/owl.carousel.css">
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/components.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/slider.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/pages/css/portfolio.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/style-responsive.css">
+  <link rel="stylesheet" href="/blog/metronic/assets/corporate/css/themes/turquoise.css">
+  <link rel="stylesheet" href="/blog/css/theme-styles.css">
+  <!-- Theme styles END -->
+</head>
+
+<body class="corporate">
+  <!-- BEGIN TOP BAR -->
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <!-- BEGIN TOP BAR LEFT PART -->
+      <div class="col-md-6 col-sm-6 col-xs-9 additional-shop-info">
+	<ul class="list-unstyled list-inline">
+	<!--注释掉电话号码显示  <li><i class="fa fa-phone"></i><span>null</span></li>-->
+	  <li><i class="fa fa-envelope-o"></i><span>LeekinDeveloper@Gmail.com</span></li>
+	</ul>
+      </div>
+      <!-- END TOP BAR LEFT PART -->
+      <!-- BEGIN TOP BAR MENU -->
+      <div class="col-md-6 col-sm-6 col-xs-3 additional-nav">
+	<ul class="list-unstyled list-inline pull-right">
+	  <!--<li><a href="/login">Log In</a></li>-->
+	</ul>
+      </div>
+      <!-- END TOP BAR MENU -->
+    </div>
+  </div>
+</div>
+<!-- END TOP BAR -->
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <!--<a class="site-logo" href="/blog/" id="logo">LeekinBlog</a>-->
+
+    <a class="site-logo" href="/">
+      <img src="/blog/metronic/assets/corporate/img/logos/logo-corp-turquoise.png" alt="Metronic FrontEnd">
+    </a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+	
+	<li class="">
+	  <a  href="/blog/index/">Home</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/projects/">Projects</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/archives/">Blog</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/contact/">Contact</a>
+	</li>
+	
+	<li class="">
+	  <a  href="/blog/about/">About</a>
+	</li>
+	
+	<!-- BEGIN TOP SEARCH
+	<li class="menu-search">
+	  <span class="sep"></span>
+	  <i class="fa fa-search search-btn"></i>
+	  <div class="search-box">
+	    <form action="#">
+	      <div class="input-group">
+		<input type="text" placeholder="Search" class="form-control st-default-search-input">
+		<span class="input-group-btn">
+		  <button class="btn btn-primary" type="submit">Search</button>
+		</span>
+	      </div>
+	    </form>
+	  </div>
+	</li>
+	 END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->
+
+  <div class="container">
+  <ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/archives/">Blog</a></li>
+    <li class="active">Post</li>
+  </ul>
+  <section id="main">
+    
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2016/10/04/初学react/">初学react</a>
+    </h2>
+
+
+    <div class="row">
+<div class="col-md-9 col-sm-9 blog-posts">
+<article id="post-初学react" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+  <div class="article-meta">
+  </div>
+  <div class="article-inner">
+    
+    
+    <header class="article-header">
+      <ul class="blog-info">
+	<li><i class="fa fa-user"></i> Leekin</li>
+	<li><i class="fa fa-calendar"></i>
+	  <time datetime="2016-10-04T02:05:09.000Z" itemprop="datePublished">2016/10/04</time>
+
+	</li>
+	<li class="hidden-xs"><i class="fa fa-comments"></i>
+	  <a href="http://leekingta.github.io/blog/blog/2016/10/04/初学react/#disqus_thread" class="article-comment-link">Comments</a>
+	</li>
+	<li class="hidden-xs"><i class="fa fa-tags"></i> 
+	  
+  
+    <a href="/blog/tags/javascript/" title="javascript">javascript</a>,
+  
+    <a href="/blog/tags/react/" title="react">react</a>,
+  
+    <a href="/blog/tags/web/" title="web">web</a>
+  
+
+
+	</li>
+      </ul>
+      
+  <div class="article-category">
+    
+    Category: 
+    
+    Categories:
+    <a class="article-category-link" href="/blog/categories/React/">React</a>
+  </div>
+  <br>
+
+
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-学习感悟"><a href="#1-学习感悟" class="headerlink" title="1. 学习感悟"></a>1. 学习感悟</h2><blockquote>
+<p>react是facebook内部使用的前端开发框架，在开发出来之后发现它非常的好用，效率非常之高，特别是组件化开发方式，符合今天大多数前端程序员的需求，我之前学习react-native的时候，发现有很多陌生的东西特别是里面导入react库：<code>import React from &#39;react&#39;;</code>,看到这里的时候我觉得他和react前端开发有很大的联系，所以不得不转来学习react，随着这几年前端开发工程师的需求越来越大，总有开发不完的网页，企业每推出新产品或新活动，都要写很多网页来让大家看，这也是移动互联网时代，最普遍的现象，作为一名c++程序员，我之前也思考过自己的未来，为何c++需求这么少，原因就是c++这门语言适合底层开发，适合一些性能需求高的开发，比如说游戏编程，但这几年的手游满大街都是，这一辈子都玩不完了，而且游戏开发的成本非常大，c++也是一门重量级的语言，我只是入门就用了一年左右的时间，去理解数据和数据结构，去理解面向对象思维….因为种种原因，今天不得不思考转行，c++应该作为一门基础语言来学习。react开发效率非常高，一个朋友使用react-native在10天内就开发出能够上架的手机应用。</p>
+</blockquote>
+<h2 id="2-使用到的库"><a href="#2-使用到的库" class="headerlink" title="2. 使用到的库"></a>2. 使用到的库</h2><p><strong>开发react的时候，只是搭建开发环境就能让国内的程序员死倒一片，众所周知，facebook是需要科学上网才能访问的，如果你不懂科学上网，对黑客技术一点也不了解的话，建议你去学习PHP,.NET之类的吧，那么我之前的文章中也有介绍如何搭建科学上网环境，并做数据转换，你可以看<a href="http://leekingta.github.io/blog/2016/09/19/%E6%90%AD%E5%BB%BAreact-native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">react-native开发环境搭建</a></strong></p>
+<blockquote>
+<p>这里唯一不同是我们用到的库不同,所以先搭建环境依赖.下面依赖图：</p>
+</blockquote>
+<img src="/blog/2016/10/04/初学react/Lib.png" alt="用到的库示意图" title="用到的库示意图">
+<p><em>这里我们使用jspm工具来搭建，首先安装jspm</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install jspm -g <span class="comment">#安装为全局可用</span></span><br><span class="line"><span class="built_in">cd</span> WebApp</span><br><span class="line">npm install jspm --save-dev <span class="comment">#安装到dev文件夹</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-1-使用jspm来安装"><a href="#2-1-使用jspm来安装" class="headerlink" title="2-1. 使用jspm来安装"></a>2-1. 使用jspm来安装</h3><p><em>jspm可以从github和npm两个源中进行安装</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jspm install npm:..... <span class="comment">#从npm 安装</span></span><br><span class="line">jspm install github:..... <span class="comment"># 从github安装</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-初始化项目"><a href="#2-2-初始化项目" class="headerlink" title="2-2. 初始化项目"></a>2-2. 初始化项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm init <span class="comment"># 没什么要填的就一路回车</span></span><br><span class="line">jspm init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-安装库"><a href="#2-3-安装库" class="headerlink" title="2-3. 安装库"></a>2-3. 安装库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jspm install css</span><br><span class="line">jspm install jquery</span><br><span class="line">jspm install react</span><br><span class="line">jspm install react-dom</span><br><span class="line">jspm install react-router</span><br><span class="line">jspm install semantic-ui</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-安装浏览器调试工具"><a href="#2-4-安装浏览器调试工具" class="headerlink" title="2-4.安装浏览器调试工具"></a>2-4.安装浏览器调试工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install browser-Sync</span><br><span class="line"><span class="comment">#每次要调试的时候，我们在项目根目录下输入：</span></span><br><span class="line">browser-sync start --server</span><br></pre></td></tr></table></figure>
+<h2 id="3-学习总结"><a href="#3-学习总结" class="headerlink" title="3. 学习总结"></a>3. 学习总结</h2><p><strong>我在看视频教程学习的时候对组件间通信有了很深的理解，还有父类和子类的概念，下面是我画的项目组件构成图：</strong><br><img src="/blog/2016/10/04/初学react/ComponentsVIew.png" alt="构成图" title="构成图"></p>
+<h3 id="3-1-子组件与父组件"><a href="#3-1-子组件与父组件" class="headerlink" title="3-1.子组件与父组件"></a>3-1.子组件与父组件</h3><blockquote>
+<p>举个例子来说明在实际的开发工作当中如何来细分组件，提高开发效率,如下图所示，</p>
+</blockquote>
+<img src="/blog/2016/10/04/初学react/component.png" alt="示意图" title="示意图">
+<p><strong>这一个布局中包含了三张card和一个card header，先从大到小来细分，是一个groupCard组件包含了三张card和一个header组件，三张card又可以细分为一个card,这里父组件就是groupCard,子组件是card,那么父组件应该包含一个子组件card和一个header，如果你觉得header还可以细分为一个组件的话也是可以的。当子组件收到来自父组件的数据时，就会根据预先指定好的排列方式来排列组件card</strong></p>
+<h3 id="3-2-组件间通信父组件将数据交给子组件"><a href="#3-2-组件间通信父组件将数据交给子组件" class="headerlink" title="3-2. 组件间通信父组件将数据交给子组件"></a>3-2. 组件间通信父组件将数据交给子组件</h3><blockquote>
+<p>这里有一个误区，很多教程说父组件时说成父类，如果是父类的话，那应该是继承中的基类，就是React.Component是组件的父类，所以这里我觉得应该统一叫父组件，关键字：props的意思是道具，他指的是父组件，例如<code>this.props.url</code>指的是父组件中的url.用例子来说明：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 文件main.js --&gt;</span><br><span class="line"> <span class="string">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">import</span> <span class="string">'semantic-ui/semantic.min.css!'</span>;</span><br><span class="line"> <span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"> <span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"> <span class="keyword">import</span> CommentBox <span class="keyword">from</span> <span class="string">'./components/CommentBox'</span>;</span><br><span class="line"> <span class="keyword">import</span> &#123; Router, Route, Link,IndexRoute,Redirect &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> uri = <span class="string">"app/comments.json"</span>;</span><br><span class="line"> ReactDOM.render(</span><br><span class="line">  &lt;CommentBox url=&#123;uri&#125; /&gt;,</span><br><span class="line">  document.getElementById('app')</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件CommentBox.js</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> CommentList <span class="keyword">from</span> <span class="string">'./CommentList'</span>;</span><br><span class="line"><span class="keyword">import</span> CommentForm <span class="keyword">from</span> <span class="string">'./CommentForm'</span>;</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentBox</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line"> <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">   <span class="keyword">super</span>(props);</span><br><span class="line">   <span class="keyword">this</span>.state=&#123;</span><br><span class="line">     data:[]</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">this</span>.getComments();</span><br><span class="line">   <span class="comment">//每隔５秒刷新一次评论</span></span><br><span class="line">   <span class="comment">// setInterval(()=&gt;this.getComments(),5000);</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//获得子组件传来的内容</span></span><br><span class="line"> handleCommentSubmit(comment)&#123;</span><br><span class="line">   <span class="keyword">let</span> comments = <span class="keyword">this</span>.state.data,</span><br><span class="line">       newComments = comments.concat(comment);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">this</span>.setState(&#123;data:newComments&#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//获的评论内容</span></span><br><span class="line"> getComments()&#123;</span><br><span class="line">   $.ajax(&#123;</span><br><span class="line">     url:<span class="keyword">this</span>.props.url,</span><br><span class="line">     dataType:<span class="string">'json'</span>,</span><br><span class="line">     cache:<span class="literal">false</span>,</span><br><span class="line">     success:comments=&gt;&#123;</span><br><span class="line">       <span class="keyword">this</span>.setState(&#123;data: comments&#125;);</span><br><span class="line">     &#125;,</span><br><span class="line">     error:(xhr,status,error)=&gt;&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(error);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line"> &#125;</span><br><span class="line"> render()&#123;</span><br><span class="line">   <span class="keyword">return</span>(</span><br><span class="line">     &lt;div className="ui comments"&gt;</span><br><span class="line">       &lt;h1&gt;评论&lt;/h1&gt;</span><br><span class="line">       &lt;div className="ui divider"&gt;&lt;/div&gt;</span><br><span class="line">       &lt;CommentList data=&#123;this.state.data&#125; /&gt;</span><br><span class="line">       &lt;CommentForm onCommentSubmit=&#123;this.handleCommentSubmit.bind(this)&#125; /&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; CommentBox as default &#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在main.js中一种jsx（javascript xml）的写法<code>&lt;CommentBox /&gt;</code>这是创建了一个对象，而<code>&lt;CommentBox url={uri} /&gt;</code>里面的url={uri}相当于传入参数，那么在子组件中使用this.props.url就获得了父组件中的数据uri。</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>父组件中的uri，通过传入参数的方式传递给了子组件，子组件就可以用它。</li>
+<li>子组件CommentBox中使用了jquery库中的$,调用函数ajax,ajax方法接受4个参数，第一个参数是父组件传来的url,第二个参数指明数据类型为json，第三个参数如果从服务器上获得数据成功了需要做的事，第四个参数是如果从服务器上获得数据失败需要做的事。</li>
+<li>state状态：能够通过设置状态来让组件如何工作，这里我们在state当中声明了一个data空数组作为一个状态，在ajax方法中，获得json数据成功后，通过setState方法设置data状态，将json对象赋给data数组。</li>
+<li>又将获得的这个数组传递给了下一个子组件，在下一个组件遍历数组就能得到数据。将每一条评论细化为一个comment组件，遍历数组的时候用来初始化这个comment组件，把数据传递给comment子组件。</li>
+</ul>
+<blockquote>
+<p>组件的细分构成：</p>
+</blockquote>
+<img src="/blog/2016/10/04/初学react/CommentsView.png" alt="构成图" title="构成图">
+<h3 id="3-3-子组件将数据交给父组件"><a href="#3-3-子组件将数据交给父组件" class="headerlink" title="3-3. 子组件将数据交给父组件"></a>3-3. 子组件将数据交给父组件</h3><blockquote>
+<p>我们可以在父组件中创建一个函数，他需要传入参数，然后在子组件中调用这个函数，把要传给父组件的数据作为参数传递上去。例如：</p>
+</blockquote>
+<img src="/blog/2016/10/04/初学react/fuzuj.png" alt="子组件将数据传递给父组件" title="子组件将数据传递给父组件">
+<p><strong>子组件通过调用父组件的函数，将数据作为参数传递给父组件</strong></p>
+<blockquote>
+<p>react有利于我们在开发网站的时候，快速写出很漂亮的布局，使用semantic-ui库，可以满足我们的开发需求，这里是<a href="http://semantic-ui.com/introduction/getting-started.html" target="_blank" rel="external">semantic-ui</a>官网.</p>
+</blockquote>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/09/24/C-继承的多态性/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">多态公有继承</div>
+    </a>
+  
+</nav>
+
+  
+  <br>
+</article>
+
+
+
+
+</div>
+<div class="col-md-3 col-sm-3 blog-sidebar">
+  <!-- CATEGORIES START -->
+<h2 class="no-top-space">Categories</h2>
+
+<div class="widget-wrap">
+  <div class="widget">
+    <ul class="nav sidebar-categories margin-bottom-40">
+      
+	<li>
+	  <a href="/blog/categories/C/">C++ (6)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/Linux/">Linux (6)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/GameEngine/">GameEngine (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/github/">github (1)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/React/">React (1)</a>
+	</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<!-- CATEGORIES END -->
+
+<!-- BEGIN BLOG TAGS -->
+<div class="blog-tags margin-bottom-20">
+  <h2>Tags</h2>
+  
+  <div class="widget-wrap">
+    <div class="widget">
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C/"><i class='fa fa-tags'></i>C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/C-继承/"><i class='fa fa-tags'></i>C++继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Centos/"><i class='fa fa-tags'></i>Centos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DataConstructor/"><i class='fa fa-tags'></i>DataConstructor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/GameEngine/"><i class='fa fa-tags'></i>GameEngine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Linux/"><i class='fa fa-tags'></i>Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/"><i class='fa fa-tags'></i>Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PHP/"><i class='fa fa-tags'></i>PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/"><i class='fa fa-tags'></i>github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/httpd/"><i class='fa fa-tags'></i>httpd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/"><i class='fa fa-tags'></i>javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/"><i class='fa fa-tags'></i>linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming/"><i class='fa fa-tags'></i>programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react/"><i class='fa fa-tags'></i>react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/react-native/"><i class='fa fa-tags'></i>react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/web/"><i class='fa fa-tags'></i>web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发环境/"><i class='fa fa-tags'></i>开发环境</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/技术/"><i class='fa fa-tags'></i>技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/网络营销/"><i class='fa fa-tags'></i>网络营销</a></li></ul>
+    </div>
+  </div>
+
+
+</div>
+<!-- END BLOG TAGS -->
+
+
+<!-- BEGIN FEATURED POSTS -->                            
+<h2>Featured Posts</h2>
+<div class="recent-news margin-bottom-10">
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/game-engine.jpeg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/GodotEngine/">GodotEngine</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/">搭建react-native开发环境</a></h3>
+	</div>                        
+      </div>
+    
+  
+</div>
+<!-- END FEATURED POSTS -->                            
+
+</div>
+</div>
+
+  </section>
+</div>
+
+    <!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN BOTTOM ABOUT BLOCK -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>About Us</h2>
+            <p>我是Leekin个人开发者,大学自学C++，javascript，梦想是成立一家游戏公司，拥有制定行业标准的力量。关于梦想与现实，我觉得——要能接受现实，但不能放弃梦想。座右铭：对自己要求严格，不断挑战自己的极限，别人能解决的问题，我同样可以。</p>
+          </div>
+          <!-- END BOTTOM ABOUT BLOCK -->
+
+          <!-- BEGIN BOTTOM CONTACTS -->
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+            <h2>Contact</h2>
+            <address class="margin-bottom-40">
+              QQ:237646922<br>
+              微信号:lioooops<br>
+              facebook:https://www.facebook.com/taoo.lee.9<br>
+              Phone: null<br>
+              Email: <a href="mailto:LeekinDeveloper@Gmail.com">LeekinDeveloper@Gmail.com</a><br>
+            </address>
+          </div>
+          <!-- END BOTTOM CONTACTS -->
+
+	
+          <!-- BEGIN TWITTER BLOCK --> 
+          <div class="col-md-4 col-sm-6 pre-footer-col">
+
+	  <a data-tweet-limit="1" class="twitter-timeline"
+	  href="https://twitter.com/Leekin"
+	  data-widget-id="678830341331820544">Tweets by @Leekin</a>
+
+	  <script>!function(d,s,id){var
+	  js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </div>
+          <!-- END TWITTER BLOCK -->
+	
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN COPYRIGHT -->
+          <div class="col-md-6 col-sm-6 padding-top-10">
+                  &copy; 2016 LeekinBlog<br>
+ <a href="javascript:;">Privacy Policy</a> | <a href="javascript:;">Terms of Service</a>
+          </div>
+          <!-- END COPYRIGHT -->
+	  <!-- BEGIN SOCIAL -->
+<div class="col-md-6 col-sm-6">
+  <ul class="social-footer list-unstyled list-inline pull-right">
+    
+      <li><a href="https://github.com/leekingta"><i class="fa fa-github"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-twitter"></i></a></li>
+    
+      <li><a href="https://www.facebook.com/taoo.lee.9"><i class="fa fa-facebook"></i></a></li>
+    
+      <li><a href="/blog/atom.xml"><i class="fa fa-rss"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-linkedin"></i></a></li>
+    
+      <li><a href="/blog/"><i class="fa fa-stackoverflow"></i></a></li>
+    
+  </ul>  
+</div>
+<!-- END SOCIAL -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END FOOTER -->
+
+  <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="/blog/metronic/assets/plugins/respond.min.js"></script>
+<![endif]--> 
+<script src="/blog/metronic/assets/plugins/jquery.min.js"></script>
+<script src="/blog/metronic/assets/plugins/jquery-migrate.min.js"></script>
+<script src="/blog/metronic/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/back-to-top.js"></script>
+<script src="/blog/metronic/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script src="/blog/metronic/assets/corporate/scripts/layout.js"></script>
+<script src="/blog/js/wow.min.js"></script>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();    
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+        Layout.initNavScrolling(); 
+	new WOW().init();
+    });
+</script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE-SPECIFIC PLUGINS --> 
+
+
+
+
+
+
+
+<!-- END PAGE-SPECIFIC PLUGINS --> 
+
+<!-- BEGIN INTEGRATIONS -->
+
+
+
+
+
+<!-- END INTEGRATIONS -->
+
+</body>
+</html>
