@@ -25,7 +25,7 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 <meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/component.png">
 <meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/CommentsView.png">
 <meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/10/04/初学react/fuzuj.png">
-<meta property="og:updated_time" content="2016-10-04T06:48:21.392Z">
+<meta property="og:updated_time" content="2016-10-04T07:02:38.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初学react">
 <meta name="twitter:description" content="1. 学习感悟
@@ -247,8 +247,9 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 </blockquote>
 <img src="/blog/2016/10/04/初学react/CommentsView.png" alt="构成图" title="构成图">
 <h3 id="3-3-子组件将数据交给父组件"><a href="#3-3-子组件将数据交给父组件" class="headerlink" title="3-3. 子组件将数据交给父组件"></a>3-3. 子组件将数据交给父组件</h3><blockquote>
-<p>我们可以在父组件中创建一个函数，他需要传入参数，然后在子组件中调用这个函数，把要传给父组件的数据作为参数传递上去。例如：</p>
+<p>例如这是一个评论页面，用户需要输入文字，点击提交时候，子组件要将用户输入交给父组件，然后层层传递，最后上传到服务器，并改变相应的数据，在下载到本地，本地刷新之后，就得到了用户刚刚的评论。我们可以在父组件中创建一个函数，他需要传入参数，然后在子组件中调用这个函数，把要传给父组件的数据作为参数传递上去。例如：</p>
 </blockquote>
+<p><strong>使用Refs可以获得html中用户输入的数据,也就是浏览器元素</strong></p>
 <img src="/blog/2016/10/04/初学react/fuzuj.png" alt="子组件将数据传递给父组件" title="子组件将数据传递给父组件">
 <p><strong>子组件通过调用父组件的函数，将数据作为参数传递给父组件</strong></p>
 <blockquote>
@@ -303,11 +304,11 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	</li>
       
 	<li>
-	  <a href="/blog/categories/javascript/">javascript (2)</a>
+	  <a href="/blog/categories/github/">github (1)</a>
 	</li>
       
 	<li>
-	  <a href="/blog/categories/github/">github (1)</a>
+	  <a href="/blog/categories/javascript/">javascript (2)</a>
 	</li>
       
 	<li>
@@ -364,6 +365,10 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
     
   
     
+  
+    
+  
+    
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
@@ -372,21 +377,6 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-标准模板库/">C++ 标准模板库</a></h3>
 	</div>                        
       </div>
-    
-  
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
-	</div>                        
-      </div>
-    
-  
     
   
     
@@ -406,7 +396,7 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
 	</div>                        
       </div>
     
@@ -417,7 +407,7 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
 	</div>                        
       </div>
     
@@ -436,16 +426,16 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
     
   
     
-  
-    
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
 	</div>                        
       </div>
+    
+  
     
   
     
@@ -471,6 +461,19 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
     
   
     
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+  
+    
   
     
       <div class="row margin-bottom-10">
@@ -481,8 +484,6 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/07/react-native学习总结/">react-native学习总结</a></h3>
 	</div>                        
       </div>
-    
-  
     
   
     
