@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/sdkconfig.png">
 <meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/needSdk.png">
 <meta property="og:image" content="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/npmBug.png">
-<meta property="og:updated_time" content="2016-09-20T03:09:08.534Z">
+<meta property="og:updated_time" content="2016-10-09T03:10:55.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建react-native开发环境">
 <meta name="twitter:description" content="前言：
@@ -279,7 +279,11 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S privoxy</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>安装成功之后，运行</p>
+<p>安装好之后修改配置文件：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用管理员权限打开文件/etc/privoxy/config</span></span><br><span class="line"><span class="comment"># 来到文件底部修改这两项为：</span></span><br><span class="line">listen-address 127.0.0.1:8118</span><br><span class="line">forward-socks5 / 127.0.0.1:1080 .</span><br><span class="line"><span class="comment"># 注意后面那个点</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改好配置文件之后，运行</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其他系统可能不一样，可能是service</span></span><br><span class="line">systemd-run privoxy start</span><br><span class="line"><span class="comment">#运行上面的命令如果报出找不到config文件，那我们需要手动指定config文件的路径</span></span><br><span class="line">systemd-run privoxy configfile /etc/privoxy/config restart</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -380,11 +384,11 @@
 	</li>
       
 	<li>
-	  <a href="/blog/categories/javascript/">javascript (4)</a>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
 	</li>
       
 	<li>
-	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	  <a href="/blog/categories/javascript/">javascript (4)</a>
 	</li>
       
 	<li>
@@ -428,20 +432,11 @@
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
 	</div>                        
       </div>
     
   
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
-	</div>                        
-      </div>
     
   
     
@@ -456,7 +451,14 @@
     
   
     
-  
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
+	</div>                        
+      </div>
     
   
     
@@ -468,6 +470,8 @@
 	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
 	</div>                        
       </div>
+    
+  
     
   
     
@@ -498,7 +502,7 @@
 	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
 	</div>                        
       </div>
     
@@ -509,9 +513,13 @@
 	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing-2/">Linux Shell编程2</a></h3>
 	</div>                        
       </div>
+    
+  
+    
+  
     
   
     
@@ -526,7 +534,14 @@
     
   
     
-  
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	</div>                        
+      </div>
     
   
     
@@ -552,12 +567,14 @@
     
   
     
+  
+    
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/04/javascript学习笔记2/">javascript学习笔记</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/">搭建react-native开发环境</a></h3>
 	</div>                        
       </div>
     
@@ -573,19 +590,6 @@
       </div>
     
   
-    
-  
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/react-native.png" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/09/19/搭建react-native开发环境/">搭建react-native开发环境</a></h3>
-	</div>                        
-      </div>
     
   
 </div>
