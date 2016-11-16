@@ -230,7 +230,7 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 <h3 id="3-2-组件间通信父组件将数据交给子组件"><a href="#3-2-组件间通信父组件将数据交给子组件" class="headerlink" title="3-2. 组件间通信父组件将数据交给子组件"></a>3-2. 组件间通信父组件将数据交给子组件</h3><blockquote>
 <p>这里有一个误区，很多教程说父组件时说成父类，如果是父类的话，那应该是继承中的基类，就是React.Component是组件的父类，所以这里我觉得应该统一叫父组件，关键字：props的意思是道具，他指的是父组件，例如<code>this.props.url</code>指的是父组件中的url.用例子来说明：</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 文件main.js --&gt;</span><br><span class="line"> <span class="string">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">import</span> <span class="string">'semantic-ui/semantic.min.css!'</span>;</span><br><span class="line"> <span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"> <span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"> <span class="keyword">import</span> CommentBox <span class="keyword">from</span> <span class="string">'./components/CommentBox'</span>;</span><br><span class="line"> <span class="keyword">import</span> &#123; Router, Route, Link,IndexRoute,Redirect &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> uri = <span class="string">"app/comments.json"</span>;</span><br><span class="line"> ReactDOM.render(</span><br><span class="line">  &lt;CommentBox url=&#123;uri&#125; /&gt;,</span><br><span class="line">  document.getElementById('app')</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 文件main.js --&gt;</span><br><span class="line"> <span class="string">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">import</span> <span class="string">'semantic-ui/semantic.min.css!'</span>;</span><br><span class="line"> <span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"> <span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"> <span class="keyword">import</span> CommentBox <span class="keyword">from</span> <span class="string">'./components/CommentBox'</span>;</span><br><span class="line"> <span class="keyword">import</span> &#123; Router, Route, Link,IndexRoute,Redirect &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> uri = <span class="string">"app/comments.json"</span>;</span><br><span class="line"> ReactDOM.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">CommentBox</span> <span class="attr">url</span>=<span class="string">&#123;uri&#125;</span> /&gt;</span>,</span><br><span class="line">  document.getElementById('app')</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件CommentBox.js</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> CommentList <span class="keyword">from</span> <span class="string">'./CommentList'</span>;</span><br><span class="line"><span class="keyword">import</span> CommentForm <span class="keyword">from</span> <span class="string">'./CommentForm'</span>;</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentBox</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line"> <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">   <span class="keyword">super</span>(props);</span><br><span class="line">   <span class="keyword">this</span>.state=&#123;</span><br><span class="line">     data:[]</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">this</span>.getComments();</span><br><span class="line">   <span class="comment">//每隔５秒刷新一次评论</span></span><br><span class="line">   <span class="comment">// setInterval(()=&gt;this.getComments(),5000);</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//获得子组件传来的内容</span></span><br><span class="line"> handleCommentSubmit(comment)&#123;</span><br><span class="line">   <span class="keyword">let</span> comments = <span class="keyword">this</span>.state.data,</span><br><span class="line">       newComments = comments.concat(comment);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">this</span>.setState(&#123;data:newComments&#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//获的评论内容</span></span><br><span class="line"> getComments()&#123;</span><br><span class="line">   $.ajax(&#123;</span><br><span class="line">     url:<span class="keyword">this</span>.props.url,</span><br><span class="line">     dataType:<span class="string">'json'</span>,</span><br><span class="line">     cache:<span class="literal">false</span>,</span><br><span class="line">     success:comments=&gt;&#123;</span><br><span class="line">       <span class="keyword">this</span>.setState(&#123;data: comments&#125;);</span><br><span class="line">     &#125;,</span><br><span class="line">     error:(xhr,status,error)=&gt;&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(error);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br><span class="line"> &#125;</span><br><span class="line"> render()&#123;</span><br><span class="line">   <span class="keyword">return</span>(</span><br><span class="line">     &lt;div className="ui comments"&gt;</span><br><span class="line">       &lt;h1&gt;评论&lt;/h1&gt;</span><br><span class="line">       &lt;div className="ui divider"&gt;&lt;/div&gt;</span><br><span class="line">       &lt;CommentList data=&#123;this.state.data&#125; /&gt;</span><br><span class="line">       &lt;CommentForm onCommentSubmit=&#123;this.handleCommentSubmit.bind(this)&#125; /&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; CommentBox as default &#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>在main.js中一种jsx（javascript xml）的写法<code>&lt;CommentBox /&gt;</code>这是创建了一个对象，而<code>&lt;CommentBox url={uri} /&gt;</code>里面的url={uri}相当于传入参数，那么在子组件中使用this.props.url就获得了父组件中的数据uri。</p>
@@ -297,11 +297,7 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
     <ul class="nav sidebar-categories margin-bottom-40">
       
 	<li>
-	  <a href="/blog/categories/C/">C++ (6)</a>
-	</li>
-      
-	<li>
-	  <a href="/blog/categories/Linux/">Linux (5)</a>
+	  <a href="/blog/categories/C/">C++ (7)</a>
 	</li>
       
 	<li>
@@ -309,11 +305,15 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	</li>
       
 	<li>
-	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	  <a href="/blog/categories/Linux/">Linux (5)</a>
 	</li>
       
 	<li>
 	  <a href="/blog/categories/javascript/">javascript (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
 	</li>
       
 	<li>
@@ -357,11 +357,20 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
 	</div>                        
       </div>
     
   
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
     
   
     
@@ -381,33 +390,13 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
-	</div>                        
-      </div>
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
-	</div>                        
-      </div>
-    
-  
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
 	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
 	</div>                        
       </div>
+    
+  
+    
+  
     
   
     
@@ -427,7 +416,29 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
 	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/10/06/Promise对象/">Promise对象</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/11/16/apache开启rewrite模式/">C++ 枚举类型</a></h3>
 	</div>                        
       </div>
     
@@ -446,14 +457,12 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
     
   
     
-  
-    
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/10/06/Promise对象/">Promise对象</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
 	</div>                        
       </div>
     
@@ -470,14 +479,7 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
     
   
     
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
-	</div>                        
-      </div>
+  
     
   
     
@@ -491,6 +493,15 @@ react是facebook内部使用的前端开发框架，在开发出来之后发现�
       </div>
     
   
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
     
   
     

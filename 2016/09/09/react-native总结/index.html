@@ -217,7 +217,7 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
 <blockquote>
 <p>官方例子告诉我们如何使用ListView组件，在组件当中也用到了state。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> react,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;AppRegistry,ListView,Text,View&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">const</span> ds=<span class="keyword">new</span> ListView.DataSource(&#123;rowHasChanged:(r1,r2)=&gt;r1 !== r2&#125;);</span><br><span class="line">    <span class="keyword">this</span>.state=&#123;</span><br><span class="line">      dataSource:ds.cloneWithRows([</span><br><span class="line">          <span class="string">'美国队长1'</span>,</span><br><span class="line">          <span class="string">'美国队长2'</span>,</span><br><span class="line">          <span class="string">'美国队长3'</span>,</span><br><span class="line">          <span class="string">'美国队长4'</span>,</span><br><span class="line">          <span class="string">'美国队长5'</span>,</span><br><span class="line">          <span class="string">'美国队长6'</span></span><br><span class="line">      ])</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        &lt;View style=&#123;padding=22&#125;&gt;</span><br><span class="line">          &lt;ListView dataSource=&#123;this.state.dataSource&#125;</span><br><span class="line">          renderRow=&#123;(rowData)=&gt; &lt;Text&gt; &#123;rowData&#125; &lt;/Text&gt; &#125;/&gt;</span><br><span class="line">        &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> react,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;AppRegistry,ListView,Text,View&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">const</span> ds=<span class="keyword">new</span> ListView.DataSource(&#123;rowHasChanged:(r1,r2)=&gt;r1 !== r2&#125;);</span><br><span class="line">    <span class="keyword">this</span>.state=&#123;</span><br><span class="line">      dataSource:ds.cloneWithRows([</span><br><span class="line">          <span class="string">'美国队长1'</span>,</span><br><span class="line">          <span class="string">'美国队长2'</span>,</span><br><span class="line">          <span class="string">'美国队长3'</span>,</span><br><span class="line">          <span class="string">'美国队长4'</span>,</span><br><span class="line">          <span class="string">'美国队长5'</span>,</span><br><span class="line">          <span class="string">'美国队长6'</span></span><br><span class="line">      ])</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;padding</span>=<span class="string">22&#125;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ListView</span> <span class="attr">dataSource</span>=<span class="string">&#123;this.state.dataSource&#125;</span></span><br><span class="line">          <span class="attr">renderRow</span>=<span class="string">&#123;(rowData)</span>=&gt;</span> <span class="tag">&lt;<span class="name">Text</span>&gt;</span> &#123;rowData&#125; <span class="tag">&lt;/<span class="name">Text</span>&gt;</span> &#125;/&gt;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>应用显示效果：</p>
 </blockquote>
@@ -230,7 +230,7 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
     
 <nav id="article-nav">
   
-    <a href="/blog/2016/09/14/Vita/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2016/09/14/Vita-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -264,11 +264,7 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
     <ul class="nav sidebar-categories margin-bottom-40">
       
 	<li>
-	  <a href="/blog/categories/C/">C++ (6)</a>
-	</li>
-      
-	<li>
-	  <a href="/blog/categories/Linux/">Linux (5)</a>
+	  <a href="/blog/categories/C/">C++ (7)</a>
 	</li>
       
 	<li>
@@ -276,11 +272,15 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
 	</li>
       
 	<li>
-	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
+	  <a href="/blog/categories/Linux/">Linux (5)</a>
 	</li>
       
 	<li>
 	  <a href="/blog/categories/javascript/">javascript (4)</a>
+	</li>
+      
+	<li>
+	  <a href="/blog/categories/个人简历/">个人简历 (2)</a>
 	</li>
       
 	<li>
@@ -324,11 +324,20 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
 	</div>                        
       </div>
     
   
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/27/C-new-and-point/">C++ new和指针</a></h3>
+	</div>                        
+      </div>
     
   
     
@@ -348,33 +357,13 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
 	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/22/C-enum/">C++ 枚举类型</a></h3>
-	</div>                        
-      </div>
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
-	</div>                        
-      </div>
-    
-  
-    
-  
-    
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
 	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/Cplusplus-struct/">C++ 结构体</a></h3>
 	</div>                        
       </div>
+    
+  
+    
+  
     
   
     
@@ -394,7 +383,29 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
 	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/06/19/Centos-install-and-configure-LAMP/">Centos install and configure LAMP</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/10/06/Promise对象/">Promise对象</a></h3>
+	</div>                        
+      </div>
+    
+  
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/CppIcon.png" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/11/16/apache开启rewrite模式/">C++ 枚举类型</a></h3>
 	</div>                        
       </div>
     
@@ -413,14 +424,12 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
     
   
     
-  
-    
       <div class="row margin-bottom-10">
 	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/javascript.jpg" class="img-responsive ">
+	  <img src="http://www.luoyy.cn/blog/images/linux-penguin.jpg" class="img-responsive ">
 	</div>
 	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/10/06/Promise对象/">Promise对象</a></h3>
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/07/13/Linux-Programing/">Linux Shell编程</a></h3>
 	</div>                        
       </div>
     
@@ -437,14 +446,7 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
     
   
     
-      <div class="row margin-bottom-10">
-	<div class="col-md-4">
-	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
-	</div>
-	<div class="col-md-8">
-	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
-	</div>                        
-      </div>
+  
     
   
     
@@ -458,6 +460,15 @@ ListView必须的属性和方法： 属性 dataSource1dataSour">
       </div>
     
   
+    
+      <div class="row margin-bottom-10">
+	<div class="col-md-4">
+	  <img src="http://www.luoyy.cn/blog/images/github.jpg" class="img-responsive ">
+	</div>
+	<div class="col-md-8">
+	  <h3><a href="http://leekingta.github.io/blog/blog/2016/05/07/git-use-notes/">git 的基础入门命令</a></h3>
+	</div>                        
+      </div>
     
   
     
